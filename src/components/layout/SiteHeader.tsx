@@ -6,6 +6,7 @@ import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { primaryNav } from "@/content/navigation";
 import { links } from "@/content/site";
 import { Container } from "@/components/ui/Container";
+import { asset } from "@/lib/asset";
 import { cn } from "@/lib/cn";
 
 /**
@@ -75,11 +76,11 @@ export function SiteHeader() {
           onClick={() => setMenuOpen(false)}
         >
           <Image
-            src={
+            src={asset(
               onPaper
                 ? "/logos/auvp-escola-serif-preta.svg"
-                : "/logos/auvp-escola-serif-branca.svg"
-            }
+                : "/logos/auvp-escola-serif-branca.svg",
+            )}
             alt="AUVP Escola de Investimentos"
             width={1003}
             height={203}

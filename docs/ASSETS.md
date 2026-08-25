@@ -100,8 +100,12 @@ Retrato posado de Raul à mesa, com o letreiro de neon da AUVP ao fundo.
 
 ## 3. Acervo existente — o que foi arquivado
 
-Os arquivos abaixo estão em `public/images/legacy/`, fora de uso. Não foram
+Os arquivos abaixo estão em `acervo/legado/`, **fora de `public/`**. Não foram
 apagados porque podem ter valor de histórico, mas **não devem entrar na página**.
+
+A pasta ficou fora de `public/` de propósito: o site é publicado como export
+estático, e tudo que está em `public/` é copiado para o build e servido a cada
+visitante. Arquivo arquivado não paga banda.
 
 | Arquivo                                  | Por que não entra                                                                                                                                                      |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -207,6 +211,20 @@ Destino: `public/images/brand/`. Depois é só preencher o campo `logo` em
 | Nome           | minúsculas, sem acento, separado por hífen: `private-day-2025-palestras.webp`         |
 | Local          | `public/images/`                                                                      |
 | Proporção      | respeitar a coluna `ratio` da tabela acima — o recorte é feito no arquivo, não no CSS |
+
+**Sobre redimensionar:** o site roda em hospedagem estática, sem o otimizador de
+imagem do Next. O navegador baixa o arquivo exatamente como ele está no
+repositório — não há variante por breakpoint. Uma foto de 6000px custa a mesma
+banda no celular e no desktop.
+
+```bash
+npx sharp-cli --input original.jpg --output public/images/nome-da-foto.webp \
+  resize 2000 --withoutEnlargement -- webp --quality 82
+```
+
+As fotos que vieram do site antigo já passaram por isso: a da B3 saiu de
+6192px/606 KB para 2000px/55 KB, e a do palco de 2560px/538 KB para 2000px/40 KB,
+sem diferença visível no tamanho em que aparecem na tela.
 
 **Sobre acento e espaço em nome de arquivo:** os arquivos originais chegaram com
 nomes como `Conhe%C3%A7a%20Raul%20Sena%20mobile.webp`. Isso quebra em servidor

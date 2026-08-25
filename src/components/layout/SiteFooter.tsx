@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { footerNav } from "@/content/navigation";
 import { contact, links, site } from "@/content/site";
+import { asset } from "@/lib/asset";
 
 const social = [
   { label: "Instagram", href: links.instagram },
@@ -16,7 +17,7 @@ export function SiteFooter() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="flex flex-col gap-6">
             <Image
-              src="/logos/auvp-escola-serif-branca.svg"
+              src={asset("/logos/auvp-escola-serif-branca.svg")}
               alt="AUVP Escola de Investimentos"
               width={1003}
               height={203}

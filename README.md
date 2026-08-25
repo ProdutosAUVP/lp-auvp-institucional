@@ -72,6 +72,19 @@ com o racional em **[docs/BRAND.md](docs/BRAND.md)**.
 | [CONTRIBUTING.md](CONTRIBUTING.md)             | Fluxo de trabalho, branches e revisão                         |
 | [CHANGELOG.md](CHANGELOG.md)                   | Histórico de mudanças                                         |
 
+## Publicação
+
+Export estático publicado no GitHub Pages a cada push na `main`, pelo workflow
+`.github/workflows/deploy.yml`.
+
+**<https://produtosauvp.github.io/lp-auvp-institucional/>**
+
+O site é servido sob subcaminho, então o build recebe o `basePath` do próprio
+GitHub — nada fica fixado no código, e a migração para domínio próprio não exige
+mudança de código. Ver [docs/DEPLOY.md](docs/DEPLOY.md), inclusive para testar o
+build de produção localmente antes de publicar (o `npm run dev` roda na raiz e
+não pega erro de caminho).
+
 ## Estado atual
 
 A página está completa e navegável em desktop e mobile. **Sete fotografias e

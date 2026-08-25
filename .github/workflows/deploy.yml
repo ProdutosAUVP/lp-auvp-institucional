@@ -1,0 +1,69 @@
+name: Deploy — GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Permite republicar sem precisar de um commit novo.
+  workflow_dispatch:
+
+# Só uma publicação por vez. `cancel-in-progress: false` deixa a que já está
+# rodando terminar: cancelar no meio pode deixar o site parcialmente atualizado.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: Build estático
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      # Descobre o endereço real das Pages deste repositório. É daqui que saem
+      # o basePath e a URL canônica — assim, o dia em que um domínio próprio
+      # for configurado, o build se ajusta sozinho, sem editar nada.
+      - name: Descobrir configuração do Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Build
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}
+        run: npm run build
+
+      # O Pages ignora pastas iniciadas por underscore quando processa Jekyll,
+      # e o Next serve tudo de `_next`. O arquivo desliga esse processamento.
+      - name: Desligar o Jekyll
+        run: touch out/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    name: Publicar
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

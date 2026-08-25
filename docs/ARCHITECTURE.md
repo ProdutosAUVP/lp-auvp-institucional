@@ -11,8 +11,15 @@
 | Formatação | Prettier + `prettier-plugin-tailwindcss` | Ordem de classe estável, diff limpo                              |
 
 A página inteira é **estática**. Não há banco, API, formulário ou estado de
-servidor: `npm run build` gera HTML pronto. Todo destino de conversão é um link
-para um domínio da AUVP que já existe.
+servidor: `npm run build` gera a pasta `out/` com HTML pronto (`output: "export"`),
+publicada no GitHub Pages. Todo destino de conversão é um link para um domínio da
+AUVP que já existe.
+
+Como o Pages serve o site sob `/lp-auvp-institucional`, o build recebe o
+`basePath` por variável de ambiente e `src/lib/asset.ts` prefixa os caminhos de
+imagem — o `next/image` não faz isso sozinho quando `unoptimized` está ligado.
+Os detalhes, e por que cada opção de `next.config.ts` existe, estão em
+[docs/DEPLOY.md](DEPLOY.md).
 
 ## Estrutura
 

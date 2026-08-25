@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { endorsements } from "@/content/endorsements";
+import { asset } from "@/lib/asset";
 
 /**
  * Dobra 10. Carrossel contínuo de logos.
@@ -42,7 +43,7 @@ export function Endorsements() {
               >
                 {item.logo ? (
                   <Image
-                    src={item.logo}
+                    src={asset(item.logo)}
                     alt={item.name}
                     width={200}
                     height={64}

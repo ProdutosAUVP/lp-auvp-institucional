@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { asset } from "@/lib/asset";
 import { cn } from "@/lib/cn";
 
 type FigureProps = {
@@ -53,7 +54,7 @@ export function Figure({
       >
         {src ? (
           <Image
-            src={src}
+            src={asset(src)}
             alt={alt}
             fill
             sizes={sizes}

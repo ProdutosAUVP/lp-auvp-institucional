@@ -3,6 +3,7 @@ import { ArrowRight, Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { links, site } from "@/content/site";
+import { asset } from "@/lib/asset";
 
 /**
  * Encerramento. Não consta do roteiro original, mas uma página institucional
@@ -13,7 +14,7 @@ export function ClosingCta() {
   return (
     <section className="bg-ink text-paper relative isolate overflow-hidden">
       <Image
-        src="/images/raul-sena-biblioteca.webp"
+        src={asset("/images/raul-sena-biblioteca.webp")}
         alt=""
         aria-hidden
         fill
