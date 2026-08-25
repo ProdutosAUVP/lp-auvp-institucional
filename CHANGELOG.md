@@ -4,6 +4,15 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ## [Não publicado]
 
+### Alterado
+
+- A assinatura decorativa do hero e do rodapé passa a usar **as letras do
+  arquivo da marca**, e não a palavra "AUVP" composta na fonte de display. O A
+  da AUVP é um V invertido, sem travessão, e nenhuma fonte entrega essa letra
+  digitando "A".
+- No rodapé, o logo alinha pela esquerda com o texto abaixo dele: o `flex-col`
+  esticava o `<svg>`, que passou a obedecer à largura esticada em vez da própria.
+
 ### Adicionado
 
 - Primeira fotografia real da dobra de comunidade: o plano aberto do salão do

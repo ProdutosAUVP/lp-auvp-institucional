@@ -133,7 +133,7 @@ O que sobrou:
 
 Não reintroduzir a etiqueta antes de um título.
 
-### A assinatura tipográfica
+### A assinatura em escala arquitetônica
 
 O componente `Wordmark` põe "AUVP" em corpo enorme, cortado pela borda, no hero
 e no rodapé. Em contorno na abertura, sólido em baixa opacidade no fechamento.
@@ -141,6 +141,17 @@ e no rodapé. Em contorno na abertura, sólido em baixa opacidade no fechamento.
 Vem de Oxford e Lionheart, e funciona porque nessa escala a palavra deixa de ser
 logotipo e vira arquitetura: dá porte institucional à dobra sem nenhum ornamento.
 Fica em `aria-hidden`, porque o nome já é anunciado pelo logo do cabeçalho.
+
+**São as letras do arquivo da marca, não a palavra composta numa fonte.** O A da
+AUVP é um V invertido, sem travessão, e digitar "A" em qualquer fonte, Sentient
+inclusive, entrega a letra errada. Os contornos vivem em
+`src/components/ui/AuvpLettering.tsx`, extraídos do primeiro grupo de
+`auvp-escola-serif-preta.svg` e recortados na caixa exata das quatro letras. O
+mesmo desenho está em `public/logos/auvp-monograma.svg`, para uso fora do React.
+
+É componente, e não `<img>`, porque a assinatura do hero aparece em contorno:
+filtro sobre `<img>` não produz traço, e manter dois arquivos, um cheio e um
+vazado, duplicaria a marca em dois lugares que podem divergir.
 
 Usar nesses dois lugares e em nenhum outro. Repetida, vira papel de parede.
 

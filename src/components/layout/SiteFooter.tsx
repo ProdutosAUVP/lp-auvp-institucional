@@ -16,7 +16,7 @@ export function SiteFooter() {
     <footer className="border-ink-line bg-ink text-mist relative overflow-hidden border-t">
       <Container className="py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col items-start gap-6">
             <Image
               src={asset("/logos/auvp-escola-serif-branca.svg")}
               alt="AUVP Escola de Investimentos"
@@ -91,7 +91,7 @@ export function SiteFooter() {
       {/* Fecha a pagina com a mesma assinatura que a abre. */}
       <Wordmark
         variant="solid"
-        className="text-paper -mb-[6vw] text-center text-[30vw]"
+        className="text-paper -mb-[5vw] w-full px-6 md:px-10"
       />
     </footer>
   );

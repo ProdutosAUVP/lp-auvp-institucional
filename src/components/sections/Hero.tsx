@@ -44,7 +44,7 @@ export function Hero() {
       />
 
       {/* Assinatura em escala arquitetonica, cortada pela base da dobra. */}
-      <Wordmark className="text-paper/25 absolute inset-x-0 -bottom-[7vw] text-center text-[26vw]" />
+      <Wordmark className="text-paper/25 absolute -bottom-[6vw] left-1/2 w-[86vw] max-w-[68rem] -translate-x-1/2" />
 
       <HeroForeground>
         <Container>
