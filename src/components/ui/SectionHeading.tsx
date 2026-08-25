@@ -8,15 +8,6 @@ type SectionHeadingProps = {
   className?: string;
   /** Nível semântico do título. A página usa h1 só no hero. */
   as?: "h2" | "h3";
-  /**
-   * Põe o rótulo numa coluna estreita à esquerda, com título e apoio à direita.
-   *
-   * O recurso vem das referências: Higher Life e Lionheart abrem quase toda
-   * seção assim. A coluna vazia à esquerda é o que faz a página respirar como
-   * relatório impresso em vez de como página de captura. Só faz sentido em
-   * `align="left"`, e colapsa numa coluna só abaixo de `lg`.
-   */
-  rail?: boolean;
 };
 
 export function SectionHeading({
@@ -26,7 +17,6 @@ export function SectionHeading({
   tone = "light",
   className,
   as: Tag = "h2",
-  rail = false,
 }: SectionHeadingProps) {
   const centered = align === "center";
 
@@ -51,22 +41,6 @@ export function SectionHeading({
       {subtitle}
     </p>
   ) : null;
-
-  if (rail && !centered) {
-    return (
-      <div
-        className={cn(
-          "grid gap-6 lg:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] lg:gap-12",
-          className,
-        )}
-      >
-        <div className="flex flex-col gap-5 lg:col-start-2">
-          {heading}
-          {support}
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div

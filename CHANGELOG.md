@@ -6,6 +6,26 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Adicionado
 
+- Curva de crescimento no hero: traça-se ao carregar e tem um ponto que corre
+  sobre ela acompanhando o ponteiro. Sem número, moeda ou escala, de propósito.
+
+### Corrigido
+
+- **A página usava duas larguras de container.** As dobras com a variante larga
+  começavam 96px mais à esquerda, e a borda do texto saltava a cada dobra
+  durante a rolagem. Agora é uma largura só, e todos os títulos alinhados à
+  esquerda partem do mesmo ponto.
+- O título de "Iniciativas" ficava indentado sobre uma coluna vazia: o rail
+  existia para segurar o rótulo que foi removido das dobras.
+- Faixas curtas voltam a ter menos respiro que as dobras longas, agora por uma
+  prop `compact` em vez de `className`, que perdia na ordem do CSS gerado.
+
+### Removido
+
+- Assinatura gigante do rodapé.
+
+### Alterado
+
 - Seis fotografias publicadas: as duas restantes do Private Day, CEIA, BTG
   Pactual, AUVP Experience e a listagem do AUVP11 na B3. Restam três reservas.
 - Cada recorte foi escolhido olhando a imagem, e está registrado em

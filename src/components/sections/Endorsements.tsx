@@ -13,8 +13,8 @@ import { endorsements } from "@/content/endorsements";
  */
 export function Endorsements() {
   return (
-    <Section tone="paper" rule className="py-16 md:py-20 lg:py-24">
-      <Container width="wide">
+    <Section tone="paper" rule compact>
+      <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
           <h2 className="font-[family-name:var(--font-display)] text-3xl leading-tight font-medium text-balance md:text-4xl">
             {endorsements.title}

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { Wordmark } from "@/components/ui/Wordmark";
 import { footerNav } from "@/content/navigation";
 import { contact, links, site } from "@/content/site";
 import { asset } from "@/lib/asset";
@@ -13,7 +12,7 @@ const social = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-ink-line bg-ink text-mist relative overflow-hidden border-t">
+    <footer className="border-ink-line bg-ink text-mist border-t">
       <Container className="py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="flex flex-col items-start gap-6">
@@ -87,12 +86,6 @@ export function SiteFooter() {
           </p>
         </div>
       </Container>
-
-      {/* Fecha a pagina com a mesma assinatura que a abre. */}
-      <Wordmark
-        variant="solid"
-        className="text-paper -mb-[5vw] w-full px-6 md:px-10"
-      />
     </footer>
   );
 }

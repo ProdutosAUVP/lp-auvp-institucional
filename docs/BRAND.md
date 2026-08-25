@@ -133,10 +133,38 @@ O que sobrou:
 
 Não reintroduzir a etiqueta antes de um título.
 
+### Uma largura de container para a página inteira
+
+Todas as dobras usam a mesma largura, `76rem`. Houve uma variante mais larga
+para as grades de imagem, e ela custou caro: as dobras que a usavam começavam
+96px mais à esquerda que as outras, e a borda do texto saltava a cada dobra
+durante a rolagem. Numa página cujo argumento é a régua e a grade, esse é o
+defeito mais visível possível.
+
+**Não reintroduzir.** Se uma grade precisar de mais ar, o caminho é reduzir a
+coluna ou o `gap`, não alargar o container de uma dobra só.
+
+Faixas curtas, de uma linha só, usam `compact` no `Section`, que é uma prop e
+não uma classe: passar `py-*` pelo `className` não funciona, porque a
+utilitária base com valor arbitrário vence na ordem do CSS gerado.
+
+### A curva do hero
+
+A primeira dobra tem uma curva de crescimento que se traça ao carregar e que
+tem um ponto correndo sobre ela, acompanhando o ponteiro. É o assunto da escola
+virando atmosfera.
+
+**A curva não pode ganhar número, moeda, escala nem rótulo.** Sem eles ela é
+textura; com eles vira promessa de rentabilidade, que a página não faz em lugar
+nenhum. É por isso que a régua de fundo não tem marcação de valor e o ponto que
+segue o ponteiro não abre etiqueta.
+
 ### A assinatura em escala arquitetônica
 
 O componente `Wordmark` põe "AUVP" em corpo enorme, cortado pela borda, no hero
-e no rodapé. Em contorno na abertura, sólido em baixa opacidade no fechamento.
+e antes só na abertura, em contorno. O rodapé tinha a mesma assinatura em
+corpo maior, e ela saiu: fechar a página com o nome em escala de fachada
+competia com a informação do rodapé, que é onde alguém vai procurar um link.
 
 Vem de Oxford e Lionheart, e funciona porque nessa escala a palavra deixa de ser
 logotipo e vira arquitetura: dá porte institucional à dobra sem nenhum ornamento.

@@ -14,9 +14,8 @@ import { initiatives, partnerships, products } from "@/content/initiatives";
 export function Initiatives() {
   return (
     <Section id="iniciativas" tone="paper" rule>
-      <Container width="wide">
+      <Container>
         <SectionHeading
-          rail
           title={initiatives.title}
           subtitle={initiatives.subtitle}
         />

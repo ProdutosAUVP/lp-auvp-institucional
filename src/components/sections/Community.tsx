@@ -11,7 +11,7 @@ import { links } from "@/content/site";
 export function Community() {
   return (
     <Section id="comunidade" tone="warm" rule>
-      <Container width="wide">
+      <Container>
         <SectionHeading
           title={community.title}
           subtitle={community.subtitle}

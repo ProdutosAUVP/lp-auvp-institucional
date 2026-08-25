@@ -12,7 +12,7 @@ import { links } from "@/content/site";
 export function Etfs() {
   return (
     <Section id="etfs" tone="ink" rule>
-      <Container width="wide">
+      <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal className="flex flex-col items-start gap-8">
             <SectionHeading

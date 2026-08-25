@@ -55,7 +55,7 @@ export function Curriculum() {
 
   return (
     <Section id="conteudo" tone="paper" rule>
-      <Container width="wide">
+      <Container>
         <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-20">
           <div className="lg:sticky lg:top-32">
             <h2 className="font-[family-name:var(--font-display)] text-4xl leading-[1.08] font-medium tracking-[-0.01em] text-balance md:text-5xl">

@@ -10,7 +10,7 @@ import { stats } from "@/content/stats";
  */
 export function Numbers() {
   return (
-    <Section tone="paper" className="py-16 md:py-20 lg:py-24">
+    <Section tone="paper" compact>
       <Container>
         <dl className="grid grid-cols-2 gap-y-12 sm:gap-y-14 lg:grid-cols-4">
           {stats.map((stat, index) => (

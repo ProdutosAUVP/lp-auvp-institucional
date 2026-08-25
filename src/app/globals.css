@@ -201,3 +201,14 @@
     opacity: 1;
   }
 }
+
+/* Traçado da curva do hero. Ver components/motion/GrowthCurve.tsx. */
+@utility curva-tracado {
+  transition: stroke-dashoffset 2200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .curva-tracado {
+    transition: none;
+  }
+}

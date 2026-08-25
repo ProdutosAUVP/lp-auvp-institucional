@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { HeroBackdrop, HeroForeground } from "@/components/motion/HeroScroll";
 import { LineReveal } from "@/components/motion/LineReveal";
+import { GrowthCurve } from "@/components/motion/GrowthCurve";
 import { BackdropReserve } from "@/components/ui/Figure";
 import { Wordmark } from "@/components/ui/Wordmark";
 import { hero } from "@/content/hero";
@@ -43,8 +44,12 @@ export function Hero() {
         className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(16,16,16,0.74)_78%)]"
       />
 
-      {/* Assinatura em escala arquitetonica, cortada pela base da dobra. */}
-      <Wordmark className="text-paper/25 absolute -bottom-[6vw] left-1/2 w-[86vw] max-w-[68rem] -translate-x-1/2" />
+      {/* A curva ocupa a metade de baixo da dobra e passa por trás do texto:
+          é o assunto da escola virando atmosfera, não ilustração. */}
+      <GrowthCurve className="text-paper absolute inset-x-0 bottom-0 h-[46%] w-full" />
+
+      {/* Assinatura em escala arquitetônica, cortada pela base da dobra. */}
+      <Wordmark className="text-paper/12 absolute -bottom-[6vw] left-1/2 w-[86vw] max-w-[68rem] -translate-x-1/2" />
 
       <HeroForeground>
         <Container>
