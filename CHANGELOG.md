@@ -6,6 +6,22 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Alterado
 
+- **Nosso processo vira uma linha do tempo vertical.** Trilho que preenche com
+  a rolagem, três nós numerados que acendem ao cruzar a faixa central da tela, e
+  os itens de cada etapa listados ao lado do nó.
+- O botão da Análise de Perfil dá lugar a um balão que acompanha o ponteiro, e
+  a dobra inteira passa a levar à Análise. Teclado e toque têm caminhos
+  próprios, descritos em `docs/ACCESSIBILITY.md`.
+
+### Corrigido
+
+- O filete de progresso do cabeçalho nunca apareceu desde que foi criado: a
+  classe `scale-x-0` do Tailwind v4 escreve na propriedade `scale`, que se
+  multiplica com o `transform` escrito pelo rAF e o zerava. O trilho da linha do
+  tempo nasceu com o mesmo defeito.
+
+### Alterado
+
 - A assinatura decorativa do hero e do rodapé passa a usar **as letras do
   arquivo da marca**, e não a palavra "AUVP" composta na fonte de display. O A
   da AUVP é um V invertido, sem travessão, e nenhuma fonte entrega essa letra

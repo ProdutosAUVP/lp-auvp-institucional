@@ -194,6 +194,13 @@ leitura**: dá profundidade e continuidade à rolagem, nunca chama atenção par
 - **Nada depende de JavaScript para existir.**
 - **Rolagem não pode causar render.** Os efeitos escrevem direto em `style`
   dentro do `requestAnimationFrame`, fora do ciclo do React.
+- **Estado inicial de escala vai em `style`, não na utilitária `scale-*`.** No
+  Tailwind v4 essas utilitárias escrevem na propriedade `scale`, que é
+  independente de `transform` e se multiplica com ela: uma classe `scale-x-0`
+  junto de um `transform` escrito pelo rAF resulta em zero, e o elemento nunca
+  aparece. Já custou dois bugs invisíveis.
+- **Todo efeito preso ao ponteiro precisa de um caminho para teclado e toque.**
+  Ver `docs/ACCESSIBILITY.md`.
 
 ## O que não fazer
 

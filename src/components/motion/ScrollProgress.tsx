@@ -45,7 +45,16 @@ export function ScrollProgress() {
       aria-hidden
       className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 overflow-hidden"
     >
-      <div ref={ref} className="bg-ink h-full w-full origin-left scale-x-0" />
+      {/* Estado inicial em `style`, e não pela utilitária `scale-*` do
+          Tailwind: na v4 essas utilitárias escrevem na propriedade `scale`,
+          que é independente de `transform` e se multiplica com ela. Uma classe
+          `scale-x-0` junto do `transform` escrito pelo rAF dá zero, e o filete
+          nunca aparece. */}
+      <div
+        ref={ref}
+        className="bg-ink h-full w-full origin-left"
+        style={{ transform: "scaleX(0)" }}
+      />
     </div>
   );
 }
