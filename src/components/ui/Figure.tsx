@@ -10,7 +10,7 @@ type FigureProps = {
   brief?: string;
   className?: string;
   imageClassName?: string;
-  ratio?: "3/4" | "4/3" | "16/9" | "1/1" | "auto";
+  ratio?: "3/4" | "4/3" | "3/2" | "16/9" | "1/1" | "auto";
   sizes?: string;
   priority?: boolean;
   tone?: "light" | "dark";
@@ -19,6 +19,7 @@ type FigureProps = {
 const ratios = {
   "3/4": "aspect-3/4",
   "4/3": "aspect-4/3",
+  "3/2": "aspect-3/2",
   "16/9": "aspect-video",
   "1/1": "aspect-square",
   auto: "",

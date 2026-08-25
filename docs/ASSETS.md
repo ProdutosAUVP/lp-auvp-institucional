@@ -35,8 +35,9 @@ etiqueta discreta no rodapé da dobra.
 
 ## 2. Fotos que a página espera
 
-Onze imagens no total. As três primeiras são as mais urgentes, porque são as
-únicas dobras cujo argumento depende de gente na tela.
+Dez imagens no total. As duas primeiras são as mais urgentes: a dobra de
+comunidade já abre com uma foto real, mas as duas ao lado dela ainda são
+reservas, e é a única dobra cujo argumento depende de gente na tela.
 
 ### Prioridade alta
 
@@ -88,9 +89,14 @@ textura e a assinatura tipográfica, então não há pressa.
 
 **Interior da sede** (dobra 03), 4:3 ou 3:2
 
-Biblioteca, auditório, sala de aula, mesa de reunião com luz natural. A fachada
-existe no acervo e resolveria, mas o interior comunica escola; a fachada
-comunica escritório.
+A dobra usa hoje a fachada, que está publicada em
+`public/images/sede-auvp-capital.webp`. Ela resolve, mas **o interior comunica
+escola e a fachada comunica escritório**: biblioteca, auditório, sala de aula ou
+mesa de reunião com luz natural dariam à missão o peso que o texto pede.
+
+Vale registrar que a fachada tem letreiro dourado sobre painel verde-escuro, e
+**verde não pertence à paleta da escola**. Enquanto ela for a foto da dobra, é
+o único ponto da página com uma cor fora de amarelo, branco e preto.
 
 **Cerimônia de listagem na B3** (dobra 09), 4:3 paisagem
 
@@ -128,9 +134,14 @@ curl -L "https://cdn.asupernova.com.br/lp-auvp/vite/r7-300x257-1.webp" \
 Depois é só trocar o campo `logo` em `src/content/endorsements.ts` pelos
 caminhos locais e remover a entrada de `remotePatterns`.
 
-Se alguma logo deixar de carregar, o carrossel volta a exibir o nome em
-versalete: `EndorsementLogo` tem essa reserva, então uma URL quebrada nunca
-produz o ícone de imagem quebrada.
+As logos aparecem **em cor própria e em corpo grande**, num bloco de quatro ao
+lado do título. Não há carrossel: quatro itens cabem na tela, e um carrossel com
+poucos itens passa a mesma marca duas vezes por ciclo enquanto esconde parte do
+conjunto a cada instante.
+
+Se alguma logo deixar de carregar, aparece o nome em versalete no lugar:
+`EndorsementLogo` tem essa reserva, então uma URL quebrada nunca produz o ícone
+de imagem quebrada.
 
 **Confira antes de publicar.** São arquivos rasterizados, não SVG, e vêm de uma
 página com fundo escuro:
@@ -162,10 +173,22 @@ Nada em `acervo/` é publicado. A pasta está fora de `public/` de propósito: o
 site é export estático, e tudo que fica em `public/` é copiado para o build e
 servido a cada visitante.
 
+### `acervo/originais/`, arquivos em resolução cheia
+
+Os originais como vieram do CDN, com os nomes de origem. Ficam fora de
+`public/` porque **tudo que está em `public/` é copiado para o build e servido a
+cada visitante**: são cerca de 3,5 MB que ninguém precisa baixar. Servem de
+fonte quando for preciso gerar um recorte novo.
+
+Entre eles está `_LMS0457 (1).jpg`, o original em 4200x2800 da foto do salão,
+publicada em 2000px e 199 KB.
+
 ### `acervo/fotos/`, material aproveitável
 
-Cinco fotos do site anterior, tiradas da página quando as imagens foram
+Quatro fotos do site anterior, tiradas da página quando as imagens foram
 mockadas. Continuam disponíveis e valem consideração quando a produção começar.
+A quinta, a fachada da sede, voltou para `public/images/` e está publicada na
+dobra de missão.
 
 | Arquivo                     | Leitura                                                                                                                                   | Recorte sugerido                                                                                                                                                                                                                                                         |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

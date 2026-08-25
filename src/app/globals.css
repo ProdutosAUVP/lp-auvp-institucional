@@ -135,44 +135,6 @@
   }
 }
 
-/* Carrossel continuo de logos, na dobra "Acreditam no nosso trabalho" */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@utility animate-marquee {
-  animation: marquee var(--marquee-duration, 45s) linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
-  }
-}
-
-/* Revelacao linha a linha por mascara. Ver components/motion/LineReveal.tsx */
-@utility reveal-line {
-  display: block;
-  transform: translateY(105%);
-  transition: transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@utility reveal-line-in {
-  transform: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal-line {
-    transform: none;
-    transition: none;
-  }
-}
-
 /*
  * Textura das reservas de foto: hachura diagonal fina em amarelo, discreta o
  * bastante para marcar a area como provisoria sem competir com o que estiver

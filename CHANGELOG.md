@@ -4,6 +4,21 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ## [Não publicado]
 
+### Adicionado
+
+- Primeira fotografia real da dobra de comunidade: o plano aberto do salão do
+  Private Day, em largura total. As duas ao lado dela continuam como reserva.
+- `acervo/originais/`, com os arquivos em resolução cheia como vieram do CDN.
+
+### Alterado
+
+- Dobra de missão perde os dois parágrafos de fecho, sobre o princípio fundador,
+  e volta a exibir a fotografia da fachada da sede, que estava arquivada.
+- **Apoiadores deixam de ser carrossel.** São quatro, e quatro cabem na tela:
+  título de um lado, as quatro logos do outro, maiores e em cor própria. Com
+  poucos itens, o carrossel passava a mesma marca duas vezes por ciclo e ainda
+  escondia parte do conjunto a cada instante.
+
 ### Alterado
 
 - **Serifa do site passa a ser a Sentient**, a mesma do logotipo, no lugar da
