@@ -6,8 +6,52 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Adicionado
 
+- **O hero vira uma capa.** Fotografia em sangria total, a assinatura da marca
+  em corpo arquitetônico no alto e o título partido nas duas pontas da linha de
+  base. Embaixo, uma régua separa o texto de apoio do único botão. Referência
+  aprovada: a abertura da Lionheart.
+- Deriva de poucos pixels na assinatura do hero, em resposta ao ponteiro. Só em
+  ponteiro fino e sem `prefers-reduced-motion`.
+- Cor de identidade de cada ETF no subtítulo do fundo: verde no AUVP11, rosa no
+  AUPO11, azul no AREA11, amarelo no ABTC11. Valem só ali, e não abrem
+  precedente contra a regra de paleta.
+- Logo do CEIA na dobra de apoiadores, o único arquivo local do conjunto.
+- Fotografia de relações internacionais: entrevista do AUVP Atlas com
+  embaixador. Era a última reserva de dobra interna.
+
+### Corrigido
+
+- **As logos de apoiador apareciam com metade da altura pedida.** Numa fileira
+  de quatro, cada célula media 134px e o `max-w-full` encolhia as logos largas:
+  a restrição era de largura, não de altura. Agora são duas fileiras de duas.
+- A foto da AUVP Experience ficava 162px à esquerda do centro da moldura. O
+  recorte novo centra o grupo e ainda descarta céu e asfalto vazios.
+
+- **A página usava duas larguras de container.** As dobras com a variante larga
+  começavam 96px mais à esquerda, e a borda do texto saltava a cada dobra
+  durante a rolagem. Agora é uma largura só, e todos os títulos alinhados à
+  esquerda partem do mesmo ponto.
+- O título de "Iniciativas" ficava indentado sobre uma coluna vazia: o rail
+  existia para segurar o rótulo que foi removido das dobras.
+- Faixas curtas voltam a ter menos respiro que as dobras longas, agora por uma
+  prop `compact` em vez de `className`, que perdia na ordem do CSS gerado.
+
+### Removido
+
+- Assinatura gigante do rodapé.
+- Curva de crescimento do hero, junto com o texto centralizado que ela
+  acompanhava. Sobre a foto em sangria total ela virava ruído, e uma curva de
+  crescimento a poucos pixels de um botão sempre corre o risco de ser lida como
+  promessa de rentabilidade.
+- `LineReveal` e `canRunWebGL`, que ficaram sem uso.
+
+### Alterado
+
 - Seis fotografias publicadas: as duas restantes do Private Day, CEIA, BTG
-  Pactual, AUVP Experience e a listagem do AUVP11 na B3. Restam três reservas.
+  Pactual, AUVP Experience e a listagem do AUVP11 na B3. Restam duas reservas,
+  as duas com foto publicada que já funciona.
+- A foto de palestras do Private Day passa a fechar na poltrona amarela: o
+  plano aberto do mesmo negativo agora abre a página.
 - Cada recorte foi escolhido olhando a imagem, e está registrado em
   `docs/ASSETS.md` para poder ser refeito.
 

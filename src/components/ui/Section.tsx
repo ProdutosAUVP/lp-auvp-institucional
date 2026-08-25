@@ -4,6 +4,8 @@ type SectionProps = {
   id?: string;
   children: React.ReactNode;
   className?: string;
+  /** Faixas curtas, de uma linha só, pedem menos respiro que uma dobra longa. */
+  compact?: boolean;
   /** `paper` claro, `warm` pergaminho, `ink` tinta institucional. */
   tone?: "paper" | "warm" | "ink";
   /** Régua fina no topo da dobra, separador editorial padrão da página. */
@@ -29,13 +31,16 @@ export function Section({
   className,
   tone = "paper",
   rule = false,
+  compact = false,
   as: Tag = "section",
 }: SectionProps) {
   return (
     <Tag
       id={id}
       className={cn(
-        "py-20 md:py-28 lg:py-[var(--spacing-section)]",
+        compact
+          ? "py-14 md:py-16 lg:py-20"
+          : "py-20 md:py-28 lg:py-[var(--spacing-section)]",
         tones[tone],
         rule && cn("border-t", ruleTones[tone]),
         className,

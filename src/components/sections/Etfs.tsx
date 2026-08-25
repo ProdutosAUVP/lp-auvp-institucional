@@ -12,7 +12,7 @@ import { links } from "@/content/site";
 export function Etfs() {
   return (
     <Section id="etfs" tone="ink" rule>
-      <Container width="wide">
+      <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal className="flex flex-col items-start gap-8">
             <SectionHeading
@@ -58,7 +58,9 @@ export function Etfs() {
                 <span className="text-paper font-[family-name:var(--font-display)] text-3xl leading-none font-semibold tracking-[-0.01em]">
                   {etf.ticker}
                 </span>
-                <span className="eyebrow text-yellow">{etf.category}</span>
+                <span className={`eyebrow ${etf.accentClass}`}>
+                  {etf.category}
+                </span>
                 <p className="text-mist mt-1 flex-1 text-sm leading-relaxed">
                   {etf.description}
                 </p>

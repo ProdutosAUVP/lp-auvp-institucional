@@ -3,6 +3,13 @@
 export type Etf = {
   ticker: string;
   category: string;
+  /**
+   * Classe de cor da identidade do fundo, aplicada apenas ao subtitulo (a
+   * categoria) dentro da dobra de fundo tinta. O literal precisa ficar
+   * escrito por extenso para o Tailwind enxergar a classe na varredura.
+   * Ver o bloco de tokens `--color-etf-*` em src/app/globals.css.
+   */
+  accentClass: string;
   description: string;
   href: string;
 };
@@ -24,6 +31,7 @@ export const etfs: Etf[] = [
   {
     ticker: "AUVP11",
     category: "Ações",
+    accentClass: "text-etf-auvp11",
     description:
       "Empresas sólidas, selecionadas por fundamentos consistentes e estrutura de capital saudável.",
     href: "https://auvp.com.br/etfs/auvp11",
@@ -31,6 +39,7 @@ export const etfs: Etf[] = [
   {
     ticker: "AUPO11",
     category: "Renda Fixa",
+    accentClass: "text-etf-aupo11",
     description:
       "Carteira de renda fixa com controle de prazo, critérios objetivos e rebalanceamento periódico.",
     href: "https://auvp.com.br/etfs/aupo11",
@@ -38,6 +47,7 @@ export const etfs: Etf[] = [
   {
     ticker: "AREA11",
     category: "Fundos Imobiliários",
+    accentClass: "text-etf-area11",
     description:
       "Alocação organizada em fundos imobiliários, com foco em distribuição de renda mensal.",
     href: "https://auvp.com.br/etfs/area11",
@@ -45,6 +55,7 @@ export const etfs: Etf[] = [
   {
     ticker: "ABTC11",
     category: "Bitcoin + Renda Fixa",
+    accentClass: "text-etf-abtc11",
     description:
       "Combinação dinâmica entre Bitcoin e renda fixa, com alocação baseada no sentimento do mercado.",
     href: "https://auvp.com.br/etfs/abtc11",

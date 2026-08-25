@@ -13,14 +13,21 @@ import { endorsements } from "@/content/endorsements";
  */
 export function Endorsements() {
   return (
-    <Section tone="paper" rule className="py-16 md:py-20 lg:py-24">
-      <Container width="wide">
+    <Section tone="paper" rule compact>
+      <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
           <h2 className="font-[family-name:var(--font-display)] text-3xl leading-tight font-medium text-balance md:text-4xl">
             {endorsements.title}
           </h2>
 
-          <ul className="grid grid-cols-2 gap-x-10 gap-y-12 sm:grid-cols-4 lg:gap-x-8">
+          {/*
+              Duas colunas em qualquer largura, e não quatro. Numa fileira só,
+              cada célula media 134px e o `max-w-full` encolhia as logos largas
+              a menos da metade da altura pedida: a restrição era de largura,
+              não de altura. Em 2x2 a célula passa de 300px e cada arquivo
+              aparece no tamanho natural.
+            */}
+          <ul className="grid grid-cols-2 gap-x-10 gap-y-12 lg:gap-x-12">
             {endorsements.items.map((item) => (
               <li key={item.name} className="flex items-center justify-center">
                 <EndorsementLogo name={item.name} logo={item.logo} />

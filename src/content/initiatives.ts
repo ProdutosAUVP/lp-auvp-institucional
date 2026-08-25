@@ -104,8 +104,8 @@ export const partnerships: Partnership[] = [
       "Relações com instituições e embaixadas que abrem novas fronteiras de investimento e de negócios, para a AUVP e para os seus membros. No AUVP Atlas, o canal da AUVP, essas relações viram entrevistas com embaixadores e líderes globais sobre novas oportunidades pelo mundo.",
     href: "https://auvp.com.br/atlas",
     photo: {
-      src: null,
-      alt: "Encontro da liderança da AUVP com um embaixador estrangeiro.",
+      src: "/images/auvp-atlas-embaixador.webp",
+      alt: "Entrevista do AUVP Atlas com um embaixador, gravada no estúdio da escola.",
       caption: "AUVP Atlas · Diplomacia",
       brief: "aperto de mãos ou entrevista com embaixador, paisagem 4:3",
     },

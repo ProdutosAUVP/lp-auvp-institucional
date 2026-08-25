@@ -22,8 +22,11 @@ export const endorsements = {
   items: [
     {
       name: "CEIA",
-      logo: null,
-      // Não está no repositório da escola. Pedir ao time do CEIA ou à UFG.
+      // Único arquivo local do conjunto. Veio em PNG de 244x82, que é o
+      // limite da resolução: renderizado a 80px de altura ele fica em 1x e
+      // perde nitidez em tela retina. Trocar por um SVG quando o CEIA ou a
+      // UFG enviarem um.
+      logo: "/images/brand/ceia.png",
       origem: null,
     },
     {

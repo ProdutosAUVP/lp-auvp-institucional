@@ -39,6 +39,24 @@ foram escolhidos sem viés de matiz justamente por isso.
 | `graphite`    | `#4a4a4a` | Texto de apoio sobre papel                            |
 | `mist`        | `#b0b0b0` | Texto de apoio sobre tinta                            |
 
+### A exceção das cores de ETF
+
+Cada fundo tem uma cor de identidade, e ela aparece **num lugar só**: o
+subtítulo (a categoria) do fundo na dobra "Nossos ETFs", que tem fundo tinta.
+
+| Fundo    | Cor     | Token                | Contraste sobre `ink` |
+| -------- | ------- | -------------------- | --------------------- |
+| `AUVP11` | verde   | `--color-etf-auvp11` | 8,1:1                 |
+| `AUPO11` | rosa    | `--color-etf-aupo11` | 7,0:1                 |
+| `AREA11` | azul    | `--color-etf-area11` | 7,0:1                 |
+| `ABTC11` | amarelo | `--color-etf-abtc11` | 10,7:1                |
+
+Elas **não são cores da escola** e não abrem precedente: o azul do AREA11 é a
+cor daquele fundo, não uma revogação da regra acima. Nenhuma delas pode migrar
+para outra dobra, para o cabeçalho, para o rodapé ou para um botão. O valor de
+cada uma foi ajustado até passar de 7:1 sobre tinta, porque o subtítulo é texto
+pequeno em caixa alta.
+
 ### A regra que governa o amarelo
 
 Esta é a decisão mais importante da paleta, e a mais fácil de quebrar sem
@@ -133,14 +151,52 @@ O que sobrou:
 
 Não reintroduzir a etiqueta antes de um título.
 
+### Uma largura de container para a página inteira
+
+Todas as dobras usam a mesma largura, `76rem`. Houve uma variante mais larga
+para as grades de imagem, e ela custou caro: as dobras que a usavam começavam
+96px mais à esquerda que as outras, e a borda do texto saltava a cada dobra
+durante a rolagem. Numa página cujo argumento é a régua e a grade, esse é o
+defeito mais visível possível.
+
+**Não reintroduzir.** Se uma grade precisar de mais ar, o caminho é reduzir a
+coluna ou o `gap`, não alargar o container de uma dobra só.
+
+Faixas curtas, de uma linha só, usam `compact` no `Section`, que é uma prop e
+não uma classe: passar `py-*` pelo `className` não funciona, porque a
+utilitária base com valor arbitrário vence na ordem do CSS gerado.
+
+### A primeira dobra é uma capa
+
+O hero não é um bloco de texto centralizado sobre uma foto: é uma capa. A
+fotografia sangra na tela inteira, a assinatura da marca ocupa o alto em corpo
+arquitetônico e o título fica partido nas duas pontas da linha de base,
+"Aprenda a investir." de um lado e "Viva com liberdade." do outro. Entre eles,
+só a fotografia. Embaixo, uma régua separa o texto de apoio do único botão.
+
+A referência aprovada é a abertura da Lionheart, e o recurso é o mesmo que
+Oxford e Yale usam em página de reitoria: o nome da instituição ocupa o quadro
+e a fotografia responde por todo o resto.
+
+O título fica embaixo por um motivo prático, além do estético: é onde o véu
+inferior garante contraste, seja qual for a foto que entrar no lugar desta.
+
+A tentativa anterior punha uma curva de crescimento traçada atrás do texto
+centralizado. Saiu junto com o texto centralizado: com a foto em sangria total
+ela virava ruído sobre a imagem, e uma curva de crescimento a poucos pixels de
+um botão sempre corre o risco de ser lida como promessa de rentabilidade, que a
+página não faz em lugar nenhum.
+
 ### A assinatura em escala arquitetônica
 
-O componente `Wordmark` põe "AUVP" em corpo enorme, cortado pela borda, no hero
-e no rodapé. Em contorno na abertura, sólido em baixa opacidade no fechamento.
+"AUVP" em corpo enorme aparece em um lugar só: o alto do hero, em preenchimento
+sólido. O rodapé tinha a mesma assinatura em corpo maior, e ela saiu: fechar a
+página com o nome em escala de fachada competia com a informação do rodapé, que
+é onde alguém vai procurar um link.
 
-Vem de Oxford e Lionheart, e funciona porque nessa escala a palavra deixa de ser
-logotipo e vira arquitetura: dá porte institucional à dobra sem nenhum ornamento.
-Fica em `aria-hidden`, porque o nome já é anunciado pelo logo do cabeçalho.
+Funciona porque nessa escala a palavra deixa de ser logotipo e vira arquitetura:
+dá porte institucional à dobra sem nenhum ornamento. Fica em `aria-hidden`,
+porque o nome já é anunciado pelo logo do cabeçalho.
 
 **São as letras do arquivo da marca, não a palavra composta numa fonte.** O A da
 AUVP é um V invertido, sem travessão, e digitar "A" em qualquer fonte, Sentient
@@ -149,11 +205,11 @@ inclusive, entrega a letra errada. Os contornos vivem em
 `auvp-escola-serif-preta.svg` e recortados na caixa exata das quatro letras. O
 mesmo desenho está em `public/logos/auvp-monograma.svg`, para uso fora do React.
 
-É componente, e não `<img>`, porque a assinatura do hero aparece em contorno:
-filtro sobre `<img>` não produz traço, e manter dois arquivos, um cheio e um
-vazado, duplicaria a marca em dois lugares que podem divergir.
+É componente, e não `<img>`, porque o `Wordmark` ainda oferece a versão em
+contorno: filtro sobre `<img>` não produz traço, e manter dois arquivos, um
+cheio e um vazado, duplicaria a marca em dois lugares que podem divergir.
 
-Usar nesses dois lugares e em nenhum outro. Repetida, vira papel de parede.
+Usar nesse lugar e em nenhum outro. Repetida, vira papel de parede.
 
 ## Forma
 
