@@ -35,37 +35,8 @@ etiqueta discreta no rodapé da dobra.
 
 ## 2. Fotos que a página espera
 
-Dez imagens no total. As duas primeiras são as mais urgentes: a dobra de
-comunidade já abre com uma foto real, mas as duas ao lado dela ainda são
-reservas, e é a única dobra cujo argumento depende de gente na tela.
-
-### Prioridade alta
-
-**Private Day, três fotos** (dobra 06, Comunidade)
-
-| #   | Enquadramento         | Proporção    | O que precisa aparecer                                                                  |
-| --- | --------------------- | ------------ | --------------------------------------------------------------------------------------- |
-| 1   | Plano aberto do salão | 3:4 vertical | Volume de pessoas. Mesas, conversa. Ninguém olhando para a câmera.                      |
-| 2   | Palco e plateia       | 3:4 vertical | Palestrante de costas ou de perfil em primeiro plano, plateia cheia e em foco ao fundo. |
-| 3   | Grupo em conversa     | 3:4 vertical | Três a cinco pessoas de pé, em conversa real. Roupa social ou smart casual.             |
-
-Luz ambiente, sem flash direto. Preferir o momento das palestras ao da festa: o
-roteiro fala em "escola", e taça de espumante em plano fechado puxa para "evento
-de network". Se só houver material da confraternização, escolher quadros em
-plano aberto, onde o ambiente pesa mais que o copo.
-
-**Reconhecimento BTG Pactual** (dobra 08), 4:3 paisagem
-
-Entrega do prêmio, no palco. Precisa ler "instituição reconhecendo instituição":
-placa ou troféu visível, aperto de mãos ou pose formal, marca do BTG legível ao
-fundo. Sem registro do palco, uma foto do troféu sobre mesa escura com luz
-lateral resolve, e é mais elegante que uma foto ruim de evento.
-
-**CEIA e UFG** (dobra 08), 4:3 paisagem
-
-Dia das palestras no centro de pesquisa. O valor está no contexto acadêmico:
-sala de aula, auditório universitário, laboratório. Palestrante isolado não
-comunica a parceria; precisa aparecer o ambiente da universidade.
+Restam **três**: as duas do hero e do encerramento, que são fundo de dobra e
+toleram espera, e a de relações internacionais.
 
 **Relações internacionais** (dobra 08), 4:3 paisagem
 
@@ -73,39 +44,44 @@ Raul ou Caju com embaixador. Cenário formal: bandeiras, sala de recepção
 diplomática, ou o set do AUVP Atlas. Aperto de mãos ou os dois sentados em
 entrevista. Evitar foto de celular e fundo de corredor.
 
-**AUVP Experience, Missão China** (dobra 08), 4:3 paisagem
-
-Delegação em visita técnica. Fábrica, centro de inovação ou sede de empresa. O
-argumento é "imersão executiva", então o cenário precisa ser de trabalho. Foto
-na Muralha da China seria a escolha errada.
-
-### Prioridade média
-
 **Hero** (dobra 01), paisagem 21:9 ou mais largo
 
 Plano do palco ou da sala de aula, com o sujeito **fora do terço central**: o
 headline ocupa o centro da tela. Enquanto não existe, o hero funciona bem com a
 textura e a assinatura tipográfica, então não há pressa.
 
-**Interior da sede** (dobra 03), 4:3 ou 3:2
-
-A dobra usa hoje a fachada, que está publicada em
-`public/images/sede-auvp-capital.webp`. Ela resolve, mas **o interior comunica
-escola e a fachada comunica escritório**: biblioteca, auditório, sala de aula ou
-mesa de reunião com luz natural dariam à missão o peso que o texto pede.
-
-Vale registrar que a fachada tem letreiro dourado sobre painel verde-escuro, e
-**verde não pertence à paleta da escola**. Enquanto ela for a foto da dobra, é
-o único ponto da página com uma cor fora de amarelo, branco e preto.
-
-**Cerimônia de listagem na B3** (dobra 09), 4:3 paisagem
-
-Pregão no dia da listagem de um ETF. Existe registro no acervo, arquivado.
-
 **Encerramento** (dobra final), paisagem larga
 
 Estúdio com estantes de livros, plano aberto. Serve de fundo em baixa
 opacidade, então tolera imagem menos perfeita. Existe registro no acervo.
+
+### Como cada foto foi recortada
+
+Todas as fotos publicadas foram recortadas para a proporção exata da dobra
+antes de entrar no repositório, e **o recorte foi escolhido olhando a imagem**,
+não por corte central automático. O registro serve para refazer, se a foto
+precisar aparecer em outra proporção:
+
+| Foto                             | Origem    | Recorte                        | Por quê                                                                                                                                            |
+| -------------------------------- | --------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `private-day-salao.webp`         | 4200×2800 | 3:2, sem corte                 | Plano aberto: cabe inteiro                                                                                                                         |
+| `private-day-palestras.webp`     | 1616×1080 | 4:3, largura centrada no par   | Os dois sentados precisam caber juntos                                                                                                             |
+| `private-day-networking.webp`    | 2624×3936 | 4:3, janela em `y 280`         | Retrato virando paisagem: a janela precisa pegar os dois rostos e o aperto de mãos. Um corte 150px mais baixo decepava a cabeça do homem à direita |
+| `ceia-ufg.webp`                  | 2730×1820 | 4:3, cortando 303px à esquerda | Descarta as mesas vazias e mantém o grupo com a bandeira                                                                                           |
+| `btg-pactual-time.webp`          | 1920×1080 | 4:3, largura centrada no grupo | Descarta a escada vazia e a luz de palco                                                                                                           |
+| `auvp-experience-hong-kong.webp` | 4240×2832 | 4:3, cortando 464px à esquerda | Remove uma pessoa de fora do grupo no canto                                                                                                        |
+| `b3-listagem-auvp11.webp`        | 6192×4128 | 4:3, cortando 688px à esquerda | O painel AUVP11 encosta na borda direita e precisa continuar inteiro                                                                               |
+| `sede-auvp-capital.webp`         | 1920×1080 | sem corte                      | Publicada como veio                                                                                                                                |
+
+**Ao adicionar uma foto, recorte antes de commitar.** A página não recorta: o
+`Figure` define a proporção da moldura e a imagem preenche com `object-cover`,
+então uma foto na proporção errada é cortada pelo navegador, no centro, sem
+critério nenhum.
+
+**Duas fotos publicadas têm dominante azul**, a do BTG e a da B3. É a cor do
+palco e do painel, não uma escolha de arte, mas elas são hoje o ponto da página
+mais distante de amarelo, branco e preto. Se incomodar, tratamento em preto e
+branco resolve sem trocar a foto.
 
 ### Logos dos apoiadores (dobra 10)
 
@@ -175,13 +151,16 @@ servido a cada visitante.
 
 ### `acervo/originais/`, arquivos em resolução cheia
 
-Os originais como vieram do CDN, com os nomes de origem. Ficam fora de
+Os originais como vieram, com os nomes de origem. Ficam fora de
 `public/` porque **tudo que está em `public/` é copiado para o build e servido a
 cada visitante**: são cerca de 3,5 MB que ninguém precisa baixar. Servem de
 fonte quando for preciso gerar um recorte novo.
 
-Entre eles está `_LMS0457 (1).jpg`, o original em 4200x2800 da foto do salão,
-publicada em 2000px e 199 KB.
+Entre eles está `item 1 - imagem vertical quem somos.webp`, que chegou junto com
+as outras e ainda **não foi atribuída a nenhuma dobra**: Raul erguendo um troféu
+num palco de luz azul. É a foto mais literal de "recebendo o prêmio" que o
+roteiro pede para o BTG, embora a dobra use hoje a do time inteiro. Vale
+decidir.
 
 ### `acervo/fotos/`, material aproveitável
 

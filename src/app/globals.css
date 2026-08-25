@@ -176,3 +176,28 @@
     transition: none;
   }
 }
+
+/*
+ * Botão que existe para teclado e toque, mas sai do caminho de quem tem
+ * ponteiro fino: ali o balão que segue o cursor faz o papel dele.
+ *
+ * `:focus-within` traz o botão de volta assim que a tabulação chega nele, então
+ * ele nunca fica inalcançável. Não usar `display: none` nem `hidden`: os dois
+ * tirariam o link da ordem de tabulação e do leitor de tela.
+ */
+@media (hover: hover) and (pointer: fine) {
+  .cta-ponteiro-fino {
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+
+  .cta-ponteiro-fino:focus-within {
+    height: auto;
+    margin-top: 4rem;
+    overflow: visible;
+    opacity: 1;
+  }
+}

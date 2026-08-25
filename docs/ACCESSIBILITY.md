@@ -38,6 +38,24 @@ conteúdo. Imagem puramente decorativa, como o fundo da dobra de encerramento, l
 **Menu móvel.** `aria-expanded` e `aria-controls` no botão; a rolagem do corpo é
 travada enquanto o painel está aberto.
 
+**Dobra do processo, clicável por inteiro.** O balão que segue o ponteiro é
+decorativo (`aria-hidden`) e não existe para quem usa teclado ou toque. Por isso
+a mesma ação tem três caminhos, e o link é sempre um `<a>` de verdade:
+
+| Entrada                                 | O que aparece                                                                   |
+| --------------------------------------- | ------------------------------------------------------------------------------- |
+| Ponteiro fino                           | Balão seguindo o cursor; clique em qualquer ponto da dobra navega               |
+| Toque, ou qualquer aparelho sem `hover` | Botão normal no fim da dobra                                                    |
+| Teclado                                 | O botão está sempre no DOM e na ordem de tabulação, e reaparece ao receber foco |
+
+O botão nunca sai por `display: none` nem por `hidden`, que o tirariam da
+tabulação e do leitor de tela: ele é colapsado por altura e opacidade, e
+`:focus-within` o traz de volta. Ver a utilitária `cta-ponteiro-fino` em
+`globals.css`.
+
+O clique na dobra é ignorado quando há texto selecionado, para que soltar o
+mouse depois de selecionar um parágrafo não leve a pessoa para fora da página.
+
 **Idioma.** `<html lang="pt-BR">`.
 
 ## Ao contribuir

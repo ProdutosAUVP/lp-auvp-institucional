@@ -28,14 +28,14 @@ export const community = {
       brief: "plano aberto do salão cheio, paisagem 3:2",
     },
     {
-      src: null,
-      alt: "Palestra do Private Day da AUVP, com auditório lotado.",
+      src: "/images/private-day-palestras.webp",
+      alt: "Conversa no palco do Private Day da AUVP, com dois convidados sentados.",
       caption: "Private Day 2025 · Palestras",
       brief: "palco em primeiro plano e plateia cheia ao fundo, paisagem 4:3",
     },
     {
-      src: null,
-      alt: "Alunos da AUVP em conversa durante o intervalo do evento.",
+      src: "/images/private-day-networking.webp",
+      alt: "Dois participantes do Private Day se cumprimentam no meio da plateia.",
       caption: "Private Day 2025 · Networking",
       brief: "grupo de três a cinco pessoas em conversa, paisagem 4:3",
     },
