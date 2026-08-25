@@ -13,9 +13,8 @@ export const etfsSection = {
     "Fundos de índice construídos com método, não com achismo. Quatro estratégias para acompanhar a evolução da carteira do investidor, cada uma com regras claras e transparentes.",
   ctaLabel: "Conheça todos os ETFs da AUVP",
   photo: {
-    /** Arquivado em acervo/fotos/raul-sena-ipo-auvp11.webp */
-    src: null as string | null,
-    alt: "Cerimônia de listagem de um ETF da AUVP na B3.",
+    src: "/images/b3-listagem-auvp11.webp" as string | null,
+    alt: "Raul Sena discursa diante do painel do AUVP11 na cerimônia de listagem.",
     caption: "Cerimônia de listagem na B3",
     brief: "pregão da B3 no dia da listagem, paisagem 4:3",
   },

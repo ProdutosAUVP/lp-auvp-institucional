@@ -4,6 +4,13 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ## [Não publicado]
 
+### Adicionado
+
+- Seis fotografias publicadas: as duas restantes do Private Day, CEIA, BTG
+  Pactual, AUVP Experience e a listagem do AUVP11 na B3. Restam três reservas.
+- Cada recorte foi escolhido olhando a imagem, e está registrado em
+  `docs/ASSETS.md` para poder ser refeito.
+
 ### Alterado
 
 - **Nosso processo vira uma linha do tempo vertical.** Trilho que preenche com
