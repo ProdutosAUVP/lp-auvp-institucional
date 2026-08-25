@@ -13,9 +13,10 @@ import { asset } from "@/lib/asset";
  * ele volta a exibir o nome em versalete, que era o estado anterior e continua
  * apresentável.
  *
- * `mix-blend-multiply` some com fundo branco chapado sobre o papel. Nenhum
- * destes arquivos foi conferido, então é seguro assumir que algum tem fundo.
- * Ver docs/ASSETS.md.
+ * As logos aparecem em cor própria. O único filtro é `mix-blend-multiply`, que
+ * sobre papel branco é neutro para o desenho (multiplicar por branco não muda
+ * pixel nenhum) e some com fundo branco chapado, caso algum arquivo tenha um.
+ * Nenhum deles foi conferido visualmente. Ver docs/ASSETS.md.
  */
 export function EndorsementLogo({
   name,
@@ -28,7 +29,7 @@ export function EndorsementLogo({
 
   if (!logo || falhou) {
     return (
-      <span className="eyebrow text-graphite/45 text-lg tracking-[0.24em]">
+      <span className="eyebrow text-graphite/50 text-center text-base tracking-[0.2em]">
         {name}
       </span>
     );
@@ -38,11 +39,11 @@ export function EndorsementLogo({
     <Image
       src={asset(logo)}
       alt={name}
-      width={220}
-      height={72}
+      width={320}
+      height={120}
       unoptimized
       onError={() => setFalhou(true)}
-      className="h-11 w-auto max-w-[13rem] object-contain opacity-60 mix-blend-multiply grayscale md:h-12"
+      className="h-16 w-auto max-w-full object-contain mix-blend-multiply md:h-20"
     />
   );
 }

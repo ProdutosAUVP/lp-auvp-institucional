@@ -24,14 +24,6 @@ export function Mission() {
                 <p key={paragraph.slice(0, 32)}>{paragraph}</p>
               ))}
             </div>
-
-            <p className="border-ink/35 text-ink border-l-2 pl-6 font-[family-name:var(--font-display)] text-xl leading-[1.5] italic md:text-2xl">
-              {mission.principle}
-            </p>
-
-            <p className="text-graphite text-base leading-[1.75] md:text-[1.0625rem]">
-              {mission.closing}
-            </p>
           </Reveal>
 
           <Reveal delay={120}>

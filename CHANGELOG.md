@@ -6,6 +6,15 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Alterado
 
+- Dobra de missão perde os dois parágrafos de fecho, sobre o princípio fundador,
+  e volta a exibir a fotografia da fachada da sede, que estava arquivada.
+- **Apoiadores deixam de ser carrossel.** São quatro, e quatro cabem na tela:
+  título de um lado, as quatro logos do outro, maiores e em cor própria. Com
+  poucos itens, o carrossel passava a mesma marca duas vezes por ciclo e ainda
+  escondia parte do conjunto a cada instante.
+
+### Alterado
+
 - **Serifa do site passa a ser a Sentient**, a mesma do logotipo, no lugar da
   Cormorant Garamond. Vem do CDN da Fontshare, como a landing de produção já faz
   com a Satoshi.
