@@ -106,13 +106,40 @@ opacidade, então tolera imagem menos perfeita. Existe registro no acervo.
 Hoje o carrossel exibe os nomes em versalete espaçado, o que funciona e é
 honesto, mas logo é mais forte.
 
-Necessário: **CEIA, BTG Pactual, Governo de Goiás e R7**, em SVG monocromático,
-traçado em preto puro, sem fundo e sem sombra. A página aplica opacidade e
-`grayscale`, então versão colorida não é necessária, mas **PNG com fundo branco
-não serve**, porque o fundo aparece sobre o papel.
+**Três dos quatro já existem.** O site de produção da escola
+(`ProdutosAUVP/lp-auvp-escola-prod`) referencia BTG Pactual, Governo de Goiás e
+R7 no mesmo CDN de onde vieram as fotos originais. Os endereços estão anotados
+no campo `origem` de `src/content/endorsements.ts`, e podem ser baixados de uma
+vez:
 
-Destino: `public/images/brand/`. Depois é só preencher o campo `logo` em
-`src/content/endorsements.ts`.
+```bash
+mkdir -p public/images/brand
+curl -L "https://cdn.asupernova.com.br/lp-auvp/vite/btg%20pactual.png" \
+  -o public/images/brand/btg-pactual.png
+curl -L "https://cdn.asupernova.com.br/lp-auvp/vite/1-1024x596.webp" \
+  -o public/images/brand/governo-de-goias.webp
+curl -L "https://cdn.asupernova.com.br/lp-auvp/vite/r7-300x257-1.webp" \
+  -o public/images/brand/r7.webp
+```
+
+Depois é só preencher o campo `logo` em `src/content/endorsements.ts`.
+
+**Confira antes de publicar.** São arquivos rasterizados, não SVG, e vêm de uma
+página com fundo escuro:
+
+- **Fundo transparente é obrigatório.** O carrossel fica sobre papel branco. Se
+  o PNG vier com fundo branco, aparece um retângulo; se vier com fundo escuro,
+  aparece um bloco preto.
+- **O do Governo de Goiás merece atenção.** O arquivo se chama
+  `1-1024x596.webp` e tem proporção de banner, não de logotipo. Pode ser uma
+  arte com fundo, e não a marca isolada.
+- **O ideal continua sendo SVG monocromático**, traçado em preto puro, sem fundo
+  e sem sombra. A página aplica opacidade e `grayscale`, então versão colorida
+  não é necessária. Se o time de design tiver os vetores, eles são preferíveis
+  aos rasterizados do CDN.
+
+**O CEIA não está em nenhum dos dois repositórios.** Precisa ser pedido ao time
+do CEIA ou à UFG, de preferência em SVG.
 
 > **Direito de uso:** logo de terceiro exige autorização de uso da marca. Antes
 > de publicar, confirmar com o jurídico que existe permissão para os quatro,
