@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { clamp, prefersReducedMotion } from "@/lib/motion";
+import { cn } from "@/lib/cn";
 
 /**
  * Movimento de saída do hero, dirigido pela rolagem.
@@ -70,14 +71,23 @@ export function HeroBackdrop({ children }: { children: React.ReactNode }) {
 }
 
 /** Camada do texto: sobe e se dissolve antes de a próxima dobra encostar. */
-export function HeroForeground({ children }: { children: React.ReactNode }) {
+export function HeroForeground({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   const ref = useHeroProgress((node, progress) => {
     node.style.transform = `translate3d(0, ${-progress * 72}px, 0)`;
     node.style.opacity = String(clamp(1 - progress * 1.35, 0, 1));
   });
 
   return (
-    <div ref={ref} className="relative w-full will-change-transform">
+    <div
+      ref={ref}
+      className={cn("relative w-full will-change-transform", className)}
+    >
       {children}
     </div>
   );

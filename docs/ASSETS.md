@@ -35,20 +35,21 @@ etiqueta discreta no rodapé da dobra.
 
 ## 2. Fotos que a página espera
 
-Restam **três**: as duas do hero e do encerramento, que são fundo de dobra e
-toleram espera, e a de relações internacionais.
+Restam **duas**, e nenhuma delas deixa buraco na página: as duas dobras
+publicam hoje uma foto que funciona.
 
-**Relações internacionais** (dobra 08), 4:3 paisagem
+**Hero** (dobra 01), paisagem 16:9 com 2400px ou mais
 
-Raul ou Caju com embaixador. Cenário formal: bandeiras, sala de recepção
-diplomática, ou o set do AUVP Atlas. Aperto de mãos ou os dois sentados em
-entrevista. Evitar foto de celular e fundo de corredor.
+O que está publicado é `private-day-palco.webp`, e ele tem dois defeitos
+conhecidos. O primeiro é a largura: 1616px numa dobra de sangria total é o
+limite, e em tela de 2560px o arquivo é esticado. O segundo é que é o mesmo
+negativo que aparece na dobra da comunidade, em recorte bem diferente (lá o
+enquadramento fecha na poltrona amarela, aqui é o quadro cheio), mas ainda é o
+mesmo palco.
 
-**Hero** (dobra 01), paisagem 21:9 ou mais largo
-
-Plano do palco ou da sala de aula, com o sujeito **fora do terço central**: o
-headline ocupa o centro da tela. Enquanto não existe, o hero funciona bem com a
-textura e a assinatura tipográfica, então não há pressa.
+O que substitui: plano aberto de auditório ou sala de aula, escuro e quente,
+com **vazio no alto** para a assinatura e o texto distribuído na base. Não
+precisa de sujeito fora do terço central: o título mudou de lugar.
 
 **Encerramento** (dobra final), paisagem larga
 
@@ -62,16 +63,18 @@ antes de entrar no repositório, e **o recorte foi escolhido olhando a imagem**,
 não por corte central automático. O registro serve para refazer, se a foto
 precisar aparecer em outra proporção:
 
-| Foto                             | Origem    | Recorte                        | Por quê                                                                                                                                            |
-| -------------------------------- | --------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `private-day-salao.webp`         | 4200×2800 | 3:2, sem corte                 | Plano aberto: cabe inteiro                                                                                                                         |
-| `private-day-palestras.webp`     | 1616×1080 | 4:3, largura centrada no par   | Os dois sentados precisam caber juntos                                                                                                             |
-| `private-day-networking.webp`    | 2624×3936 | 4:3, janela em `y 280`         | Retrato virando paisagem: a janela precisa pegar os dois rostos e o aperto de mãos. Um corte 150px mais baixo decepava a cabeça do homem à direita |
-| `ceia-ufg.webp`                  | 2730×1820 | 4:3, cortando 303px à esquerda | Descarta as mesas vazias e mantém o grupo com a bandeira                                                                                           |
-| `btg-pactual-time.webp`          | 1920×1080 | 4:3, largura centrada no grupo | Descarta a escada vazia e a luz de palco                                                                                                           |
-| `auvp-experience-hong-kong.webp` | 4240×2832 | 4:3, cortando 464px à esquerda | Remove uma pessoa de fora do grupo no canto                                                                                                        |
-| `b3-listagem-auvp11.webp`        | 6192×4128 | 4:3, cortando 688px à esquerda | O painel AUVP11 encosta na borda direita e precisa continuar inteiro                                                                               |
-| `sede-auvp-capital.webp`         | 1920×1080 | sem corte                      | Publicada como veio                                                                                                                                |
+| Foto                             | Origem    | Recorte                        | Por quê                                                                                                                                                                            |
+| -------------------------------- | --------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `private-day-salao.webp`         | 4200×2800 | 3:2, sem corte                 | Plano aberto: cabe inteiro                                                                                                                                                         |
+| `private-day-palestras.webp`     | 1616×1080 | 4:3, fechado no convidado      | O plano aberto do mesmo negativo agora abre a página. Aqui o recorte fecha na poltrona amarela e recusa a versão que pegava os dois: ela cortava a perna do entrevistador na borda |
+| `private-day-networking.webp`    | 2624×3936 | 4:3, janela em `y 280`         | Retrato virando paisagem: a janela precisa pegar os dois rostos e o aperto de mãos. Um corte 150px mais baixo decepava a cabeça do homem à direita                                 |
+| `ceia-ufg.webp`                  | 2730×1820 | 4:3, cortando 303px à esquerda | Descarta as mesas vazias e mantém o grupo com a bandeira                                                                                                                           |
+| `btg-pactual-time.webp`          | 1920×1080 | 4:3, largura centrada no grupo | Descarta a escada vazia e a luz de palco                                                                                                                                           |
+| `auvp-experience-hong-kong.webp` | 4240×2832 | 4:3, janela em `x 475, y 150`  | O recorte anterior, de altura cheia, deixava o grupo 162px à esquerda do centro e sobrava margem à direita. A janela fechada centra o grupo e ainda descarta céu e asfalto vazios  |
+| `auvp-atlas-embaixador.webp`     | 3072×2304 | 4:3, quase sem corte           | O quadro já nasce 4:3 e bem composto: sai só uma faixa de piso embaixo                                                                                                             |
+| `private-day-palco.webp`         | 1616×1080 | 3:2, sem corte                 | Abre a página em sangria total. O quadro cheio é o que tem vazio escuro no alto, onde entra a assinatura                                                                           |
+| `b3-listagem-auvp11.webp`        | 6192×4128 | 4:3, cortando 688px à esquerda | O painel AUVP11 encosta na borda direita e precisa continuar inteiro                                                                                                               |
+| `sede-auvp-capital.webp`         | 1920×1080 | sem corte                      | Publicada como veio                                                                                                                                                                |
 
 **Ao adicionar uma foto, recorte antes de commitar.** A página não recorta: o
 `Figure` define a proporção da moldura e a imagem preenche com `object-cover`,
@@ -85,10 +88,20 @@ branco resolve sem trocar a foto.
 
 ### Logos dos apoiadores (dobra 10)
 
-Hoje o carrossel exibe os nomes em versalete espaçado, o que funciona e é
-honesto, mas logo é mais forte.
+Quando o arquivo falta, a dobra exibe o nome em versalete espaçado, o que
+funciona e é honesto, mas logo é mais forte.
 
-**Três dos quatro já estão na página, servidos pelo CDN da AUVP**
+**O CEIA está em `public/images/brand/ceia.png`**, o único arquivo local do
+conjunto. Veio em PNG de 244×82 com fundo transparente, e 82px é o limite: a
+dobra o exibe com 80px de altura, ou seja, em 1x, e numa tela retina ele fica
+macio. Trocar por SVG quando o CEIA ou a UFG enviarem um.
+
+As logos ficam numa grade de 2×2, e não numa fileira de quatro. Numa fileira
+só, cada célula media 134px de largura e o `max-w-full` encolhia as logos
+largas a menos da metade da altura pedida: a restrição era de largura, não de
+altura.
+
+**Os outros três estão na página servidos pelo CDN da AUVP**
 (`cdn.asupernova.com.br`), o mesmo que serve a landing de produção da escola.
 BTG Pactual, Governo de Goiás e R7 são carregados de lá, e o host está liberado
 em `images.remotePatterns` no `next.config.ts`.

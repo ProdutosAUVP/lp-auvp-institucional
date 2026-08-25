@@ -29,7 +29,7 @@ export const community = {
     },
     {
       src: "/images/private-day-palestras.webp",
-      alt: "Conversa no palco do Private Day da AUVP, com dois convidados sentados.",
+      alt: "Convidado do Private Day da AUVP durante a conversa no palco.",
       caption: "Private Day 2025 · Palestras",
       brief: "palco em primeiro plano e plateia cheia ao fundo, paisagem 4:3",
     },

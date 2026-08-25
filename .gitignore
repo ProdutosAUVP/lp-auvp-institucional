@@ -44,3 +44,7 @@ next-env.d.ts
 .vscode/
 .idea/
 *.local
+
+# gerados pelo Next a cada build (agentRules)
+/AGENTS.md
+/CLAUDE.md

@@ -33,6 +33,18 @@
   --color-graphite: #4a4a4a; /* texto de apoio sobre papel            */
   --color-mist: #b0b0b0; /* texto de apoio sobre tinta            */
 
+  /*
+   * Cor de identidade de cada ETF. Nao sao cores da escola: entram apenas
+   * como subtitulo (a categoria) de cada fundo na dobra "Nossos ETFs", que
+   * tem fundo tinta. Cada valor foi ajustado ate passar de 7:1 sobre
+   * #101010, porque o subtitulo e texto pequeno em caixa alta. Nenhuma
+   * delas pode migrar para o resto da pagina, o azul do AREA11 inclusive.
+   */
+  --color-etf-auvp11: #3fbf7f; /* verde,   8,1:1 sobre tinta       */
+  --color-etf-aupo11: #f2779f; /* rosa,    7,0:1 sobre tinta       */
+  --color-etf-area11: #4da3f5; /* azul,    7,0:1 sobre tinta       */
+  --color-etf-abtc11: #f2c230; /* amarelo, 10,7:1 sobre tinta      */
+
   /* --- Tipografia ------------------------------------------------------ */
   --font-display: "Sentient", Georgia, "Times New Roman", serif;
   --font-sans:
@@ -199,16 +211,5 @@
     margin-top: 4rem;
     overflow: visible;
     opacity: 1;
-  }
-}
-
-/* Traçado da curva do hero. Ver components/motion/GrowthCurve.tsx. */
-@utility curva-tracado {
-  transition: stroke-dashoffset 2200ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .curva-tracado {
-    transition: none;
   }
 }

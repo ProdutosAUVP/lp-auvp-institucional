@@ -20,7 +20,14 @@ export function Endorsements() {
             {endorsements.title}
           </h2>
 
-          <ul className="grid grid-cols-2 gap-x-10 gap-y-12 sm:grid-cols-4 lg:gap-x-8">
+          {/*
+              Duas colunas em qualquer largura, e não quatro. Numa fileira só,
+              cada célula media 134px e o `max-w-full` encolhia as logos largas
+              a menos da metade da altura pedida: a restrição era de largura,
+              não de altura. Em 2x2 a célula passa de 300px e cada arquivo
+              aparece no tamanho natural.
+            */}
+          <ul className="grid grid-cols-2 gap-x-10 gap-y-12 lg:gap-x-12">
             {endorsements.items.map((item) => (
               <li key={item.name} className="flex items-center justify-center">
                 <EndorsementLogo name={item.name} logo={item.logo} />
