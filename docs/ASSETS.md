@@ -35,8 +35,9 @@ etiqueta discreta no rodapé da dobra.
 
 ## 2. Fotos que a página espera
 
-Onze imagens no total. As três primeiras são as mais urgentes, porque são as
-únicas dobras cujo argumento depende de gente na tela.
+Dez imagens no total. As duas primeiras são as mais urgentes: a dobra de
+comunidade já abre com uma foto real, mas as duas ao lado dela ainda são
+reservas, e é a única dobra cujo argumento depende de gente na tela.
 
 ### Prioridade alta
 
@@ -171,6 +172,16 @@ do CEIA ou à UFG, de preferência em SVG.
 Nada em `acervo/` é publicado. A pasta está fora de `public/` de propósito: o
 site é export estático, e tudo que fica em `public/` é copiado para o build e
 servido a cada visitante.
+
+### `acervo/originais/`, arquivos em resolução cheia
+
+Os originais como vieram do CDN, com os nomes de origem. Ficam fora de
+`public/` porque **tudo que está em `public/` é copiado para o build e servido a
+cada visitante**: são cerca de 3,5 MB que ninguém precisa baixar. Servem de
+fonte quando for preciso gerar um recorte novo.
+
+Entre eles está `_LMS0457 (1).jpg`, o original em 4200x2800 da foto do salão,
+publicada em 2000px e 199 KB.
 
 ### `acervo/fotos/`, material aproveitável
 

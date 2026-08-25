@@ -4,6 +4,12 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ## [Não publicado]
 
+### Adicionado
+
+- Primeira fotografia real da dobra de comunidade: o plano aberto do salão do
+  Private Day, em largura total. As duas ao lado dela continuam como reserva.
+- `acervo/originais/`, com os arquivos em resolução cheia como vieram do CDN.
+
 ### Alterado
 
 - Dobra de missão perde os dois parágrafos de fecho, sobre o princípio fundador,
