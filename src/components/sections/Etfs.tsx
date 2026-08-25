@@ -16,7 +16,6 @@ export function Etfs() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal className="flex flex-col items-start gap-8">
             <SectionHeading
-              eyebrow={etfsSection.eyebrow}
               title={etfsSection.title}
               subtitle={etfsSection.subtitle}
               tone="dark"

@@ -34,10 +34,7 @@ export function ClosingCta() {
 
       <Container className="relative py-24 md:py-32">
         <Reveal className="flex max-w-[44rem] flex-col items-start gap-7">
-          <p className="eyebrow text-yellow flex items-center gap-3">
-            <span aria-hidden className="bg-yellow/50 h-px w-8" />
-            {closing.eyebrow}
-          </p>
+          <p className="eyebrow text-yellow">{closing.eyebrow}</p>
           <h2 className="font-[family-name:var(--font-display)] text-4xl leading-[1.08] font-medium tracking-[-0.01em] text-balance md:text-5xl lg:text-[3.5rem]">
             {closing.title}
           </h2>

@@ -1,19 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
-
-/**
- * Cormorant Garamond ecoa a serifa do próprio logo e sustenta o tom clássico
- * dos títulos. Inter cuida de tudo que precisa de leitura em corpo pequeno.
- */
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -73,7 +61,29 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang="pt-BR" className={inter.variable}>
+      <head>
+        {/*
+         * Sentient (Fontshare / Indian Type Foundry). É a serifa do logotipo da
+         * AUVP e, por isso, a serifa do site. Não está no Google Fonts, então
+         * não passa pelo `next/font`: vem do CDN da fundição, no mesmo padrão
+         * que a landing de produção da escola já usa para a Satoshi.
+         *
+         * A licença permite hospedar os arquivos junto do site, o que remove
+         * esta dependência de terceiro e o custo de uma conexão a mais. Vale
+         * fazer quando alguém tiver os .woff2 em mãos: ver docs/BRAND.md.
+         */}
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link
+          rel="preconnect"
+          href="https://cdn.fontshare.com"
+          crossOrigin=""
+        />
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f%5B%5D=sentient@300,400,500,700&display=swap"
+        />
+      </head>
       <body className="antialiased">{children}</body>
     </html>
   );

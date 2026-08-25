@@ -19,7 +19,6 @@ export type Partnership = {
 };
 
 export const initiatives = {
-  eyebrow: "Ecossistema",
   title: "As iniciativas da AUVP.",
   subtitle: "Os produtos, serviços e parcerias que formam a instituição.",
   productsLabel: "Produtos",

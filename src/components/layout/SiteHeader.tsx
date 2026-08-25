@@ -68,7 +68,7 @@ export function SiteHeader() {
           : "border-b border-transparent",
       )}
     >
-      <Container className="flex h-20 items-center justify-between gap-8">
+      <Container className="flex h-24 items-center justify-between gap-8">
         <a
           href="#principal"
           className="flex shrink-0 items-center"
@@ -85,7 +85,7 @@ export function SiteHeader() {
             width={1003}
             height={203}
             priority
-            className="h-7 w-auto md:h-8"
+            className="h-10 w-auto md:h-12"
           />
         </a>
 
@@ -176,7 +176,7 @@ export function SiteHeader() {
       {menuOpen ? (
         <div
           id="menu-mobile"
-          className="border-paper-line bg-paper h-[calc(100svh-5rem)] overflow-y-auto border-t lg:hidden"
+          className="border-paper-line bg-paper h-[calc(100svh-6rem)] overflow-y-auto border-t lg:hidden"
         >
           <Container className="flex flex-col py-4">
             {primaryNav.map((item) => (

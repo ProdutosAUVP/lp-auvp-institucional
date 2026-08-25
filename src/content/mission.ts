@@ -1,7 +1,6 @@
 /** Dobra 03: missão. */
 
 export const mission = {
-  eyebrow: "A instituição",
   title: "O Brasil merece educação financeira de verdade.",
   paragraphs: [
     "A maioria dos brasileiros nunca teve acesso a um ensino financeiro honesto e de qualidade. Foi para mudar essa realidade que a AUVP nasceu, em 2020, com a missão de transformar o Brasil em um país de investidores.",

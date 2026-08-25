@@ -1,6 +1,6 @@
 import { ArrowRight } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
+import { GroupLabel } from "@/components/ui/GroupLabel";
 import { Figure } from "@/components/ui/Figure";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
@@ -17,13 +17,12 @@ export function Initiatives() {
       <Container width="wide">
         <SectionHeading
           rail
-          eyebrow={initiatives.eyebrow}
           title={initiatives.title}
           subtitle={initiatives.subtitle}
         />
 
         <div className="mt-14">
-          <Eyebrow className="mb-6">{initiatives.productsLabel}</Eyebrow>
+          <GroupLabel className="mb-6">{initiatives.productsLabel}</GroupLabel>
           <ul className="border-paper-line bg-paper-line grid gap-px border sm:grid-cols-2 lg:grid-cols-4">
             {products.map((product, index) => (
               <Reveal
@@ -55,7 +54,9 @@ export function Initiatives() {
         </div>
 
         <div className="mt-20">
-          <Eyebrow className="mb-10">{initiatives.partnershipsLabel}</Eyebrow>
+          <GroupLabel className="mb-10">
+            {initiatives.partnershipsLabel}
+          </GroupLabel>
           <div className="divide-paper-line border-paper-line flex flex-col divide-y border-y">
             {partnerships.map((partnership, index) => {
               const reversed = index % 2 === 1;

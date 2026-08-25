@@ -28,17 +28,17 @@ export const endorsements = {
     },
     {
       name: "BTG Pactual",
-      logo: null,
+      logo: "https://cdn.asupernova.com.br/lp-auvp/vite/btg%20pactual.png",
       origem: "https://cdn.asupernova.com.br/lp-auvp/vite/btg%20pactual.png",
     },
     {
       name: "Governo de Goiás",
-      logo: null,
+      logo: "https://cdn.asupernova.com.br/lp-auvp/vite/1-1024x596.webp",
       origem: "https://cdn.asupernova.com.br/lp-auvp/vite/1-1024x596.webp",
     },
     {
       name: "R7",
-      logo: null,
+      logo: "https://cdn.asupernova.com.br/lp-auvp/vite/r7-300x257-1.webp",
       origem: "https://cdn.asupernova.com.br/lp-auvp/vite/r7-300x257-1.webp",
     },
   ] satisfies Endorsement[],

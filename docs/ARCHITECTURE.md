@@ -70,10 +70,15 @@ resposta está no DOM antes de qualquer hidratação, indexável pelo Google e
 acessível pelo teclado sem nenhum handler nosso. O React só decide qual categoria
 está visível. O atributo `name` faz o navegador fechar o item anterior sozinho.
 
-**Descrição de módulo com `grid-template-rows`.** A descrição sai no hover
-animando de `0fr` para `1fr`, o que dá transição de altura real (impossível com
-`height: auto`) e mantém os títulos alinhados pela base. Em telas sem ponteiro
-fino, a descrição já vem aberta.
+**Conteúdo programático em coluna fixa e lista.** A dobra dos módulos era uma
+grade de oito cards que só mostrava a descrição no hover. Passou a ser uma
+coluna fixa à esquerda com o argumento, e a lista dos oito módulos rolando à
+direita, com o numeral do item em leitura preenchendo. A mecânica vem da landing
+de recrutamento da AUVP Advisors.
+
+O ganho não é o efeito: é o que ele permitiu abandonar. No hover, sete oitavos
+do conteúdo ficavam atrás de um gesto que não existe no celular. Agora os oito
+módulos são lidos numa rolagem só.
 
 **Carrossel de apoios sem JavaScript.** A lista é duplicada e o trilho translada
 `-50%` em animação linear infinita: laço perfeito, custo zero. A cópia leva

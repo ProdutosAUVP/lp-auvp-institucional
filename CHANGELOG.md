@@ -6,6 +6,23 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Alterado
 
+- **Serifa do site passa a ser a Sentient**, a mesma do logotipo, no lugar da
+  Cormorant Garamond. Vem do CDN da Fontshare, como a landing de produção já faz
+  com a Satoshi.
+- **Etiqueta antes do título removida de todas as dobras.** Sobrou o
+  `GroupLabel`, sem filete, onde o rótulo nomeia um grupo de cards e não repete
+  o título ao lado.
+- Logo do cabeçalho e do rodapé em corpo maior; a barra fixa cresceu junto, e o
+  deslocamento de âncora acompanhou.
+- **Conteúdo programático refeito** na mecânica da landing da AUVP Advisors:
+  coluna fixa à esquerda, oito módulos rolando à direita, numeral vazado que
+  preenche ao cruzar o meio da tela. A grade com descrição no hover saiu: ela
+  escondia sete oitavos do conteúdo atrás de um gesto que não existe no celular.
+- Logos de BTG Pactual, Governo de Goiás e R7 passam a aparecer no carrossel,
+  servidas pelo CDN da AUVP enquanto os arquivos não são baixados.
+
+### Alterado
+
 - **Paleta refeita nas três cores da escola: amarelo, branco e preto.** O
   azul-marinho e o ouro fosco saíram por inteiro, inclusive dos cinzas de apoio,
   que tinham viés frio. O amarelo obedece a uma regra de contraste: acento sobre

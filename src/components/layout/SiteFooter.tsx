@@ -22,7 +22,7 @@ export function SiteFooter() {
               alt="AUVP Escola de Investimentos"
               width={1003}
               height={203}
-              className="h-8 w-auto"
+              className="h-12 w-auto md:h-14"
             />
             <p className="max-w-[30ch] text-sm leading-relaxed">
               {site.tagline}. Fundada em {site.foundingYear} por {site.founder}.

@@ -17,7 +17,6 @@ export type FaqCategory = {
 };
 
 export const faq = {
-  eyebrow: "Transparência",
   title: "Dúvidas frequentes",
 } as const;
 

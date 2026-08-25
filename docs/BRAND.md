@@ -78,12 +78,29 @@ A faixa amarela é única na página. Repeti-la gasta o efeito.
 
 ## Tipografia
 
-**Cormorant Garamond** para display, **Inter** para texto e interface.
+**Sentient** para display, **Inter** para texto e interface.
 
-A escolha de Cormorant não é solta: o logotipo da AUVP Escola já é uma serifa
-garalde, com serifas em cunha e eixo inclinado. Cormorant é a família viva mais
-próxima dessa construção, e o resultado é que logo e títulos parecem da mesma
-família.
+Sentient é a serifa do próprio logotipo da AUVP Escola, e por isso é a serifa do
+site: logo e títulos são literalmente a mesma letra, não uma aproximação.
+
+Ela não está no Google Fonts, então não passa pelo `next/font`. Vem do CDN da
+fundição (Fontshare, Indian Type Foundry), no mesmo padrão que a landing de
+produção da escola já usa para a Satoshi:
+
+```html
+<link
+  rel="stylesheet"
+  href="https://api.fontshare.com/v2/css?f%5B%5D=sentient@300,400,500,700&display=swap"
+/>
+```
+
+A licença permite hospedar os arquivos junto do site. Vale fazer quando alguém
+tiver os `.woff2` em mãos: remove uma dependência de terceiro e uma conexão a
+mais no carregamento. A pilha de reserva é `Georgia, "Times New Roman", serif`,
+que mantém a página legível se o CDN falhar.
+
+**Só os pesos que existem: 300, 400, 500 e 700.** Pedir 600 faz o navegador
+sintetizar e engordar o texto sem aviso.
 
 | Papel               | Família           | Peso | Observação                                                |
 | ------------------- | ----------------- | ---- | --------------------------------------------------------- |
@@ -97,17 +114,24 @@ família.
 | Micro-rótulo        | Inter             | 500  | Utilitária `.eyebrow`: 11px, caixa alta, `tracking: .2em` |
 | Botão               | Inter             | 500  | `tracking` de `.06em` a `.1em`                            |
 
-### Dois registros de rótulo, e quando usar cada um
+### Nada de etiqueta antes do título
 
-O componente `Eyebrow` abre dobras, em **serifa itálica**. É o registro da
-Lionheart, e soa como sumário de relatório.
+Cada dobra abria com um rótulo precedido de filete curto, no formato
+um traço curto seguido de `A instituição`. **Foi removido.** O título de uma dobra institucional não
+precisa ser anunciado: "A instituição" acima de "O Brasil merece educação
+financeira de verdade" só repetia, em corpo menor, o que o título já dizia.
 
-A utilitária `.eyebrow` cuida de **micro-rótulos**, em versalete espaçado:
-legenda de foto, categoria de card, link de "Saiba mais", etiqueta de foto
-pendente. É o registro de interface.
+O que sobrou:
 
-Não trocar um pelo outro. Rótulo de seção em versalete achata a dobra; legenda
-de foto em itálico serifado some.
+- **`GroupLabel`**, em serifa itálica e sem filete, para nomear um grupo de
+  cards dentro de uma dobra. Existe em dois lugares, "Produtos" e "Parceria e
+  presença internacional", e sem ele os dois grupos viram uma lista só. É
+  informação, não decoração.
+- **A utilitária `.eyebrow`**, em versalete espaçado, para micro-rótulos:
+  legenda de foto, categoria de card, link de "Saiba mais", etiqueta de foto
+  pendente. É o registro de interface.
+
+Não reintroduzir a etiqueta antes de um título.
 
 ### A assinatura tipográfica
 

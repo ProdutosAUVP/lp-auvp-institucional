@@ -6,7 +6,6 @@ export type ProcessCard = {
 };
 
 export const process = {
-  eyebrow: "Metodologia",
   title: "Nosso processo.",
   subtitle: "A formação em três etapas, da seleção à autonomia do investidor.",
 } as const;
