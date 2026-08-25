@@ -20,6 +20,16 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 - Documentação: marca, conteúdo, acervo de imagens, arquitetura, acessibilidade,
   publicação e contribuição.
 - CI no GitHub Actions: tipos, lint, formatação e build.
+- Camada de movimento em `src/components/motion/`: rolagem com inércia (Lenis),
+  saída do hero em duas velocidades, revelação por linha da headline, contagem
+  crescente dos números institucionais, paralaxe nas fotografias, filete de
+  progresso no cabeçalho e marcação da dobra ativa no menu. Tudo desligado sob
+  `prefers-reduced-motion`.
+
+### Removido
+
+- Monograma 3D em WebGL no hero (three.js). O sólido competia com a tipografia e
+  lia como logo animado. Decisão registrada em `docs/ARCHITECTURE.md`.
 
 ### Observações
 

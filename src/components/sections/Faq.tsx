@@ -28,7 +28,7 @@ export function Faq() {
         <SectionHeading eyebrow={faq.eyebrow} title={faq.title} />
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] lg:gap-16">
-          <nav aria-label="Categorias de dúvidas">
+          <nav aria-label="Categorias de dúvidas" className="min-w-0">
             <ul
               role="tablist"
               aria-orientation="vertical"
@@ -64,7 +64,7 @@ export function Faq() {
             role="tabpanel"
             id={`${listId}-panel`}
             aria-labelledby={`${listId}-tab-${current.id}`}
-            className="border-paper-line flex flex-col border-t"
+            className="border-paper-line flex min-w-0 flex-col border-t"
           >
             {current.items.map((item, index) => (
               <Reveal key={item.question} delay={index * 60}>

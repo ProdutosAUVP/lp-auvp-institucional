@@ -1,4 +1,5 @@
 import { ArrowRight, Button } from "@/components/ui/Button";
+import { Parallax } from "@/components/motion/Parallax";
 import { Container } from "@/components/ui/Container";
 import { Figure } from "@/components/ui/Figure";
 import { Reveal } from "@/components/ui/Reveal";
@@ -27,14 +28,16 @@ export function Etfs() {
           </Reveal>
 
           <Reveal delay={120}>
-            <Figure
-              src={etfsSection.photo.src}
-              alt={etfsSection.photo.alt}
-              caption={etfsSection.photo.caption}
-              ratio="4/3"
-              sizes="(min-width: 1024px) 46vw, 100vw"
-              tone="dark"
-            />
+            <Parallax distance={48}>
+              <Figure
+                src={etfsSection.photo.src}
+                alt={etfsSection.photo.alt}
+                caption={etfsSection.photo.caption}
+                ratio="4/3"
+                sizes="(min-width: 1024px) 46vw, 100vw"
+                tone="dark"
+              />
+            </Parallax>
           </Reveal>
         </div>
 

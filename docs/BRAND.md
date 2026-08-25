@@ -99,18 +99,38 @@ um por dobra.
 
 ## Movimento
 
-Discreto, e sempre opcional.
+A página é institucional, não estática. A regra é que **o movimento sirva à
+leitura**: ele dá profundidade e continuidade à rolagem, nunca chama atenção
+para si.
 
-- **Revelação na rolagem** (`Reveal`): opacidade 0 → 1 e deslocamento de 20px,
-  em 900ms com curva de saída. Uma vez só, na primeira entrada em tela.
-- **Escalonamento em grade**: 70–110ms de atraso entre itens da mesma fileira.
-- **Hover**: transição de cor em 300–500ms. Nenhum `scale`, nenhuma rotação.
-- **Carrossel de apoios**: translação linear contínua, 38s por ciclo.
+| Efeito                 | Onde                    | Comportamento                                                                                   |
+| ---------------------- | ----------------------- | ----------------------------------------------------------------------------------------------- |
+| Rolagem com inércia    | Página inteira          | Lenis, `lerp: 0.09`. É o que dá a sensação de fluidez sem alterar layout nenhum.                |
+| Saída do hero          | Dobra 01                | A fotografia desce e cresce 12%; o texto sobe e se dissolve. Duas velocidades na mesma rolagem. |
+| Revelação por linha    | Headline do hero        | Cada linha sobe de dentro da própria máscara, 110ms de intervalo.                               |
+| Revelação na rolagem   | Todas as dobras         | Opacidade 0→1 e 20px de deslocamento, 900ms. Uma vez só, na primeira entrada.                   |
+| Escalonamento em grade | Módulos, produtos, ETFs | 70–110ms entre itens da mesma fileira.                                                          |
+| Contagem crescente     | Dobra 02                | Os dígitos correm até o valor final em 1,6s (`easeOutExpo`), preservando prefixo e separador.   |
+| Paralaxe               | Fotos de missão e ETFs  | ±48 a 56px ao longo da travessia pela janela.                                                   |
+| Filete de progresso    | Cabeçalho               | Régua dourada de 2px na base da barra, proporcional à rolagem.                                  |
+| Seção ativa            | Menu                    | Filete dourado sob o item da dobra em tela, crescendo do centro.                                |
+| Descrição de módulo    | Dobra 04                | Abre no hover animando `grid-template-rows` de `0fr` a `1fr`.                                   |
+| Carrossel de apoios    | Dobra 10                | Translação linear contínua, 38s por ciclo, sem interação.                                       |
 
-Tudo isso é desligado por `prefers-reduced-motion: reduce`. O conteúdo está no
-HTML: nada depende de JavaScript para existir ou ser lido.
+### Regras que valem para qualquer efeito novo
 
----
+- **Nenhum objeto 3D ou WebGL.** Foi testado no hero e descartado: um sólido
+  girando compete com a tipografia e desmonta o tom de instituição. O movimento
+  desta página é sempre movimento _do próprio conteúdo_ — fotografia, texto,
+  régua.
+- **Nada de `scale` em hover, rotação ou salto.** Transição de cor e
+  deslocamento sutil resolvem.
+- **Tudo desliga sob `prefers-reduced-motion: reduce`**, inclusive a rolagem com
+  inércia e a contagem dos números.
+- **Nada depende de JavaScript para existir.** Todo texto e todo número estão no
+  HTML servido. O movimento é camada, não estrutura.
+- **Rolagem não pode causar render.** Os efeitos escrevem direto em `style`
+  dentro do `requestAnimationFrame`, fora do ciclo do React.
 
 ## O que não fazer
 

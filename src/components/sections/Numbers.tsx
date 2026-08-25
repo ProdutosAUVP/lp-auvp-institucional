@@ -1,3 +1,4 @@
+import { CountUp } from "@/components/motion/CountUp";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
@@ -21,7 +22,7 @@ export function Numbers() {
               <dt className="sr-only">{stat.label}</dt>
               <dd className="flex flex-col items-center gap-3">
                 <span className="text-ink font-[family-name:var(--font-display)] text-4xl leading-none font-semibold tracking-[-0.02em] sm:text-5xl lg:text-[3.25rem]">
-                  {stat.value}
+                  <CountUp value={stat.value} />
                 </span>
                 <span aria-hidden className="bg-gold/50 h-px w-8" />
                 <span className="text-graphite max-w-[18ch] text-sm leading-snug">

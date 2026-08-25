@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { primaryNav } from "@/content/navigation";
 import { links } from "@/content/site";
 import { Container } from "@/components/ui/Container";
@@ -15,12 +16,37 @@ import { cn } from "@/lib/cn";
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  /**
+   * Marca no menu a dobra que está em tela. Um IntersectionObserver com faixa
+   * central estreita evita a oscilação típica de comparar `scrollY` com offsets.
+   */
+  useEffect(() => {
+    const targets = primaryNav
+      .filter((item) => item.href.startsWith("#"))
+      .map((item) => document.querySelector(item.href))
+      .filter((node): node is Element => node !== null);
+
+    if (targets.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const inView = entries.find((entry) => entry.isIntersecting);
+        if (inView) setActiveSection(`#${inView.target.id}`);
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+
+    targets.forEach((target) => observer.observe(target));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -66,20 +92,37 @@ export function SiteHeader() {
           aria-label="Navegação principal"
           className="hidden items-center gap-9 lg:flex"
         >
-          {primaryNav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "text-sm transition-colors duration-300",
-                onPaper
-                  ? "text-graphite hover:text-ink"
-                  : "text-paper/75 hover:text-paper",
-              )}
-            >
-              {item.label}
-            </a>
-          ))}
+          {primaryNav.map((item) => {
+            const current = item.href === activeSection;
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                aria-current={current ? "true" : undefined}
+                className={cn(
+                  "group relative text-sm transition-colors duration-300",
+                  onPaper
+                    ? current
+                      ? "text-ink"
+                      : "text-graphite hover:text-ink"
+                    : current
+                      ? "text-paper"
+                      : "text-paper/75 hover:text-paper",
+                )}
+              >
+                {item.label}
+                {/* Filete que cresce do centro: no hover e, fixo, na dobra atual. */}
+                <span
+                  aria-hidden
+                  className={cn(
+                    "absolute -bottom-1.5 left-0 h-px w-full origin-center scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100",
+                    current && "scale-x-100",
+                    onPaper ? "bg-gold" : "bg-gold-light",
+                  )}
+                />
+              </a>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-3">
@@ -156,6 +199,8 @@ export function SiteHeader() {
           </Container>
         </div>
       ) : null}
+
+      {scrolled && !menuOpen ? <ScrollProgress /> : null}
     </header>
   );
 }

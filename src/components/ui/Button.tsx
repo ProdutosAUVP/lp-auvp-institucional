@@ -18,6 +18,10 @@ const base =
   "inline-flex items-center justify-center gap-2 font-sans font-medium " +
   "transition-colors duration-300 ease-out";
 
+/** Deslocamento leve da seta no hover, para o botão responder ao ponteiro. */
+const arrowShift =
+  "[&>svg]:transition-transform [&>svg]:duration-500 hover:[&>svg]:translate-x-1";
+
 const variants: Record<Variant, string> = {
   solid: "bg-ink text-paper hover:bg-ink-soft",
   outline:
@@ -44,6 +48,7 @@ export function Button({
   const isExternal = external ?? /^https?:\/\//.test(href);
   const classes = cn(
     base,
+    arrowShift,
     variants[variant],
     variant === "quiet" ? "px-0 py-0 text-sm tracking-[0.02em]" : sizes[size],
     className,

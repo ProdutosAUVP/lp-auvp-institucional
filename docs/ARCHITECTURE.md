@@ -26,6 +26,7 @@ src/
 │   └── sitemap.ts
 ├── components/
 │   ├── layout/         cabeçalho fixo, rodapé, botão de WhatsApp
+│   ├── motion/         rolagem suave, paralaxe, contagem, revelações
 │   ├── sections/       uma dobra por arquivo
 │   ├── ui/             Container, Section, Button, Figure, Reveal, Eyebrow…
 │   └── StructuredData.tsx

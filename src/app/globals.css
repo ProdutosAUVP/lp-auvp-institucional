@@ -46,6 +46,20 @@
     scroll-padding-top: 6rem;
   }
 
+  /* Com o Lenis ativo, a rolagem suave nativa briga com a interpolação dele.
+     A classe é aplicada no <html> pelo próprio Lenis. */
+  html.lenis {
+    scroll-behavior: auto;
+  }
+
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     :root {
       scroll-behavior: auto;
@@ -129,5 +143,23 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee {
     animation: none;
+  }
+}
+
+/* Revelação linha a linha por máscara — ver components/motion/LineReveal.tsx */
+@utility reveal-line {
+  display: block;
+  transform: translateY(105%);
+  transition: transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@utility reveal-line-in {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-line {
+    transform: none;
+    transition: none;
   }
 }

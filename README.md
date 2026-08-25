@@ -81,5 +81,10 @@ layout. A lista está em [docs/ASSETS.md](docs/ASSETS.md).
 
 ## Stack
 
-Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · Cormorant Garamond +
-Inter. Página inteiramente estática: sem banco, sem API, sem formulário.
+Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · Lenis · Cormorant
+Garamond + Inter. Página inteiramente estática: sem banco, sem API, sem
+formulário.
+
+O movimento — rolagem com inércia, paralaxe, contagem dos números, revelações na
+rolagem — vive em `src/components/motion/` e desliga por inteiro sob
+`prefers-reduced-motion`. Ver [docs/BRAND.md](docs/BRAND.md).

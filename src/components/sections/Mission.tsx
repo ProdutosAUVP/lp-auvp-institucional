@@ -1,3 +1,4 @@
+import { Parallax } from "@/components/motion/Parallax";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Figure } from "@/components/ui/Figure";
@@ -37,14 +38,15 @@ export function Mission() {
           </Reveal>
 
           <Reveal delay={120}>
-            <Figure
-              src={mission.photo.src}
-              alt={mission.photo.alt}
-              caption={mission.photo.caption}
-              ratio="4/3"
-              sizes="(min-width: 1024px) 52vw, 100vw"
-              className="lg:sticky lg:top-28"
-            />
+            <Parallax distance={56}>
+              <Figure
+                src={mission.photo.src}
+                alt={mission.photo.alt}
+                caption={mission.photo.caption}
+                ratio="4/3"
+                sizes="(min-width: 1024px) 52vw, 100vw"
+              />
+            </Parallax>
           </Reveal>
         </div>
       </Container>
