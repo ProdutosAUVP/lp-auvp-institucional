@@ -6,7 +6,7 @@ import { clamp, prefersReducedMotion } from "@/lib/motion";
 /**
  * Movimento de saída do hero, dirigido pela rolagem.
  *
- * A fotografia avança e cresce devagar enquanto o texto sobe e se dissolve —
+ * A fotografia avança e cresce devagar enquanto o texto sobe e se dissolve:
  * duas velocidades diferentes na mesma rolagem. É o que dá profundidade sem
  * nenhum elemento decorativo a mais.
  *
@@ -45,7 +45,7 @@ function useHeroProgress(
       window.removeEventListener("resize", onScroll);
       node.style.cssText = "";
     };
-    // `apply` é estável por construção — cada chamada passa uma função literal.
+    // `apply` é estável por construção: cada chamada passa uma função literal.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

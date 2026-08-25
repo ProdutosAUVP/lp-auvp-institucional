@@ -8,8 +8,8 @@ import { prefersReducedMotion } from "@/lib/motion";
  *
  * Recebe o valor já formatado ("+62.285", "40 MI") e preserva prefixo, sufixo e
  * separador de milhar: a animação só interpola os dígitos. O texto final está no
- * HTML desde o servidor, então quem não roda JavaScript — ou pediu menos
- * movimento — lê o número correto de imediato.
+ * HTML desde o servidor, então quem não roda JavaScript, ou pediu menos
+ * movimento, lê o número correto de imediato.
  */
 export function CountUp({ value }: { value: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -35,7 +35,7 @@ export function CountUp({ value }: { value: string }) {
     const run = (time: number) => {
       if (!start) start = time;
       const t = Math.min((time - start) / duration, 1);
-      // easeOutExpo — rápido no começo, assentando no fim.
+      // easeOutExpo: rápido no começo, assentando no fim.
       const eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
       node.textContent = format(target * eased);
       if (t < 1) frame = requestAnimationFrame(run);

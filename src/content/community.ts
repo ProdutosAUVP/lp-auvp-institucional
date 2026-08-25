@@ -1,5 +1,5 @@
 /**
- * Dobra 06 — comunidade.
+ * Dobra 06: comunidade.
  *
  * `photos` aceita `src: null` enquanto a foto definitiva não existe: o
  * componente `Figure` renderiza uma reserva editorial com o briefing visível.
@@ -25,19 +25,19 @@ export const community = {
       src: null,
       alt: "Alunos reunidos no Private Day da AUVP.",
       caption: "Private Day 2025 · Confraternização",
-      brief: "Plano aberto do salão cheio — retrato 3:4",
+      brief: "plano aberto do salão cheio, retrato 3:4",
     },
     {
       src: null,
       alt: "Palestra do Private Day da AUVP, com auditório lotado.",
       caption: "Private Day 2025 · Palestras",
-      brief: "Palco e plateia — paisagem 16:9",
+      brief: "palco e plateia, retrato 3:4",
     },
     {
       src: null,
       alt: "Alunos da AUVP em conversa durante o intervalo do evento.",
       caption: "Private Day 2025 · Networking",
-      brief: "Grupo em conversa — retrato 3:4",
+      brief: "grupo em conversa, retrato 3:4",
     },
   ] satisfies CommunityPhoto[],
 } as const;

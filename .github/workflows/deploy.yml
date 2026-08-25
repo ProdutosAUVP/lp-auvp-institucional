@@ -1,4 +1,4 @@
-name: Deploy — GitHub Pages
+name: Deploy no GitHub Pages
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
           cache: npm
 
       # Descobre o endereço real das Pages deste repositório. É daqui que saem
-      # o basePath e a URL canônica — assim, o dia em que um domínio próprio
+      # o basePath e a URL canônica. Assim, no dia em que um domínio próprio
       # for configurado, o build se ajusta sozinho, sem editar nada.
       - name: Descobrir configuração do Pages
         id: pages

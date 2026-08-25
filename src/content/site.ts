@@ -20,7 +20,7 @@ export const site = {
   locale: "pt-BR",
   /**
    * URL canônica, sem barra no final. Precisa incluir o `basePath` quando o
-   * site é servido sob subcaminho — é daqui que saem canonical, Open Graph,
+   * site é servido sob subcaminho. É daqui que saem canonical, Open Graph,
    * sitemap.xml e robots.txt. Definida pelo workflow de deploy.
    */
   url:

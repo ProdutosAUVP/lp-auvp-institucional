@@ -1,5 +1,5 @@
 /**
- * Dobra 11 — dúvidas frequentes.
+ * Dobra 11: dúvidas frequentes.
  *
  * As perguntas aqui alimentam também o JSON-LD de FAQPage em
  * `src/app/layout.tsx`. Manter respostas em texto puro, sem HTML.

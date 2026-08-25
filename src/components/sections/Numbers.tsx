@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/Section";
 import { stats } from "@/content/stats";
 
 /**
- * Dobra 02. Quatro números separados por réguas verticais — a mesma
+ * Dobra 02. Quatro números separados por réguas verticais, na mesma
  * construção usada em relatórios anuais de universidade.
  */
 export function Numbers() {
@@ -24,7 +24,7 @@ export function Numbers() {
                 <span className="text-ink font-[family-name:var(--font-display)] text-4xl leading-none font-semibold tracking-[-0.02em] sm:text-5xl lg:text-[3.25rem]">
                   <CountUp value={stat.value} />
                 </span>
-                <span aria-hidden className="bg-gold/50 h-px w-8" />
+                <span aria-hidden className="bg-ink/30 h-px w-8" />
                 <span className="text-graphite max-w-[18ch] text-sm leading-snug">
                   {stat.label}
                 </span>

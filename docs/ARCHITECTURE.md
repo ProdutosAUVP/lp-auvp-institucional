@@ -17,7 +17,7 @@ AUVP que já existe.
 
 Como o Pages serve o site sob `/lp-auvp-institucional`, o build recebe o
 `basePath` por variável de ambiente e `src/lib/asset.ts` prefixa os caminhos de
-imagem — o `next/image` não faz isso sozinho quando `unoptimized` está ligado.
+imagem, porque o `next/image` não faz isso quando `unoptimized` está ligado.
 Os detalhes, e por que cada opção de `next.config.ts` existe, estão em
 [docs/DEPLOY.md](DEPLOY.md).
 
@@ -66,7 +66,7 @@ O restante da página não envia JavaScript ao navegador.
 ## Decisões que valem explicação
 
 **FAQ em `<details>` nativo.** O acordeão usa `<details name="…">` do HTML. A
-resposta está no DOM antes de qualquer hidratação — indexável pelo Google e
+resposta está no DOM antes de qualquer hidratação, indexável pelo Google e
 acessível pelo teclado sem nenhum handler nosso. O React só decide qual categoria
 está visível. O atributo `name` faz o navegador fechar o item anterior sozinho.
 
@@ -76,7 +76,7 @@ animando de `0fr` para `1fr`, o que dá transição de altura real (impossível 
 fino, a descrição já vem aberta.
 
 **Carrossel de apoios sem JavaScript.** A lista é duplicada e o trilho translada
-`-50%` em animação linear infinita — laço perfeito, custo zero. A cópia leva
+`-50%` em animação linear infinita: laço perfeito, custo zero. A cópia leva
 `aria-hidden` para não duplicar a leitura em leitor de tela.
 
 **Reserva de foto pendente.** `Figure` aceita `src: null` e desenha uma moldura

@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 /**
  * Filete dourado de progresso, na base do cabeçalho fixo.
  *
- * Escreve direto em `style.transform` dentro do rAF — não passa por estado do
+ * Escreve direto em `style.transform` dentro do rAF, sem passar por estado do
  * React, então rolar a página não dispara render nenhum.
  */
 export function ScrollProgress() {
@@ -45,7 +45,7 @@ export function ScrollProgress() {
       aria-hidden
       className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 overflow-hidden"
     >
-      <div ref={ref} className="bg-gold h-full w-full origin-left scale-x-0" />
+      <div ref={ref} className="bg-ink h-full w-full origin-left scale-x-0" />
     </div>
   );
 }

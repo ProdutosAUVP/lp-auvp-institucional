@@ -1,8 +1,8 @@
 /**
- * Dobra 10 — acreditam no nosso trabalho.
+ * Dobra 10: acreditam no nosso trabalho.
  *
  * `logo` aponta para um SVG monocromático em /public/images/brand. Enquanto o
- * arquivo não existe, o carrossel exibe o nome em versalete — ver docs/ASSETS.md.
+ * arquivo não existe, o carrossel exibe o nome em versalete. Ver docs/ASSETS.md.
  */
 
 export type Endorsement = {

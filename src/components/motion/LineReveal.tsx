@@ -15,7 +15,7 @@ type LineRevealProps = {
  * Revelação linha a linha por máscara: cada linha sobe de dentro do próprio
  * recorte, como tipo saindo da composição.
  *
- * O texto continua sendo um único bloco semântico — a máscara é `overflow:
+ * O texto continua sendo um único bloco semântico: a máscara é `overflow:
  * hidden` em torno de um `<span>` por linha, nada é aria-escondido. Sob
  * `prefers-reduced-motion` o CSS anula a transição (`globals.css`).
  */
@@ -46,7 +46,7 @@ export function LineReveal({
   }, []);
 
   return (
-    // @ts-expect-error — ref polimórfico entre h1/h2/p
+    // @ts-expect-error: ref polimórfico entre h1/h2/p
     <Tag ref={ref} className={className}>
       {lines.map((line, index) => (
         <span key={line} className="block overflow-hidden pb-[0.08em]">

@@ -1,5 +1,6 @@
 /** Ponto único de importação da camada de conteúdo. Ver docs/CONTENT.md. */
 
+export * from "./closing";
 export * from "./community";
 export * from "./curriculum";
 export * from "./endorsements";

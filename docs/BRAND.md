@@ -1,143 +1,175 @@
 # Linguagem visual
 
 O posicionamento é o de uma **escola clássica e sólida**. A referência não é a
-concorrência direta em educação financeira — é a página institucional de uma
-universidade centenária: Wharton, Yale, Harvard.
+concorrência em educação financeira, e sim a página institucional de uma
+universidade centenária.
 
-Isso tem consequências concretas de design, listadas abaixo. Todas estão
-implementadas em `src/app/globals.css` e nos componentes de `src/components/ui/`.
+## Referências de origem
 
----
+Cinco páginas guiaram as decisões deste documento. Vale conhecê-las antes de
+propor qualquer mudança.
 
-## O que "clássico e sólido" significa aqui
+| Referência                         | O que foi aproveitado                                                                                                                                                                    |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **SOAS** (Universidade de Londres) | A prova de que preto, branco e amarelo sustentam uma instituição de ensino. Faixas amarelas de largura total com título centralizado, seções pretas, botão em pílula.                    |
+| **Lionheart Education**            | Rótulo de seção em serifa itálica no canto superior esquerdo. Assinatura tipográfica gigante na abertura. Faixa preta com declaração centralizada. Mote em caixa alta fechando o rodapé. |
+| **Oxford** (conceito)              | A palavra "Oxford" em corpo enorme cortada pela borda, abrindo e fechando a página. Marcadores numerados de seção.                                                                       |
+| **Higher Life Foundation**         | Rótulo numa coluna estreita à esquerda com o conteúdo à direita. Muito respiro, tipografia pequena, imagem grande.                                                                       |
+| **Harvard** e **Penn**             | Bloco de números institucionais, densidade de rodapé, serifa nos títulos com sans no corpo.                                                                                              |
 
-| Escolhemos                   | Recusamos                           | Porque                                                                 |
-| ---------------------------- | ----------------------------------- | ---------------------------------------------------------------------- |
-| Serifa de texto para títulos | Sans geométrica em peso máximo      | Serifa carrega herança; sans em bold carrega startup.                  |
-| Régua de 1px como separador  | Card com sombra e canto arredondado | Instituição usa filete e grade. Sombra é interface de aplicativo.      |
-| Papel quente e tinta naveia  | Branco puro e preto puro            | O par branco/preto é frio e digital. Papel e tinta são impressos.      |
-| Ouro fosco pontual           | Gradiente dourado                   | Ouro fosco lê como latão de placa. Degradê lê como selo de garantia.   |
-| Canto reto                   | `border-radius`                     | Nada nesta página é arredondado, exceto o botão flutuante do WhatsApp. |
-| Espaço vertical generoso     | Densidade máxima                    | Margem larga é sinal de confiança: não precisamos gritar.              |
-| Uma ação por dobra           | Empilhamento de CTAs                | Instituição convida. Funil empurra.                                    |
+O que **não** foi copiado: o azul-marinho de Harvard e Penn, que domina as duas
+páginas. A AUVP não usa azul.
 
----
+## As três cores da escola
 
-## Cor
+**Amarelo, branco e preto.** Não existe azul na paleta, em nenhum tom, nem
+disfarçado de cinza frio. Os cinzas neutros de apoio (`graphite` e `mist`)
+foram escolhidos sem viés de matiz justamente por isso.
 
-Definida em `@theme` no `globals.css`. Não usar cor fora desta tabela.
+| Token         | Valor     | Onde                                                  |
+| ------------- | --------- | ----------------------------------------------------- |
+| `ink`         | `#101010` | Fundo das dobras escuras, texto principal sobre papel |
+| `ink-soft`    | `#1c1c1c` | Elevação sobre tinta (hover de card)                  |
+| `ink-line`    | `#303030` | Régua sobre tinta                                     |
+| `paper`       | `#ffffff` | Fundo padrão                                          |
+| `paper-soft`  | `#f5f4f1` | Dobras alternadas, cria o ritmo da página             |
+| `paper-line`  | `#e3e1db` | Régua sobre papel                                     |
+| `yellow`      | `#f2c230` | Acento sobre preto e preenchimento sólido             |
+| `yellow-soft` | `#f7d977` | Hover sobre tinta                                     |
+| `graphite`    | `#4a4a4a` | Texto de apoio sobre papel                            |
+| `mist`        | `#b0b0b0` | Texto de apoio sobre tinta                            |
 
-| Token        | Valor     | Onde                                                  |
-| ------------ | --------- | ----------------------------------------------------- |
-| `ink`        | `#0c1a2a` | Fundo das dobras escuras, texto principal sobre papel |
-| `ink-soft`   | `#16283c` | Elevação sobre tinta (hover de card)                  |
-| `ink-line`   | `#23364b` | Régua sobre tinta                                     |
-| `paper`      | `#fbfaf7` | Fundo padrão                                          |
-| `paper-warm` | `#f2eee6` | Dobras alternadas — cria o ritmo da página            |
-| `paper-line` | `#e2dccf` | Régua sobre papel                                     |
-| `gold`       | `#a8853f` | Filete, ícone, elemento decorativo                    |
-| `gold-ink`   | `#7a5f28` | Texto pequeno em ouro sobre papel (contraste 5,7:1)   |
-| `gold-light` | `#c9a961` | Ouro sobre tinta (contraste 7,7:1)                    |
-| `graphite`   | `#46525f` | Texto de apoio sobre papel                            |
-| `mist`       | `#9fb0c2` | Texto de apoio sobre tinta                            |
+### A regra que governa o amarelo
 
-Há **dois tons de ouro por uma razão de acessibilidade**: `gold` tem contraste
-suficiente para elemento gráfico, mas não para texto pequeno. Onde o ouro vira
-texto — os rótulos em versalete — usa-se `gold-ink` sobre papel e `gold-light`
-sobre tinta. Não trocar um pelo outro.
+Esta é a decisão mais importante da paleta, e a mais fácil de quebrar sem
+perceber.
+
+**Amarelo é ilegível sobre branco.** `#f2c230` sobre `#ffffff` dá contraste de
+1,87:1, quando texto exige 4,5:1 e elemento gráfico exige 3:1. Escurecer o
+amarelo até passar no contraste produz um tom que já não lê como amarelo, e sim
+como mostarda ou oliva. Não há saída por ajuste de tom.
+
+Daí o sistema:
+
+- **Sobre preto**, amarelo é o acento: rótulo de seção, filete, numeral,
+  categoria de ETF, título de grupo no rodapé. Contraste de 10,7:1.
+- **Sobre branco**, amarelo entra apenas como **preenchimento sólido**, com
+  texto preto por cima. A faixa de garantia é o exemplo: fundo inteiro amarelo,
+  texto preto, contraste de 12,3:1.
+- **Sobre branco, o acento estrutural é preto.** Rótulos, filetes, ícones e
+  bordas de seleção nas dobras claras são pretos ou cinza, nunca amarelos.
+
+Quem quiser mais amarelo numa dobra clara deve pintar uma área, não colorir um
+traço.
 
 ### Ritmo de fundo
 
-A página alterna papel → pergaminho → tinta numa cadência fixa. É o que dá a
-sensação de capítulos:
+A página alterna papel, papel de alternância e tinta numa cadência fixa. É o que
+dá sensação de capítulos:
 
 ```
-hero (tinta) → números (papel) → missão (pergaminho) → conteúdo (papel)
-→ processo (tinta) → comunidade (pergaminho) → garantia (papel)
-→ iniciativas (papel) → ETFs (tinta) → apoios (papel) → FAQ (pergaminho)
+hero (tinta) → números (papel) → missão (alternância) → conteúdo (papel)
+→ processo (tinta) → comunidade (alternância) → garantia (AMARELO)
+→ iniciativas (papel) → ETFs (tinta) → apoios (papel) → FAQ (alternância)
 → encerramento (tinta) → rodapé (tinta)
 ```
 
-Ao inserir uma dobra nova, respeitar a alternância. Duas dobras escuras seguidas
-achatam a leitura.
-
----
+A faixa amarela é única na página. Repeti-la gasta o efeito.
 
 ## Tipografia
 
 **Cormorant Garamond** para display, **Inter** para texto e interface.
 
-A escolha de Cormorant não é estética solta: o logotipo da AUVP Escola já é uma
-serifa de tipo garalde, com serifas em cunha e eixo inclinado. Cormorant é a
-família viva mais próxima dessa construção. O resultado é que o logo e os títulos
-parecem da mesma família — que é o que se espera de uma identidade institucional.
+A escolha de Cormorant não é solta: o logotipo da AUVP Escola já é uma serifa
+garalde, com serifas em cunha e eixo inclinado. Cormorant é a família viva mais
+próxima dessa construção, e o resultado é que logo e títulos parecem da mesma
+família.
 
-| Papel               | Família   | Peso        | Observação                                     |
-| ------------------- | --------- | ----------- | ---------------------------------------------- |
-| Headline do hero    | Cormorant | 500         | `tracking-[-0.015em]`, `leading-[1.04]`        |
-| Título de dobra     | Cormorant | 500         | `text-4xl` → `lg:text-[3.5rem]`                |
-| Título de card      | Cormorant | 500         | `text-xl` a `text-2xl`                         |
-| Numeral de destaque | Cormorant | 600         | Estatísticas, ticker de ETF, número de etapa   |
-| Citação / princípio | Cormorant | 400 itálico | Filete dourado à esquerda                      |
-| Corpo de texto      | Inter     | 400         | `leading-[1.75]` em texto corrido              |
-| Rótulo (versalete)  | Inter     | 500         | `.eyebrow`: 11px, `tracking: .2em`, caixa alta |
-| Botão               | Inter     | 500         | `tracking` de `.06em` a `.1em`                 |
+| Papel               | Família           | Peso | Observação                                                |
+| ------------------- | ----------------- | ---- | --------------------------------------------------------- |
+| Headline do hero    | Cormorant         | 500  | `tracking-[-0.015em]`, `leading-[1.04]`                   |
+| Título de dobra     | Cormorant         | 500  | `text-4xl` até `lg:text-[3.5rem]`                         |
+| Rótulo de seção     | Cormorant itálico | 400  | Componente `Eyebrow`, precedido de filete                 |
+| Título de card      | Cormorant         | 500  | `text-xl` a `text-2xl`                                    |
+| Numeral de destaque | Cormorant         | 600  | Estatísticas, ticker de ETF, etapa do processo            |
+| Citação             | Cormorant itálico | 400  | Filete à esquerda                                         |
+| Corpo de texto      | Inter             | 400  | `leading-[1.75]` em texto corrido                         |
+| Micro-rótulo        | Inter             | 500  | Utilitária `.eyebrow`: 11px, caixa alta, `tracking: .2em` |
+| Botão               | Inter             | 500  | `tracking` de `.06em` a `.1em`                            |
 
-### O rótulo em versalete
+### Dois registros de rótulo, e quando usar cada um
 
-É o elemento que mais define o tom. Abre quase toda dobra, sempre precedido de um
-filete dourado de 32px:
+O componente `Eyebrow` abre dobras, em **serifa itálica**. É o registro da
+Lionheart, e soa como sumário de relatório.
 
-```tsx
-<Eyebrow>A instituição</Eyebrow>
-```
+A utilitária `.eyebrow` cuida de **micro-rótulos**, em versalete espaçado:
+legenda de foto, categoria de card, link de "Saiba mais", etiqueta de foto
+pendente. É o registro de interface.
 
-Ele funciona como a linha de seção de um relatório anual. Usar com parcimônia:
-um por dobra.
+Não trocar um pelo outro. Rótulo de seção em versalete achata a dobra; legenda
+de foto em itálico serifado some.
 
----
+### A assinatura tipográfica
+
+O componente `Wordmark` põe "AUVP" em corpo enorme, cortado pela borda, no hero
+e no rodapé. Em contorno na abertura, sólido em baixa opacidade no fechamento.
+
+Vem de Oxford e Lionheart, e funciona porque nessa escala a palavra deixa de ser
+logotipo e vira arquitetura: dá porte institucional à dobra sem nenhum ornamento.
+Fica em `aria-hidden`, porque o nome já é anunciado pelo logo do cabeçalho.
+
+Usar nesses dois lugares e em nenhum outro. Repetida, vira papel de parede.
+
+## Forma
+
+**Canto reto em tudo, exceto botão.** Card, faixa, moldura de foto e régua são
+retos. O botão é pílula, porque é o único elemento que precisa parecer clicável,
+e porque quatro das cinco referências fazem isso.
+
+**Sem sombra**, com a única exceção do botão flutuante do WhatsApp, que precisa
+se destacar de qualquer fundo sobre o qual passe.
 
 ## Movimento
 
 A página é institucional, não estática. A regra é que **o movimento sirva à
-leitura**: ele dá profundidade e continuidade à rolagem, nunca chama atenção
-para si.
+leitura**: dá profundidade e continuidade à rolagem, nunca chama atenção para si.
 
-| Efeito                 | Onde                    | Comportamento                                                                                   |
-| ---------------------- | ----------------------- | ----------------------------------------------------------------------------------------------- |
-| Rolagem com inércia    | Página inteira          | Lenis, `lerp: 0.09`. É o que dá a sensação de fluidez sem alterar layout nenhum.                |
-| Saída do hero          | Dobra 01                | A fotografia desce e cresce 12%; o texto sobe e se dissolve. Duas velocidades na mesma rolagem. |
-| Revelação por linha    | Headline do hero        | Cada linha sobe de dentro da própria máscara, 110ms de intervalo.                               |
-| Revelação na rolagem   | Todas as dobras         | Opacidade 0→1 e 20px de deslocamento, 900ms. Uma vez só, na primeira entrada.                   |
-| Escalonamento em grade | Módulos, produtos, ETFs | 70–110ms entre itens da mesma fileira.                                                          |
-| Contagem crescente     | Dobra 02                | Os dígitos correm até o valor final em 1,6s (`easeOutExpo`), preservando prefixo e separador.   |
-| Paralaxe               | Fotos de missão e ETFs  | ±48 a 56px ao longo da travessia pela janela.                                                   |
-| Filete de progresso    | Cabeçalho               | Régua dourada de 2px na base da barra, proporcional à rolagem.                                  |
-| Seção ativa            | Menu                    | Filete dourado sob o item da dobra em tela, crescendo do centro.                                |
-| Descrição de módulo    | Dobra 04                | Abre no hover animando `grid-template-rows` de `0fr` a `1fr`.                                   |
-| Carrossel de apoios    | Dobra 10                | Translação linear contínua, 38s por ciclo, sem interação.                                       |
+| Efeito                 | Onde                    | Comportamento                                                |
+| ---------------------- | ----------------------- | ------------------------------------------------------------ |
+| Rolagem com inércia    | Página inteira          | Lenis, `lerp: 0.09`                                          |
+| Saída do hero          | Dobra 01                | Fundo desce e cresce 12%, texto sobe e se dissolve           |
+| Revelação por linha    | Headline do hero        | Cada linha sobe da própria máscara, 110ms de intervalo       |
+| Revelação na rolagem   | Todas as dobras         | Opacidade e 20px de deslocamento, 900ms, uma vez só          |
+| Escalonamento em grade | Módulos, produtos, ETFs | 70 a 110ms entre itens da mesma fileira                      |
+| Contagem crescente     | Dobra 02                | Dígitos correm até o valor final em 1,6s (`easeOutExpo`)     |
+| Paralaxe               | Fotos de missão e ETFs  | 48 a 56px ao longo da travessia pela janela                  |
+| Filete de progresso    | Cabeçalho               | Régua preta de 2px, proporcional à rolagem                   |
+| Dobra ativa            | Menu                    | Filete sob o item da dobra em tela, crescendo do centro      |
+| Descrição de módulo    | Dobra 04                | Abre no hover animando `grid-template-rows` de `0fr` a `1fr` |
+| Carrossel de apoios    | Dobra 10                | Translação linear contínua, 38s por ciclo                    |
 
-### Regras que valem para qualquer efeito novo
+### Regras para qualquer efeito novo
 
 - **Nenhum objeto 3D ou WebGL.** Foi testado no hero e descartado: um sólido
   girando compete com a tipografia e desmonta o tom de instituição. O movimento
-  desta página é sempre movimento _do próprio conteúdo_ — fotografia, texto,
-  régua.
-- **Nada de `scale` em hover, rotação ou salto.** Transição de cor e
-  deslocamento sutil resolvem.
+  desta página é sempre movimento do próprio conteúdo.
+- **Nada de `scale` em hover, rotação ou salto.**
 - **Tudo desliga sob `prefers-reduced-motion: reduce`**, inclusive a rolagem com
   inércia e a contagem dos números.
-- **Nada depende de JavaScript para existir.** Todo texto e todo número estão no
-  HTML servido. O movimento é camada, não estrutura.
+- **Nada depende de JavaScript para existir.**
 - **Rolagem não pode causar render.** Os efeitos escrevem direto em `style`
   dentro do `requestAnimationFrame`, fora do ciclo do React.
 
 ## O que não fazer
 
-- Sombra em qualquer elemento que não seja o botão flutuante do WhatsApp.
-- `border-radius` fora do mesmo botão.
+- Azul, em qualquer tom, em qualquer lugar.
+- Amarelo como texto ou filete sobre branco.
+- Sombra fora do botão flutuante do WhatsApp.
+- `border-radius` fora do botão.
 - Emoji, em qualquer lugar.
-- Ícone preenchido. Todos os ícones da página são traço de 1px em `viewBox` 32.
+- Ícone preenchido. Todos os ícones são traço de 1px em `viewBox` 32.
+- Travessão, o traço longo, em qualquer texto, comentário ou documento. Use dois-pontos,
+  vírgula, parênteses ou ponto final.
 - Contagem regressiva, selo de desconto, seta piscante.
-- Mais de uma cor de destaque. O ouro é a única.
-- Foto com o branding antigo (olho espiral) no quadro — ver `docs/ASSETS.md`.
+- Mais de uma cor de destaque. O amarelo é a única.
+- Foto com o branding antigo (olho espiral) no quadro. Ver `docs/ASSETS.md`.

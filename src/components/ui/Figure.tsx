@@ -29,7 +29,7 @@ const ratios = {
  *
  * Quando `src` é `null`, renderiza uma reserva tipográfica com o briefing da
  * foto pendente, em vez de quebrar o layout. Isso mantém a página apresentável
- * enquanto o banco de imagens é completado — ver docs/ASSETS.md.
+ * enquanto o banco de imagens é completado. Ver docs/ASSETS.md.
  */
 export function Figure({
   src,
@@ -49,7 +49,7 @@ export function Figure({
         className={cn(
           "relative w-full overflow-hidden",
           ratios[ratio],
-          tone === "light" ? "bg-paper-warm" : "bg-ink-soft",
+          tone === "light" ? "bg-paper-soft" : "bg-ink-soft",
         )}
       >
         {src ? (
@@ -89,10 +89,10 @@ function PhotoReserve({
   return (
     <div
       className={cn(
-        "absolute inset-0 flex flex-col items-center justify-center gap-3 border px-6 text-center",
+        "mock-hatch absolute inset-0 flex flex-col items-center justify-center gap-3 border px-6 text-center",
         tone === "light"
-          ? "border-paper-line text-graphite/60"
-          : "border-ink-line text-mist/60",
+          ? "border-paper-line text-graphite"
+          : "border-ink-line text-mist",
       )}
     >
       <svg aria-hidden viewBox="0 0 24 24" fill="none" className="h-7 w-7">
@@ -111,9 +111,27 @@ function PhotoReserve({
         />
       </svg>
       <span className="eyebrow">Foto pendente</span>
-      <span className="max-w-[22ch] font-[family-name:var(--font-display)] text-base leading-snug italic">
+      <span className="max-w-[24ch] font-[family-name:var(--font-display)] text-base leading-snug italic">
         {brief}
       </span>
+    </div>
+  );
+}
+
+/**
+ * Reserva discreta para foto que ocupa o fundo de uma dobra inteira.
+ *
+ * Aqui a moldura da `PhotoReserve` nao serve: o quadro e a secao toda, e um
+ * rotulo centralizado brigaria com o titulo. Fica so a textura e uma etiqueta
+ * no rodape da dobra, informando o que falta sem disputar a leitura.
+ */
+export function BackdropReserve({ brief }: { brief: string }) {
+  return (
+    <div aria-hidden className="absolute inset-0">
+      <div className="mock-hatch absolute inset-0 opacity-60" />
+      <p className="eyebrow text-mist/70 absolute bottom-6 left-6 md:bottom-8 md:left-10">
+        Foto pendente: {brief}
+      </p>
     </div>
   );
 }

@@ -6,7 +6,7 @@ labels: conteudo
 ---
 
 **Dobra**
-<!-- Ex.: 02 — Números; 11 — Dúvidas frequentes -->
+<!-- Ex.: 02, Números; 11, Dúvidas frequentes -->
 
 **Texto atual**
 

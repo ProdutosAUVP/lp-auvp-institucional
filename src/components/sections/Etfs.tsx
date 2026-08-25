@@ -33,6 +33,7 @@ export function Etfs() {
                 src={etfsSection.photo.src}
                 alt={etfsSection.photo.alt}
                 caption={etfsSection.photo.caption}
+                brief={etfsSection.photo.brief}
                 ratio="4/3"
                 sizes="(min-width: 1024px) 46vw, 100vw"
                 tone="dark"
@@ -58,7 +59,7 @@ export function Etfs() {
                 <span className="text-paper font-[family-name:var(--font-display)] text-3xl leading-none font-semibold tracking-[-0.01em]">
                   {etf.ticker}
                 </span>
-                <span className="eyebrow text-gold-light">{etf.category}</span>
+                <span className="eyebrow text-yellow">{etf.category}</span>
                 <p className="text-mist mt-1 flex-1 text-sm leading-relaxed">
                   {etf.description}
                 </p>

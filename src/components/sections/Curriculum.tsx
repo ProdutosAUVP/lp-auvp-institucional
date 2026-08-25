@@ -10,7 +10,7 @@ import { links } from "@/content/site";
 /**
  * Dobra 04. Grade de oito módulos em duas fileiras de quatro.
  *
- * A descrição aparece no hover (desktop) e permanece sempre visível no toque —
+ * A descrição aparece no hover (desktop) e permanece sempre visível no toque:
  * `group-hover` some em telas sem ponteiro fino, por isso a descrição é
  * revelada por `@media (hover: hover)` em vez de depender só do JS.
  */
@@ -32,12 +32,12 @@ export function Curriculum() {
               key={module.number}
               as="li"
               delay={(index % 4) * 80}
-              className="group bg-paper hover:bg-paper-warm relative flex min-h-[11.5rem] flex-col justify-between gap-8 p-7 transition-colors duration-500"
+              className="group bg-paper hover:bg-paper-soft relative flex min-h-[11.5rem] flex-col justify-between gap-8 p-7 transition-colors duration-500"
             >
               <div className="flex items-start justify-between gap-4">
                 <ModuleIcon
                   name={module.icon}
-                  className="text-gold group-hover:text-ink h-9 w-9 transition-colors duration-500"
+                  className="text-ink/45 group-hover:text-ink h-9 w-9 transition-colors duration-500"
                 />
                 <span className="eyebrow text-graphite/50">
                   {module.number === "Bônus"

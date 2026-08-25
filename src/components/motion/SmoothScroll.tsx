@@ -11,7 +11,7 @@ import { prefersReducedMotion } from "@/lib/motion";
  * `prefers-reduced-motion` nada é instanciado e a rolagem nativa segue valendo.
  *
  * O Lenis marca `<html class="lenis">`, e o `globals.css` usa essa classe para
- * desligar o `scroll-behavior: smooth` nativo — os dois juntos brigam.
+ * desligar o `scroll-behavior: smooth` nativo, porque os dois juntos brigam.
  */
 export function SmoothScroll() {
   useEffect(() => {

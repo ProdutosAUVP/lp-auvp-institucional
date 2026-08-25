@@ -1,28 +1,37 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   AUVP — Escola de Investimentos · Design tokens
-   Referência de linguagem: instituições clássicas de ensino (Wharton, Yale,
-   Harvard). Papel quente, tinta naveia, ouro fosco, régua fina, serifa.
-   Ver docs/BRAND.md antes de alterar qualquer valor deste bloco.
+   AUVP, Escola de Investimentos: tokens de design
+
+   As cores da escola sao tres: amarelo, branco e preto. Nao existe azul na
+   paleta, em nenhum tom, nem disfarcado de neutro frio.
+
+   Referencia de linguagem: instituicoes classicas de ensino (Wharton, Yale,
+   Harvard). Papel branco, tinta preta, amarelo institucional, regua fina,
+   serifa. Ver docs/BRAND.md antes de alterar qualquer valor deste bloco.
    ========================================================================== */
 
 @theme {
   /* --- Cor ------------------------------------------------------------- */
-  --color-ink: #0c1a2a; /* tinta institucional (fundos escuros)      */
-  --color-ink-soft: #16283c; /* elevação sobre tinta                      */
-  --color-ink-line: #23364b; /* régua sobre tinta                         */
+  --color-ink: #101010; /* tinta, fundo das dobras escuras       */
+  --color-ink-soft: #1c1c1c; /* elevacao sobre tinta                  */
+  --color-ink-line: #303030; /* regua sobre tinta                     */
 
-  --color-paper: #fbfaf7; /* papel — fundo padrão                      */
-  --color-paper-warm: #f2eee6; /* pergaminho — faixas alternadas            */
-  --color-paper-line: #e2dccf; /* régua sobre papel                         */
+  --color-paper: #ffffff; /* papel, fundo padrao                   */
+  --color-paper-soft: #f5f4f1; /* papel de alternancia entre dobras     */
+  --color-paper-line: #e3e1db; /* regua sobre papel                     */
 
-  --color-gold: #a8853f; /* ouro fosco — filetes, ícones, numerais    */
-  --color-gold-ink: #7a5f28; /* ouro legível — texto pequeno sobre papel  */
-  --color-gold-light: #c9a961; /* ouro claro — sobre tinta                  */
+  /*
+   * Amarelo institucional. Sobre preto e o acento, com contraste de 10,7:1.
+   * Sobre branco ele so entra como preenchimento solido, com texto preto por
+   * cima: amarelo nao alcanca contraste como texto nem como filete sobre
+   * branco em nenhuma variacao que ainda leia como amarelo. Ver docs/BRAND.md.
+   */
+  --color-yellow: #f2c230;
+  --color-yellow-soft: #f7d977; /* hover sobre tinta                */
 
-  --color-graphite: #46525f; /* texto de apoio sobre papel                */
-  --color-mist: #9fb0c2; /* texto de apoio sobre tinta                */
+  --color-graphite: #4a4a4a; /* texto de apoio sobre papel            */
+  --color-mist: #b0b0b0; /* texto de apoio sobre tinta            */
 
   /* --- Tipografia ------------------------------------------------------ */
   --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
@@ -46,8 +55,8 @@
     scroll-padding-top: 6rem;
   }
 
-  /* Com o Lenis ativo, a rolagem suave nativa briga com a interpolação dele.
-     A classe é aplicada no <html> pelo próprio Lenis. */
+  /* Com o Lenis ativo, a rolagem suave nativa briga com a interpolacao dele.
+     A classe e aplicada no <html> pelo proprio Lenis. */
   html.lenis {
     scroll-behavior: auto;
   }
@@ -76,12 +85,12 @@
   }
 
   ::selection {
-    background-color: var(--color-gold);
-    color: var(--color-paper);
+    background-color: var(--color-yellow);
+    color: var(--color-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-gold);
+    outline: 2px solid var(--color-yellow);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -95,7 +104,7 @@
   text-wrap: pretty;
 }
 
-/* Sobrescrito · rótulo em versalete espaçado, presente em toda a página */
+/* Rotulo em versalete espacado, presente em toda a pagina */
 @utility eyebrow {
   font-family: var(--font-sans);
   font-size: 0.6875rem;
@@ -104,7 +113,7 @@
   text-transform: uppercase;
 }
 
-/* Revelação suave na rolagem — ver components/ui/Reveal.tsx */
+/* Revelacao suave na rolagem. Ver components/ui/Reveal.tsx */
 @utility reveal {
   opacity: 0;
   transform: translateY(1.25rem);
@@ -126,7 +135,7 @@
   }
 }
 
-/* Carrossel contínuo de logos — dobra "Acreditam no nosso trabalho" */
+/* Carrossel continuo de logos, na dobra "Acreditam no nosso trabalho" */
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -146,7 +155,7 @@
   }
 }
 
-/* Revelação linha a linha por máscara — ver components/motion/LineReveal.tsx */
+/* Revelacao linha a linha por mascara. Ver components/motion/LineReveal.tsx */
 @utility reveal-line {
   display: block;
   transform: translateY(105%);
@@ -162,4 +171,17 @@
     transform: none;
     transition: none;
   }
+}
+
+/*
+ * Textura das reservas de foto: hachura diagonal fina em amarelo, discreta o
+ * bastante para marcar a area como provisoria sem competir com o que estiver
+ * por cima. Ver components/ui/Figure.tsx e docs/ASSETS.md.
+ */
+@utility mock-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--color-yellow) 24%, transparent) 0 1px,
+    transparent 1px 11px
+  );
 }

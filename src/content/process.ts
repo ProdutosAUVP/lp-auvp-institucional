@@ -1,4 +1,4 @@
-/** Dobra 05 — nosso processo, em três etapas. */
+/** Dobra 05: nosso processo, em três etapas. */
 
 export type ProcessCard = {
   title: string;

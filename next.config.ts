@@ -18,12 +18,12 @@ const basePath = rawBasePath === "/" ? "" : rawBasePath.replace(/\/$/, "");
 const nextConfig: NextConfig = {
   output: "export",
   basePath,
-  // Cada rota vira uma pasta com index.html — é o que hospedagem estática
+  // Cada rota vira uma pasta com index.html, que é o que hospedagem estática
   // espera. Sem isso, o Pages devolve 404 em qualquer caminho que não a raiz.
   trailingSlash: true,
   images: {
     // O Pages serve arquivos, não roda o otimizador do Next. As imagens já são
-    // .webp em tamanho final — ver o passo de redimensionamento em docs/ASSETS.md.
+    // .webp em tamanho final. Ver o passo de redimensionamento em docs/ASSETS.md.
     unoptimized: true,
   },
 };
