@@ -2,6 +2,7 @@ import Image from "next/image";
 import { HeroBackdrop, HeroForeground } from "@/components/motion/HeroScroll";
 import { LineReveal } from "@/components/motion/LineReveal";
 import { hero } from "@/content/hero";
+import { asset } from "@/lib/asset";
 import { links } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -18,7 +19,7 @@ export function Hero() {
     >
       <HeroBackdrop>
         <Image
-          src={hero.photo.src}
+          src={asset(hero.photo.src)}
           alt={hero.photo.alt}
           fill
           priority

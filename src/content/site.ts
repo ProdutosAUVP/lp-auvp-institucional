@@ -18,8 +18,14 @@ export const site = {
   foundingYear: 2020,
   founder: "Raul Sena",
   locale: "pt-BR",
-  /** Sem barra no final. Sobrescrito por NEXT_PUBLIC_SITE_URL em produção. */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://auvp.com.br",
+  /**
+   * URL canônica, sem barra no final. Precisa incluir o `basePath` quando o
+   * site é servido sob subcaminho — é daqui que saem canonical, Open Graph,
+   * sitemap.xml e robots.txt. Definida pelo workflow de deploy.
+   */
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    "https://produtosauvp.github.io/lp-auvp-institucional",
 } as const;
 
 export const links = {
