@@ -106,11 +106,14 @@ opacidade, então tolera imagem menos perfeita. Existe registro no acervo.
 Hoje o carrossel exibe os nomes em versalete espaçado, o que funciona e é
 honesto, mas logo é mais forte.
 
-**Três dos quatro já existem.** O site de produção da escola
-(`ProdutosAUVP/lp-auvp-escola-prod`) referencia BTG Pactual, Governo de Goiás e
-R7 no mesmo CDN de onde vieram as fotos originais. Os endereços estão anotados
-no campo `origem` de `src/content/endorsements.ts`, e podem ser baixados de uma
-vez:
+**Três dos quatro já estão na página, servidos pelo CDN da AUVP**
+(`cdn.asupernova.com.br`), o mesmo que serve a landing de produção da escola.
+BTG Pactual, Governo de Goiás e R7 são carregados de lá, e o host está liberado
+em `images.remotePatterns` no `next.config.ts`.
+
+**Isso é temporário, de propósito.** Depender do CDN de outro projeto para uma
+logo de terceiro numa página institucional é frágil. O passo certo é baixar os
+arquivos:
 
 ```bash
 mkdir -p public/images/brand
@@ -122,14 +125,20 @@ curl -L "https://cdn.asupernova.com.br/lp-auvp/vite/r7-300x257-1.webp" \
   -o public/images/brand/r7.webp
 ```
 
-Depois é só preencher o campo `logo` em `src/content/endorsements.ts`.
+Depois é só trocar o campo `logo` em `src/content/endorsements.ts` pelos
+caminhos locais e remover a entrada de `remotePatterns`.
+
+Se alguma logo deixar de carregar, o carrossel volta a exibir o nome em
+versalete: `EndorsementLogo` tem essa reserva, então uma URL quebrada nunca
+produz o ícone de imagem quebrada.
 
 **Confira antes de publicar.** São arquivos rasterizados, não SVG, e vêm de uma
 página com fundo escuro:
 
-- **Fundo transparente é obrigatório.** O carrossel fica sobre papel branco. Se
-  o PNG vier com fundo branco, aparece um retângulo; se vier com fundo escuro,
-  aparece um bloco preto.
+- **Fundo transparente é o esperado.** O carrossel fica sobre papel branco. A
+  página aplica `mix-blend-multiply`, que some com fundo branco chapado, mas
+  fundo escuro apareceria como um bloco. **Nenhum dos três arquivos foi
+  conferido visualmente.**
 - **O do Governo de Goiás merece atenção.** O arquivo se chama
   `1-1024x596.webp` e tem proporção de banner, não de logotipo. Pode ser uma
   arte com fundo, e não a marca isolada.

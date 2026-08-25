@@ -34,7 +34,7 @@
   --color-mist: #b0b0b0; /* texto de apoio sobre tinta            */
 
   /* --- Tipografia ------------------------------------------------------ */
-  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-display: "Sentient", Georgia, "Times New Roman", serif;
   --font-sans:
     var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
 
@@ -52,7 +52,7 @@
     color-scheme: light;
     scroll-behavior: smooth;
     /* compensa o cabeçalho fixo ao navegar por âncora */
-    scroll-padding-top: 6rem;
+    scroll-padding-top: 7rem;
   }
 
   /* Com o Lenis ativo, a rolagem suave nativa briga com a interpolacao dele.
@@ -184,4 +184,33 @@
     color-mix(in srgb, var(--color-yellow) 24%, transparent) 0 1px,
     transparent 1px 11px
   );
+}
+
+/*
+ * Numeral vazado da lista do conteudo programatico, que preenche quando o
+ * item cruza a faixa central da tela.
+ *
+ * O preenchimento e zerado por -webkit-text-fill-color, e nao por
+ * `color: transparent`: o contorno usa currentColor, e zerar a cor levaria o
+ * traco junto. Sem suporte a text-stroke o numeral nasce solido, entao a
+ * leitura nunca depende do efeito.
+ */
+@utility numeral-vazado {
+  color: var(--color-paper-line);
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.5px currentColor;
+  transition:
+    color 450ms ease,
+    -webkit-text-fill-color 450ms ease;
+}
+
+@utility numeral-vazado-ativo {
+  color: var(--color-ink);
+  -webkit-text-fill-color: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .numeral-vazado {
+    transition: none;
+  }
 }

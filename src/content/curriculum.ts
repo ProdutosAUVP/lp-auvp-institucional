@@ -21,7 +21,6 @@ export type Module = {
 };
 
 export const curriculum = {
-  eyebrow: "Formação",
   title: "Conteúdo programático.",
   subtitle:
     "Oito módulos que levam o aluno do primeiro conceito à gestão autônoma da própria carteira.",

@@ -25,7 +25,7 @@ export function Faq() {
   return (
     <Section id="faq" tone="warm" rule>
       <Container>
-        <SectionHeading eyebrow={faq.eyebrow} title={faq.title} />
+        <SectionHeading title={faq.title} />
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] lg:gap-16">
           <nav aria-label="Categorias de dúvidas" className="min-w-0">

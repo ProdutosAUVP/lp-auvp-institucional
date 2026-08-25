@@ -1,8 +1,6 @@
 import { cn } from "@/lib/cn";
-import { Eyebrow } from "./Eyebrow";
 
 type SectionHeadingProps = {
-  eyebrow?: string;
   title: string;
   subtitle?: string;
   align?: "left" | "center";
@@ -22,7 +20,6 @@ type SectionHeadingProps = {
 };
 
 export function SectionHeading({
-  eyebrow,
   title,
   subtitle,
   align = "left",
@@ -63,8 +60,7 @@ export function SectionHeading({
           className,
         )}
       >
-        <div>{eyebrow ? <Eyebrow tone={tone}>{eyebrow}</Eyebrow> : null}</div>
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 lg:col-start-2">
           {heading}
           {support}
         </div>
@@ -80,7 +76,6 @@ export function SectionHeading({
         className,
       )}
     >
-      {eyebrow ? <Eyebrow tone={tone}>{eyebrow}</Eyebrow> : null}
       {heading}
       {support}
     </div>

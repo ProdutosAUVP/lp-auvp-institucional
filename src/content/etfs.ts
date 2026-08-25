@@ -8,7 +8,6 @@ export type Etf = {
 };
 
 export const etfsSection = {
-  eyebrow: "Gestão",
   title: "Nossos ETFs.",
   subtitle:
     "Fundos de índice construídos com método, não com achismo. Quatro estratégias para acompanhar a evolução da carteira do investidor, cada uma com regras claras e transparentes.",

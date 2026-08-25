@@ -13,7 +13,6 @@ export function Community() {
     <Section id="comunidade" tone="warm" rule>
       <Container width="wide">
         <SectionHeading
-          eyebrow={community.eyebrow}
           title={community.title}
           subtitle={community.subtitle}
           align="center"

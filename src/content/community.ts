@@ -15,7 +15,6 @@ export type CommunityPhoto = {
 };
 
 export const community = {
-  eyebrow: "Comunidade",
   title: "Aqui você não está sozinho.",
   subtitle:
     "Mais de 50 mil alunos formam uma comunidade que vai muito além dos investimentos: um espaço onde dúvidas são respondidas, decisões são discutidas e conexões se formam no ambiente online e presencial.",

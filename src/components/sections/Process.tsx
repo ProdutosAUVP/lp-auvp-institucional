@@ -16,7 +16,6 @@ export function Process() {
     <Section id="processo" tone="ink" rule>
       <Container>
         <SectionHeading
-          eyebrow={process.eyebrow}
           title={process.title}
           subtitle={process.subtitle}
           align="center"

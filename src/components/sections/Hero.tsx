@@ -49,11 +49,7 @@ export function Hero() {
       <HeroForeground>
         <Container>
           <div className="mx-auto flex max-w-[52rem] flex-col items-center gap-8 text-center">
-            <p className="eyebrow text-yellow flex items-center gap-4">
-              <span aria-hidden className="bg-yellow/50 h-px w-10" />
-              {hero.positioning}
-              <span aria-hidden className="bg-yellow/50 h-px w-10" />
-            </p>
+            <p className="eyebrow text-yellow">{hero.positioning}</p>
 
             <LineReveal
               as="h1"

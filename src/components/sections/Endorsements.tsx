@@ -1,8 +1,7 @@
-import Image from "next/image";
+import { EndorsementLogo } from "./EndorsementLogo";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { endorsements } from "@/content/endorsements";
-import { asset } from "@/lib/asset";
 
 /**
  * Dobra 10. Carrossel contínuo de logos.
@@ -41,19 +40,7 @@ export function Endorsements() {
                 key={`${copy}-${item.name}`}
                 className="flex h-16 w-[16rem] shrink-0 items-center justify-center px-8 md:w-[20rem]"
               >
-                {item.logo ? (
-                  <Image
-                    src={asset(item.logo)}
-                    alt={item.name}
-                    width={200}
-                    height={64}
-                    className="h-9 w-auto opacity-55 grayscale"
-                  />
-                ) : (
-                  <span className="eyebrow text-graphite/45 text-lg tracking-[0.24em]">
-                    {item.name}
-                  </span>
-                )}
+                <EndorsementLogo name={item.name} logo={item.logo} />
               </li>
             ))}
           </ul>

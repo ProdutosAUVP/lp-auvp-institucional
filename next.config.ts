@@ -25,6 +25,10 @@ const nextConfig: NextConfig = {
     // O Pages serve arquivos, não roda o otimizador do Next. As imagens já são
     // .webp em tamanho final. Ver o passo de redimensionamento em docs/ASSETS.md.
     unoptimized: true,
+    // As logos dos apoiadores ainda vivem no CDN da AUVP, o mesmo que serve a
+    // landing de produção da escola. É uma dependência temporária: assim que
+    // os arquivos forem baixados para public/images/brand, esta entrada sai.
+    remotePatterns: [{ protocol: "https", hostname: "cdn.asupernova.com.br" }],
   },
 };
 
