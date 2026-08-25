@@ -10,14 +10,14 @@ import { cn } from "@/lib/cn";
  */
 
 const paths: Record<Module["icon"], React.ReactNode> = {
-  // 01 — Preparação Mental · cabeça em perfil com espiral
+  // 01 · Preparação Mental · cabeça em perfil com espiral
   mind: (
     <>
       <path d="M20.5 27.5v-3.2c0-1 .5-1.7 1.3-2.2 2.4-1.6 4.2-4.4 4.2-7.7A10.5 10.5 0 0 0 5.5 14c0 2.3.8 4.1 2 5.6.5.6.6 1 .2 1.5l-1 1.3c-.4.5-.2 1.2.5 1.3l1.8.4v3.4" />
       <path d="M16 10.5a3.5 3.5 0 1 0 3.5 3.5c0-1.2-1-2-2-2s-1.5.7-1.5 1.4" />
     </>
   ),
-  // 02 — Organização Financeira · livro-caixa
+  // 02 · Organização Financeira · livro-caixa
   ledger: (
     <>
       <path d="M6.5 5.5h19v21h-19z" />
@@ -25,7 +25,7 @@ const paths: Record<Module["icon"], React.ReactNode> = {
       <path d="M15 11.5h6.5M15 16h6.5M15 20.5h4" />
     </>
   ),
-  // 03 — Renda Fixa · título com selo
+  // 03 · Renda Fixa · título com selo
   bond: (
     <>
       <path d="M4.5 8.5h23v15h-23z" />
@@ -33,7 +33,7 @@ const paths: Record<Module["icon"], React.ReactNode> = {
       <path d="M18 13h6M18 16h6M18 19h3.5" />
     </>
   ),
-  // 04 — Renda Variável · série temporal ascendente
+  // 04 · Renda Variável · série temporal ascendente
   equity: (
     <>
       <path d="M4.5 26.5h23" />
@@ -41,7 +41,7 @@ const paths: Record<Module["icon"], React.ReactNode> = {
       <path d="M21 9.5h5.5V15" />
     </>
   ),
-  // 05 — Reservas de Valor · barra e moeda
+  // 05 · Reservas de Valor · barra e moeda
   reserve: (
     <>
       <path d="M4.5 21.5l3-6h13l3 6z" />
@@ -50,7 +50,7 @@ const paths: Record<Module["icon"], React.ReactNode> = {
       <path d="M23 8v5M21.5 9.3h3M21.5 11.7h3" />
     </>
   ),
-  // 06 — Investimentos no Exterior · globo com meridianos
+  // 06 · Investimentos no Exterior · globo com meridianos
   globe: (
     <>
       <circle cx="16" cy="16" r="11" />
@@ -58,7 +58,7 @@ const paths: Record<Module["icon"], React.ReactNode> = {
       <path d="M16 5c3 3.2 4.5 7 4.5 11S19 24.8 16 27c-3-2.2-4.5-6-4.5-11S13 8.2 16 5z" />
     </>
   ),
-  // 07 — Construção da Carteira · alocação em quadrantes
+  // 07 · Construção da Carteira · alocação em quadrantes
   portfolio: (
     <>
       <circle cx="16" cy="16" r="11" />
@@ -66,7 +66,7 @@ const paths: Record<Module["icon"], React.ReactNode> = {
       <path d="M5 16h11" />
     </>
   ),
-  // Bônus — Imposto de Renda · formulário com carimbo
+  // Bônus · Imposto de Renda · formulário com carimbo
   tax: (
     <>
       <path d="M8.5 4.5h11l5 5v18h-16z" />
@@ -99,7 +99,7 @@ export function ModuleIcon({
   );
 }
 
-/** Escudo com marca de verificação — faixa de garantia (dobra 07). */
+/** Escudo com marca de verificação, usado na faixa de garantia (dobra 07). */
 export function ShieldIcon({ className }: { className?: string }) {
   return (
     <svg

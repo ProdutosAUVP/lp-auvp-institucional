@@ -6,14 +6,14 @@ type SectionProps = {
   className?: string;
   /** `paper` claro, `warm` pergaminho, `ink` tinta institucional. */
   tone?: "paper" | "warm" | "ink";
-  /** Régua fina no topo da dobra — separador editorial padrão da página. */
+  /** Régua fina no topo da dobra, separador editorial padrão da página. */
   rule?: boolean;
   as?: "section" | "footer" | "div";
 };
 
 const tones = {
   paper: "bg-paper text-ink",
-  warm: "bg-paper-warm text-ink",
+  warm: "bg-paper-soft text-ink",
   ink: "bg-ink text-paper",
 } as const;
 

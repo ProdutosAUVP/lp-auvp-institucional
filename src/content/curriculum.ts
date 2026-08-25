@@ -1,5 +1,5 @@
 /**
- * Dobra 04 — conteúdo programático.
+ * Dobra 04: conteúdo programático.
  *
  * `icon` referencia uma chave de `src/components/ui/ModuleIcon.tsx`. Ao
  * incluir um módulo novo, cadastre o ícone lá antes de referenciá-lo aqui.

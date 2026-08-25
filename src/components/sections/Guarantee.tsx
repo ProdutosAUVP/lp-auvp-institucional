@@ -8,23 +8,23 @@ import { links } from "@/content/site";
 /** Dobra 07. Faixa horizontal única: ícone, promessa e CTA. */
 export function Guarantee() {
   return (
-    <section className="border-paper-line bg-paper border-y">
+    <section className="bg-yellow text-ink">
       <Container className="py-14 md:py-16">
         <Reveal className="flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:gap-14">
-          <ShieldIcon className="text-gold h-11 w-11 shrink-0" />
+          <ShieldIcon className="text-ink h-11 w-11 shrink-0" />
 
           <div className="flex flex-col gap-2.5 lg:flex-1">
             <h2 className="text-ink font-[family-name:var(--font-display)] text-2xl leading-tight font-medium md:text-3xl">
               {guarantee.title}
             </h2>
-            <p className="text-graphite max-w-[62ch] text-base leading-relaxed">
+            <p className="text-ink/75 max-w-[62ch] text-base leading-relaxed">
               {guarantee.description}
             </p>
           </div>
 
           <Button
             href={links.profileAnalysis}
-            variant="outline"
+            variant="solid"
             size="lg"
             className="shrink-0"
           >

@@ -4,8 +4,27 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ## [Não publicado]
 
+### Alterado
+
+- **Paleta refeita nas três cores da escola: amarelo, branco e preto.** O
+  azul-marinho e o ouro fosco saíram por inteiro, inclusive dos cinzas de apoio,
+  que tinham viés frio. O amarelo obedece a uma regra de contraste: acento sobre
+  preto, preenchimento sólido sobre branco, nunca texto nem filete sobre branco.
+- Faixa de garantia passa a ser o único bloco amarelo de área grande da página.
+- Rótulo de seção passa de versalete em sans para serifa itálica. O versalete
+  continua nos micro-rótulos.
+- Botões passam a pílula. Quatro das cinco referências fazem isso.
+- Títulos de seção ganham variante com o rótulo em coluna estreita à esquerda.
+- **Todas as fotografias mockadas.** Cada lugar que receberá imagem exibe uma
+  reserva com o briefing do que produzir. As fotos do site anterior foram para
+  `acervo/fotos/`, fora do que é publicado.
+- Nenhum travessão em texto, comentário ou documentação do repositório.
+
 ### Adicionado
 
+- Assinatura tipográfica em escala arquitetônica no hero e no rodapé, cortada
+  pela borda, no recurso usado por Oxford e Lionheart.
+- Reserva de fundo para as dobras em que a foto ocupa a seção inteira.
 - Publicação automática no GitHub Pages a cada push na `main`, via
   `.github/workflows/deploy.yml`. O `basePath` e a URL canônica vêm da action
   `configure-pages`, então migrar para domínio próprio não exige mudança de
@@ -23,7 +42,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
   fora do que é publicado.
 - `robots.ts` e `sitemap.ts` marcados como `force-static`, exigência do export.
 
-## [0.1.0] — página institucional
+## [0.1.0] · página institucional
 
 ### Adicionado
 

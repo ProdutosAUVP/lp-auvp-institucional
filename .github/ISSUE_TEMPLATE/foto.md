@@ -6,7 +6,7 @@ labels: foto
 ---
 
 **Dobra e posição**
-<!-- Ex.: 06 — Comunidade, terceira foto -->
+<!-- Ex.: 06, Comunidade, terceira foto -->
 
 **Arquivo**
 <!-- Anexe aqui, ou informe onde está. Ver docs/ASSETS.md para o padrão técnico. -->

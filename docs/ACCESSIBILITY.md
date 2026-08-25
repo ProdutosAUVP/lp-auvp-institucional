@@ -1,6 +1,6 @@
 # Acessibilidade
 
-Meta: **WCAG 2.1 nível AA**. Não é uma formalidade — parte relevante do público
+Meta: **WCAG 2.1 nível AA**. Não é formalidade: parte relevante do público
 da AUVP tem mais de 50 anos e acessa por celular.
 
 ## O que já está implementado
@@ -20,7 +20,7 @@ o carrossel de apoios e a rolagem suave por âncora. Nenhum conteúdo depende de
 animação para ser lido.
 
 **Estrutura.** Um `<h1>` só, no hero. Cada dobra abre com `<h2>`; cards usam
-`<h3>`. As estatísticas são `<dl>/<dt>/<dd>` — o rótulo fica em `sr-only` no
+`<h3>`. As estatísticas são `<dl>/<dt>/<dd>`, com o rótulo em `sr-only` no
 `<dt>` para não duplicar a leitura visual.
 
 **Acordeão.** `<details>/<summary>` nativos: funcionam sem JavaScript, o teclado
@@ -32,7 +32,7 @@ já opera, e o estado é anunciado pelo leitor de tela sem `aria` extra.
 não ler os apoiadores duas vezes.
 
 **Imagens.** Todas têm `alt` descritivo em português, escrito no arquivo de
-conteúdo. Imagem puramente decorativa — o fundo da dobra de encerramento — leva
+conteúdo. Imagem puramente decorativa, como o fundo da dobra de encerramento, leva
 `alt=""` e `aria-hidden`.
 
 **Menu móvel.** `aria-expanded` e `aria-controls` no botão; a rolagem do corpo é
@@ -43,7 +43,7 @@ travada enquanto o painel está aberto.
 ## Ao contribuir
 
 - Todo elemento clicável é `<button>` ou `<a>`. Nunca `<div onClick>`.
-- Toda imagem nova precisa de `alt` — ou `alt=""` se for decorativa.
+- Toda imagem nova precisa de `alt`, ou `alt=""` se for decorativa.
 - Toda cor nova precisa passar 4,5:1 para texto e 3:1 para elemento gráfico.
 - Nenhuma informação transmitida só por cor.
 - Área de toque mínima de 44×44px em telas pequenas.

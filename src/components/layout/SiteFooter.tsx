@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
+import { Wordmark } from "@/components/ui/Wordmark";
 import { footerNav } from "@/content/navigation";
 import { contact, links, site } from "@/content/site";
 import { asset } from "@/lib/asset";
@@ -12,7 +13,7 @@ const social = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-ink-line bg-ink text-mist border-t">
+    <footer className="border-ink-line bg-ink text-mist relative overflow-hidden border-t">
       <Container className="py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="flex flex-col gap-6">
@@ -31,7 +32,7 @@ export function SiteFooter() {
 
           {footerNav.map((group) => (
             <nav key={group.title} aria-label={group.title}>
-              <h2 className="eyebrow text-gold-light mb-5">{group.title}</h2>
+              <h2 className="eyebrow text-yellow mb-5">{group.title}</h2>
               <ul className="flex flex-col gap-3">
                 {group.items.map((item) => (
                   <li key={`${group.title}-${item.label}`}>
@@ -48,7 +49,7 @@ export function SiteFooter() {
           ))}
 
           <nav aria-label="Canais">
-            <h2 className="eyebrow text-gold-light mb-5">Canais</h2>
+            <h2 className="eyebrow text-yellow mb-5">Canais</h2>
             <ul className="flex flex-col gap-3">
               {social.map((item) => (
                 <li key={item.label}>
@@ -86,6 +87,12 @@ export function SiteFooter() {
           </p>
         </div>
       </Container>
+
+      {/* Fecha a pagina com a mesma assinatura que a abre. */}
+      <Wordmark
+        variant="solid"
+        className="text-paper -mb-[6vw] text-center text-[30vw]"
+      />
     </footer>
   );
 }

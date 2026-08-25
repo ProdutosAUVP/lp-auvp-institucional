@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 
-type Variant = "solid" | "outline" | "outline-light" | "quiet";
+type Variant = "solid" | "yellow" | "outline" | "outline-light" | "quiet";
 type Size = "sm" | "md" | "lg";
 
 type ButtonProps = {
@@ -14,9 +14,17 @@ type ButtonProps = {
   external?: boolean;
 };
 
+/**
+ * Botao em pilula.
+ *
+ * O canto reto era a regra ate as referencias chegarem: Lionheart, Oxford,
+ * SOAS e Harvard usam pilula em todos os CTAs, e so a Penn mantem retangulo.
+ * A pilula suaviza o unico elemento da pagina que precisa parecer clicavel,
+ * sem tirar a rigidez de tudo o mais, que segue em canto reto.
+ */
 const base =
-  "inline-flex items-center justify-center gap-2 font-sans font-medium " +
-  "transition-colors duration-300 ease-out";
+  "inline-flex items-center justify-center gap-2 rounded-full font-sans " +
+  "font-medium transition-colors duration-300 ease-out";
 
 /** Deslocamento leve da seta no hover, para o botão responder ao ponteiro. */
 const arrowShift =
@@ -24,11 +32,12 @@ const arrowShift =
 
 const variants: Record<Variant, string> = {
   solid: "bg-ink text-paper hover:bg-ink-soft",
+  yellow: "bg-yellow text-ink hover:bg-yellow-soft",
   outline:
     "border border-ink/25 text-ink hover:border-ink hover:bg-ink hover:text-paper",
   "outline-light":
     "border border-paper/30 text-paper hover:border-paper hover:bg-paper hover:text-ink",
-  quiet: "text-gold-ink hover:text-ink underline-offset-[6px] hover:underline",
+  quiet: "text-ink underline-offset-[6px] hover:underline",
 };
 
 const sizes: Record<Size, string> = {

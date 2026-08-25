@@ -1,4 +1,4 @@
-/** Dobra 07 — garantia. */
+/** Dobra 07: garantia. */
 
 export const guarantee = {
   title: "Confiamos no que ensinamos.",

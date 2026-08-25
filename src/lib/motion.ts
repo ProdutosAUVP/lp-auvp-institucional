@@ -8,7 +8,7 @@ export function prefersReducedMotion() {
 
 /**
  * Heurística de capacidade: em aparelho fraco preferimos não subir uma cena
- * WebGL. Conservadora de propósito — na dúvida, roda.
+ * WebGL. Conservadora de propósito: na dúvida, roda.
  */
 export function canRunWebGL() {
   if (typeof window === "undefined") return false;

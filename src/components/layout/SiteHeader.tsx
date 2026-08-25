@@ -11,7 +11,7 @@ import { cn } from "@/lib/cn";
 
 /**
  * Barra fixa. Começa transparente sobre o hero em tinta e passa a papel
- * assim que a página rola — o mesmo recurso usado por sites institucionais
+ * assim que a página rola. É o mesmo recurso usado por sites institucionais
  * para não competir com a primeira dobra.
  */
 export function SiteHeader() {
@@ -72,7 +72,7 @@ export function SiteHeader() {
         <a
           href="#principal"
           className="flex shrink-0 items-center"
-          aria-label="AUVP Escola de Investimentos — início"
+          aria-label="AUVP Escola de Investimentos, início"
           onClick={() => setMenuOpen(false)}
         >
           <Image
@@ -118,7 +118,7 @@ export function SiteHeader() {
                   className={cn(
                     "absolute -bottom-1.5 left-0 h-px w-full origin-center scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100",
                     current && "scale-x-100",
-                    onPaper ? "bg-gold" : "bg-gold-light",
+                    onPaper ? "bg-ink" : "bg-yellow",
                   )}
                 />
               </a>
@@ -132,7 +132,7 @@ export function SiteHeader() {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "hidden border px-5 py-2.5 text-[0.8125rem] font-medium tracking-[0.06em] transition-colors duration-300 sm:inline-flex",
+              "hidden rounded-full border px-5 py-2.5 text-[0.8125rem] font-medium tracking-[0.06em] transition-colors duration-300 sm:inline-flex",
               onPaper
                 ? "border-ink/25 text-ink hover:bg-ink hover:text-paper"
                 : "border-paper/35 text-paper hover:bg-paper hover:text-ink",
@@ -193,7 +193,7 @@ export function SiteHeader() {
               href={links.studentArea}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-ink text-paper mt-5 mb-2 inline-flex justify-center px-6 py-3.5 text-sm font-medium tracking-[0.08em] sm:hidden"
+              className="bg-ink text-paper mt-5 mb-2 inline-flex justify-center rounded-full px-6 py-3.5 text-sm font-medium tracking-[0.08em] sm:hidden"
             >
               Área do aluno
             </a>

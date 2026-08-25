@@ -28,7 +28,7 @@ export function Mission() {
               ))}
             </div>
 
-            <p className="border-gold/60 text-ink border-l-2 pl-6 font-[family-name:var(--font-display)] text-xl leading-[1.5] italic md:text-2xl">
+            <p className="border-ink/35 text-ink border-l-2 pl-6 font-[family-name:var(--font-display)] text-xl leading-[1.5] italic md:text-2xl">
               {mission.principle}
             </p>
 
@@ -43,6 +43,7 @@ export function Mission() {
                 src={mission.photo.src}
                 alt={mission.photo.alt}
                 caption={mission.photo.caption}
+                brief={mission.photo.brief}
                 ratio="4/3"
                 sizes="(min-width: 1024px) 52vw, 100vw"
               />

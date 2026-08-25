@@ -16,6 +16,7 @@ export function Initiatives() {
     <Section id="iniciativas" tone="paper" rule>
       <Container width="wide">
         <SectionHeading
+          rail
           eyebrow={initiatives.eyebrow}
           title={initiatives.title}
           subtitle={initiatives.subtitle}
@@ -35,7 +36,7 @@ export function Initiatives() {
                   href={product.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group hover:bg-paper-warm flex h-full flex-col gap-3 p-7 transition-colors duration-500"
+                  className="group hover:bg-paper-soft flex h-full flex-col gap-3 p-7 transition-colors duration-500"
                 >
                   <h3 className="text-ink font-[family-name:var(--font-display)] text-2xl leading-tight font-medium">
                     {product.name}
@@ -43,7 +44,7 @@ export function Initiatives() {
                   <p className="text-graphite flex-1 text-sm leading-relaxed">
                     {product.description}
                   </p>
-                  <span className="eyebrow text-gold-ink mt-2 flex items-center gap-2 transition-transform duration-500 group-hover:translate-x-1">
+                  <span className="eyebrow text-ink mt-2 flex items-center gap-2 transition-transform duration-500 group-hover:translate-x-1">
                     Saiba mais
                     <ArrowRight className="h-3 w-3" />
                   </span>
@@ -85,7 +86,7 @@ export function Initiatives() {
                       href={partnership.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="eyebrow text-gold-ink hover:text-ink mt-2 inline-flex w-fit items-center gap-2 transition-colors duration-300"
+                      className="eyebrow text-ink/70 hover:text-ink mt-2 inline-flex w-fit items-center gap-2 transition-colors duration-300"
                     >
                       Saiba mais
                       <ArrowRight className="h-3 w-3" />

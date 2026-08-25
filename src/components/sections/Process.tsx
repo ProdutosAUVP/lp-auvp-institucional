@@ -37,7 +37,7 @@ export function Process() {
               </div>
               <Button
                 href={links.profileAnalysis}
-                variant="outline-light"
+                variant="yellow"
                 size="lg"
                 className="shrink-0 self-start lg:self-auto"
               >
@@ -68,11 +68,11 @@ export function Process() {
 
 function StepLabel({ step, label }: { step: string; label: string }) {
   return (
-    <p className="text-gold-light flex items-baseline gap-4">
+    <p className="text-yellow flex items-baseline gap-4">
       <span className="font-[family-name:var(--font-display)] text-3xl leading-none font-medium tracking-tight">
         {step}
       </span>
-      <span aria-hidden className="bg-gold-light/50 h-px w-8 self-center" />
+      <span aria-hidden className="bg-yellow/50 h-px w-8 self-center" />
       <span className="eyebrow">{label}</span>
     </p>
   );

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { HeroBackdrop, HeroForeground } from "@/components/motion/HeroScroll";
 import { LineReveal } from "@/components/motion/LineReveal";
+import { BackdropReserve } from "@/components/ui/Figure";
+import { Wordmark } from "@/components/ui/Wordmark";
 import { hero } from "@/content/hero";
 import { asset } from "@/lib/asset";
 import { links } from "@/content/site";
@@ -18,14 +20,18 @@ export function Hero() {
       className="bg-ink text-paper relative isolate flex min-h-[92svh] items-center overflow-hidden pt-32 pb-24"
     >
       <HeroBackdrop>
-        <Image
-          src={asset(hero.photo.src)}
-          alt={hero.photo.alt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[62%_center] opacity-55"
-        />
+        {hero.photo.src ? (
+          <Image
+            src={asset(hero.photo.src)}
+            alt={hero.photo.alt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[62%_center] opacity-55"
+          />
+        ) : (
+          <BackdropReserve brief={hero.photo.brief} />
+        )}
       </HeroBackdrop>
       {/* Véus sobrepostos: garantem contraste do texto sobre qualquer recorte. */}
       <div
@@ -34,16 +40,19 @@ export function Hero() {
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(12,26,42,0.72)_78%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(16,16,16,0.74)_78%)]"
       />
+
+      {/* Assinatura em escala arquitetonica, cortada pela base da dobra. */}
+      <Wordmark className="text-paper/25 absolute inset-x-0 -bottom-[7vw] text-center text-[26vw]" />
 
       <HeroForeground>
         <Container>
           <div className="mx-auto flex max-w-[52rem] flex-col items-center gap-8 text-center">
-            <p className="eyebrow text-gold-light flex items-center gap-4">
-              <span aria-hidden className="bg-gold-light/50 h-px w-10" />
+            <p className="eyebrow text-yellow flex items-center gap-4">
+              <span aria-hidden className="bg-yellow/50 h-px w-10" />
               {hero.positioning}
-              <span aria-hidden className="bg-gold-light/50 h-px w-10" />
+              <span aria-hidden className="bg-yellow/50 h-px w-10" />
             </p>
 
             <LineReveal
@@ -58,7 +67,7 @@ export function Hero() {
 
             <Button
               href={links.profileAnalysis}
-              variant="outline-light"
+              variant="yellow"
               size="lg"
               className="mt-2"
             >

@@ -1,4 +1,4 @@
-# Publicação — GitHub Pages
+# Publicação no GitHub Pages
 
 O site é gerado como HTML estático e publicado no GitHub Pages pelo workflow
 `.github/workflows/deploy.yml`, a cada push na `main`.
@@ -16,7 +16,7 @@ antes do primeiro deploy.
 2. Em **Source**, escolha **GitHub Actions** (não "Deploy from a branch").
 3. Pronto. O próximo push na `main` publica.
 
-Para publicar sem esperar um commit novo: **Actions → Deploy — GitHub Pages →
+Para publicar sem esperar um commit novo: **Actions → Deploy no GitHub Pages →
 Run workflow**.
 
 O primeiro deploy leva de 2 a 3 minutos, e o endereço pode demorar mais alguns
@@ -58,23 +58,23 @@ Em desenvolvimento local as duas ficam vazias e o site roda em `/`.
 
 Estão em `next.config.ts` e no workflow. Cada um resolve uma falha concreta:
 
-**`output: "export"`** — gera a pasta `out/` com HTML pronto, em vez de exigir um
+**`output: "export"`** gera a pasta `out/` com HTML pronto, em vez de exigir um
 servidor Node.
 
-**`trailingSlash: true`** — cada rota vira uma pasta com `index.html`. Sem isso,
+**`trailingSlash: true`** faz cada rota virar uma pasta com `index.html`. Sem isso,
 o Pages devolve 404 em qualquer caminho que não seja a raiz.
 
-**`images.unoptimized: true`** — o Pages serve arquivos, não roda o otimizador de
+**`images.unoptimized: true`** porque o Pages serve arquivos, não roda o otimizador de
 imagem do Next.
 
-**`touch out/.nojekyll`** (no workflow) — o Pages processa o site com Jekyll por
+**`touch out/.nojekyll`** (no workflow) porque o Pages processa o site com Jekyll por
 padrão, e o Jekyll ignora pastas iniciadas por underscore. O Next serve tudo de
 `_next`. Sem esse arquivo, o site sobe sem CSS e sem JavaScript.
 
 ### E um que não é óbvio: `asset()`
 
 Com `images.unoptimized`, o `next/image` **não** aplica o `basePath` ao `src`.
-Ele aplica aos chunks e às fontes, mas não às imagens — então toda fotografia e
+Ele aplica aos chunks e às fontes, mas não às imagens, então toda fotografia e
 todo logo dariam 404 sob subcaminho.
 
 Por isso existe `src/lib/asset.ts`. Todo componente que renderiza `<Image>`
@@ -95,7 +95,7 @@ erro que passa despercebido no `npm run dev` e só aparece em produção.
 
 ## Peso das imagens
 
-Sem o otimizador do Next, o navegador baixa o arquivo original — não há
+Sem o otimizador do Next, o navegador baixa o arquivo original. Não há
 redimensionamento por breakpoint. Antes de adicionar qualquer foto, gere a
 versão final no tamanho de uso (o padrão está em `docs/ASSETS.md`):
 
@@ -141,7 +141,7 @@ Quando o DNS estiver disponível:
 2. **No DNS da AUVP**, crie um registro `CNAME` do subdomínio apontando para
    `produtosauvp.github.io`.
    _(Domínio de raiz, sem subdomínio, exige registros `A` para os IPs do Pages
-   em vez de `CNAME` — ver a documentação do GitHub Pages.)_
+   em vez de `CNAME`. Ver a documentação do GitHub Pages.)_
 3. Aguarde a verificação e marque **Enforce HTTPS**.
 4. **Não é preciso mexer em código.** A `configure-pages` passa a devolver a raiz
    e o próximo deploy sai sem `basePath`.
@@ -156,7 +156,7 @@ Quando o DNS estiver disponível:
 - [ ] Todos os links de `src/content/site.ts` respondem
 - [ ] O número do WhatsApp em `links.whatsapp` está correto
 - [ ] `/robots.txt` e `/sitemap.xml` carregam e trazem a URL certa
-- [ ] Nenhuma reserva de "Foto pendente" visível — ou é decisão consciente
+- [ ] Nenhuma reserva de "Foto pendente" visível, ou é decisão consciente
       (ver `docs/ASSETS.md`)
 - [ ] Lighthouse mobile: referência de 95+ em Performance, Accessibility, Best
       Practices e SEO
@@ -165,7 +165,7 @@ Quando o DNS estiver disponível:
 
 - Enviar `sitemap.xml` no Google Search Console.
 - Validar o dado estruturado no
-  [Rich Results Test](https://search.google.com/test/rich-results) — a página
+  [Rich Results Test](https://search.google.com/test/rich-results). A página
   declara `EducationalOrganization` e `FAQPage`.
 
 > **Enquanto o site estiver em `produtosauvp.github.io`,** evite divulgá-lo como

@@ -1,252 +1,232 @@
 # Banco de imagens
 
-Diagnóstico do material existente, direção de recorte e briefing do que ainda
-precisa ser produzido. Este é o documento de trabalho entre o time de conteúdo,
-o time de design e a produção audiovisual.
+**Estado atual: todas as fotografias da página estão mockadas.** Nenhuma foto
+real é exibida. Cada lugar que receberá imagem mostra uma reserva editorial com
+o briefing do que precisa ser produzido.
+
+Este é o documento de trabalho entre conteúdo, design e produção audiovisual.
 
 ---
 
-## 1. Como a página trata uma foto que ainda não existe
+## 1. Como funciona a reserva de foto
 
-Nenhuma dobra fica quebrada por falta de imagem. Em `src/content/*.ts`, um item
-com `src: null` faz o componente `Figure` renderizar uma **reserva editorial**:
-moldura em régua fina, o rótulo `Foto pendente` e o briefing da foto em itálico.
+Em `src/content/*.ts`, um item com `src: null` faz o componente `Figure`
+desenhar uma moldura com hachura amarela, o rótulo `Foto pendente` e o briefing
+em itálico:
 
 ```ts
-{
-  src: null,
-  alt: "Palestra do Private Day da AUVP, com auditório lotado.",
-  caption: "Private Day 2025 · Palestras",
-  brief: "Palco e plateia — paisagem 16:9",
-}
+photo: {
+  /** Arquivado em acervo/fotos/sede-auvp-capital.webp */
+  src: null as string | null,
+  alt: "Sede da AUVP, em Goiânia.",
+  caption: "Sede, Goiânia, Goiás",
+  brief: "interior da sede: biblioteca, auditório ou sala de aula, paisagem 4:3",
+},
 ```
 
-Quando a foto chega, basta trocar `null` pelo caminho em `/public/images/`. Nada
-mais muda. Enquanto isso, a página pode ir para revisão interna sem parecer
-inacabada, e qualquer pessoa que abrir o site vê exatamente o que falta.
+Nas dobras em que a foto é o fundo da seção inteira (hero e encerramento), a
+moldura não caberia: entra a `BackdropReserve`, que aplica só a textura e uma
+etiqueta discreta no rodapé da dobra.
+
+**Para publicar uma foto**, coloque o arquivo em `public/images/` e troque
+`null` pelo caminho. Nada mais muda.
 
 ---
 
-## 2. Acervo existente — o que aproveitamos
+## 2. Fotos que a página espera
 
-Cinco arquivos do site antigo sobreviveram à mudança de linguagem visual.
+Onze imagens no total. As três primeiras são as mais urgentes, porque são as
+únicas dobras cujo argumento depende de gente na tela.
 
-### `raul-sena-biblioteca.webp` — 1761×1080
+### Prioridade alta
 
-**O melhor ativo do acervo.** Raul em estúdio com marcenaria escura, estantes de
-livros encadernados, poltrona de couro, quadro emoldurado. É literalmente o
-repertório visual de Wharton, Yale e Harvard: madeira, papel, luz quente.
-
-- **Uso atual:** fundo da dobra de encerramento (`ClosingCta`), em 25% de
-  opacidade sob véu de tinta.
-- **Recorte sugerido para uso futuro em destaque:** cortar a câmera desfocada do
-  primeiro plano à direita (aprox. 22% da largura) e fechar em 3:2 sobre o
-  conjunto estante + poltrona. O elemento de produção de vídeo entrega "creator",
-  não "instituição de ensino" — a estante entrega o contrário.
-- **Atenção:** há uma boneca e objetos pessoais na estante superior esquerda.
-  Num crop fechado eles saem. Num plano aberto, pesam contra o tom institucional.
-
-### `sede-auvp-capital.webp` — 1920×1080
-
-Fachada da sede em Goiânia: painel verde-escuro, letreiro em dourado escovado,
-vidro, madeira clara no interior. Arquitetura sóbria, exatamente o que a dobra de
-missão pede.
-
-- **Uso atual:** dobra 03 (Missão), em 4:3.
-- **Recorte sugerido:** o enquadramento atual em 16:9 tem ar demais no topo. Para
-  o 4:3 usado na página, o corte ideal é centrado no letreiro, mantendo o galho
-  de árvore do canto superior esquerdo — ele dá profundidade e evita que a
-  fachada vire uma foto de catálogo imobiliário.
-- **Observação:** a versão "desktop" do site antigo (1200×728) era um recorte mais
-  fechado e de qualidade inferior. Foi descartada.
-
-### `raul-sena-palco-b3.webp` — 2560×1170
-
-Raul ao microfone em ambiente corporativo azul. Já vem em recorte panorâmico com
-o sujeito deslocado para a direita.
-
-- **Uso atual:** fundo do hero, com `object-position: 62% center` e véus de tinta
-  por cima. O deslocamento à direita é justamente o que abre espaço para o texto
-  centralizado.
-- **Limite:** em telas muito estreitas o rosto entra na zona do headline. O
-  `object-position` já compensa, mas se um dia a foto for trocada, manter a mesma
-  regra de composição — **sujeito fora do terço central**.
-
-### `raul-sena-ipo-auvp11.webp` — 6192×4128
-
-Raul de camiseta AUVP11 discursando no que é claramente a cerimônia de listagem
-na B3 (painel azul institucional ao fundo).
-
-- **Uso atual:** dobra 09 (Nossos ETFs). É a foto certa para a dobra certa: prova
-  visual de que os ETFs existem e foram listados em bolsa.
-- **Recorte sugerido:** o arquivo é enorme e tem muita área morta. Um crop 4:3
-  fechado no busto + painel da B3 reduz o peso do arquivo em ~70% e reforça o
-  contexto de bolsa. Recomendo gerar uma versão derivada de no máximo 2000px de
-  largura.
-
-### `raul-sena-retrato.webp` — 1841×1938
-
-Retrato posado de Raul à mesa, com o letreiro de neon da AUVP ao fundo.
-
-- **Uso atual:** nenhum.
-- **Por quê:** o neon é o logo **antigo** (olho espiral, tipografia arredondada).
-  Conflita frontalmente com o logo serifado que a página inteira usa.
-- **Como aproveitar:** crop vertical 3:4 fechado no busto, cortando todo o lado
-  direito da imagem. Sem o neon, sobra um retrato de fundo escuro e luz lateral
-  quente — ótimo para um bloco "Quem fundou a AUVP" ou para a resposta
-  correspondente no FAQ. **Recomendo fazer esse recorte.**
-
----
-
-## 3. Acervo existente — o que foi arquivado
-
-Os arquivos abaixo estão em `acervo/legado/`, **fora de `public/`**. Não foram
-apagados porque podem ter valor de histórico, mas **não devem entrar na página**.
-
-A pasta ficou fora de `public/` de propósito: o site é publicado como export
-estático, e tudo que está em `public/` é copiado para o build e servido a cada
-visitante. Arquivo arquivado não paga banda.
-
-| Arquivo                                  | Por que não entra                                                                                                                                                      |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `modulo-1..7`, `modulo-bonus`            | Cards do branding antigo: preto e ouro, sans-serif condensada, ícones em degradê metálico. Substituídos por ícones em traço fino (`src/components/ui/ModuleIcon.tsx`). |
-| `prancheta-55-300x300.png`               | Selo "Garantia 100% AUVP" skeuomórfico, com relevo e estrelas. O roteiro pede "ícone simples de escudo com check" — feito em SVG.                                      |
-| `computer-contador-de-pr-xima-turma.png` | Mockup de contagem regressiva de campanha. Urgência de lançamento é o oposto do tom institucional.                                                                     |
-
-Também foi descartado o `hero (1).webp`: duplicata byte a byte de `hero.webp`.
-
----
-
-## 4. O que precisa ser produzido
-
-Sete fotos e quatro logos. Ordenados por impacto na página.
-
-### Prioridade alta — dobras que hoje estão sem imagem nenhuma
-
-**1. Private Day — três fotos** (dobra 06, Comunidade)
-
-A dobra inteira depende delas. Sem foto de gente, o argumento de comunidade não
-se sustenta.
+**Private Day, três fotos** (dobra 06, Comunidade)
 
 | #   | Enquadramento         | Proporção    | O que precisa aparecer                                                                  |
 | --- | --------------------- | ------------ | --------------------------------------------------------------------------------------- |
-| 1   | Plano aberto do salão | 3:4 vertical | Volume de pessoas. Mesas, taças, conversa. Ninguém olhando para a câmera.               |
-| 2   | Palco e plateia       | 3:4 vertical | Palestrante de costas ou de perfil em primeiro plano, plateia cheia ao fundo e em foco. |
+| 1   | Plano aberto do salão | 3:4 vertical | Volume de pessoas. Mesas, conversa. Ninguém olhando para a câmera.                      |
+| 2   | Palco e plateia       | 3:4 vertical | Palestrante de costas ou de perfil em primeiro plano, plateia cheia e em foco ao fundo. |
 | 3   | Grupo em conversa     | 3:4 vertical | Três a cinco pessoas de pé, em conversa real. Roupa social ou smart casual.             |
 
-**Direção:** luz ambiente, sem flash direto. Preferir o momento das palestras ao
-da festa — o roteiro fala em "escola", e taça de espumante em plano fechado puxa
-para "evento de network". Se só houver material da confraternização, escolher
-quadros em plano aberto, onde o ambiente pesa mais que o copo.
+Luz ambiente, sem flash direto. Preferir o momento das palestras ao da festa: o
+roteiro fala em "escola", e taça de espumante em plano fechado puxa para "evento
+de network". Se só houver material da confraternização, escolher quadros em
+plano aberto, onde o ambiente pesa mais que o copo.
 
-**2. Reconhecimento BTG Pactual** (dobra 08)
+**Reconhecimento BTG Pactual** (dobra 08), 4:3 paisagem
 
-Entrega do prêmio, no palco, 4:3 paisagem. Precisa ler "instituição reconhecendo
-instituição": placa ou troféu visível, aperto de mãos ou pose formal, marca do
-BTG legível no fundo. Se não houver registro do palco, uma foto do troféu sobre
-mesa escura com luz lateral resolve — e é mais elegante que uma foto ruim de
-palco.
+Entrega do prêmio, no palco. Precisa ler "instituição reconhecendo instituição":
+placa ou troféu visível, aperto de mãos ou pose formal, marca do BTG legível ao
+fundo. Sem registro do palco, uma foto do troféu sobre mesa escura com luz
+lateral resolve, e é mais elegante que uma foto ruim de evento.
 
-**3. CEIA / UFG** (dobra 08)
+**CEIA e UFG** (dobra 08), 4:3 paisagem
 
-Dia das palestras no centro de pesquisa, 4:3 paisagem. O valor aqui é o contexto
-acadêmico: sala de aula, auditório universitário, laboratório. Uma foto de
-palestrante isolado não comunica a parceria — precisa aparecer o ambiente da
-universidade.
+Dia das palestras no centro de pesquisa. O valor está no contexto acadêmico:
+sala de aula, auditório universitário, laboratório. Palestrante isolado não
+comunica a parceria; precisa aparecer o ambiente da universidade.
 
-**4. Relações internacionais** (dobra 08)
+**Relações internacionais** (dobra 08), 4:3 paisagem
 
-Raul ou Caju com embaixador, 4:3 paisagem. Cenário formal: bandeiras, sala de
-recepção diplomática, ou o set do AUVP Atlas. Aperto de mãos ou os dois sentados
-em entrevista. Evitar foto de celular e fundo de corredor.
+Raul ou Caju com embaixador. Cenário formal: bandeiras, sala de recepção
+diplomática, ou o set do AUVP Atlas. Aperto de mãos ou os dois sentados em
+entrevista. Evitar foto de celular e fundo de corredor.
 
-**5. AUVP Experience — Missão China** (dobra 08)
+**AUVP Experience, Missão China** (dobra 08), 4:3 paisagem
 
-Delegação em visita técnica, 4:3 paisagem. Grupo dentro de uma fábrica, centro de
-inovação ou sede de empresa — o argumento é "imersão executiva", então o cenário
-precisa ser de trabalho, não turístico. Foto da delegação na Muralha da China
-seria a escolha errada.
+Delegação em visita técnica. Fábrica, centro de inovação ou sede de empresa. O
+argumento é "imersão executiva", então o cenário precisa ser de trabalho. Foto
+na Muralha da China seria a escolha errada.
 
-### Prioridade média — melhoram muito, mas há alternativa
+### Prioridade média
 
-**6. Interior da sede** (dobra 03)
+**Hero** (dobra 01), paisagem 21:9 ou mais largo
 
-Hoje a missão usa a fachada. Uma foto interna — biblioteca, auditório, sala de
-aula, mesa de reunião com luz natural — daria à dobra de missão o mesmo peso que
-a fachada dá de fora. Formato 4:3 ou 3:2. Se existir, substitui a fachada; se
-não, a fachada continua sendo uma boa solução.
+Plano do palco ou da sala de aula, com o sujeito **fora do terço central**: o
+headline ocupa o centro da tela. Enquanto não existe, o hero funciona bem com a
+textura e a assinatura tipográfica, então não há pressa.
 
-**7. Retrato institucional do fundador** (FAQ / bloco fundador)
+**Interior da sede** (dobra 03), 4:3 ou 3:2
 
-Ver a nota sobre `raul-sena-retrato.webp` acima: pode sair de um recorte do que
-já temos. Se for refotografar, o pedido é retrato 3:4, fundo escuro neutro, luz
-lateral quente, olhar para a câmera, sem o neon antigo no quadro.
+Biblioteca, auditório, sala de aula, mesa de reunião com luz natural. A fachada
+existe no acervo e resolveria, mas o interior comunica escola; a fachada
+comunica escritório.
 
-### Logos dos parceiros (dobra 10)
+**Cerimônia de listagem na B3** (dobra 09), 4:3 paisagem
 
-Hoje o carrossel exibe os nomes em versalete espaçado — funciona, e é honesto,
-mas logo é mais forte.
+Pregão no dia da listagem de um ETF. Existe registro no acervo, arquivado.
 
-Necessário: **CEIA, BTG Pactual, Governo de Goiás, R7**, em SVG monocromático,
-traçado em preto puro, sem fundo, sem sombra. A página aplica opacidade e
-`grayscale`, então versões coloridas não são necessárias — mas **versões em PNG
-com fundo branco não servem**, porque o fundo aparece sobre o papel.
+**Encerramento** (dobra final), paisagem larga
 
-Destino: `public/images/brand/`. Depois é só preencher o campo `logo` em
-`src/content/endorsements.ts`.
+Estúdio com estantes de livros, plano aberto. Serve de fundo em baixa
+opacidade, então tolera imagem menos perfeita. Existe registro no acervo.
+
+### Logos dos apoiadores (dobra 10)
+
+Hoje o carrossel exibe os nomes em versalete espaçado, o que funciona e é
+honesto, mas logo é mais forte.
+
+**Três dos quatro já existem.** O site de produção da escola
+(`ProdutosAUVP/lp-auvp-escola-prod`) referencia BTG Pactual, Governo de Goiás e
+R7 no mesmo CDN de onde vieram as fotos originais. Os endereços estão anotados
+no campo `origem` de `src/content/endorsements.ts`, e podem ser baixados de uma
+vez:
+
+```bash
+mkdir -p public/images/brand
+curl -L "https://cdn.asupernova.com.br/lp-auvp/vite/btg%20pactual.png" \
+  -o public/images/brand/btg-pactual.png
+curl -L "https://cdn.asupernova.com.br/lp-auvp/vite/1-1024x596.webp" \
+  -o public/images/brand/governo-de-goias.webp
+curl -L "https://cdn.asupernova.com.br/lp-auvp/vite/r7-300x257-1.webp" \
+  -o public/images/brand/r7.webp
+```
+
+Depois é só preencher o campo `logo` em `src/content/endorsements.ts`.
+
+**Confira antes de publicar.** São arquivos rasterizados, não SVG, e vêm de uma
+página com fundo escuro:
+
+- **Fundo transparente é obrigatório.** O carrossel fica sobre papel branco. Se
+  o PNG vier com fundo branco, aparece um retângulo; se vier com fundo escuro,
+  aparece um bloco preto.
+- **O do Governo de Goiás merece atenção.** O arquivo se chama
+  `1-1024x596.webp` e tem proporção de banner, não de logotipo. Pode ser uma
+  arte com fundo, e não a marca isolada.
+- **O ideal continua sendo SVG monocromático**, traçado em preto puro, sem fundo
+  e sem sombra. A página aplica opacidade e `grayscale`, então versão colorida
+  não é necessária. Se o time de design tiver os vetores, eles são preferíveis
+  aos rasterizados do CDN.
+
+**O CEIA não está em nenhum dos dois repositórios.** Precisa ser pedido ao time
+do CEIA ou à UFG, de preferência em SVG.
 
 > **Direito de uso:** logo de terceiro exige autorização de uso da marca. Antes
-> de publicar, confirmar com o jurídico que existe permissão para cada um dos
-> quatro — especialmente Governo de Goiás e BTG Pactual.
+> de publicar, confirmar com o jurídico que existe permissão para os quatro,
+> especialmente Governo de Goiás e BTG Pactual.
 
 ---
 
-## 5. Padrão técnico para toda foto nova
+## 3. O acervo arquivado
 
-| Item           | Regra                                                                                 |
-| -------------- | ------------------------------------------------------------------------------------- |
-| Formato        | `.webp`, qualidade 80–85                                                              |
-| Largura máxima | 2400px (fotos de faixa larga) · 1600px (cards e retratos)                             |
-| Peso alvo      | até 250 KB por arquivo                                                                |
-| Nome           | minúsculas, sem acento, separado por hífen: `private-day-2025-palestras.webp`         |
-| Local          | `public/images/`                                                                      |
-| Proporção      | respeitar a coluna `ratio` da tabela acima — o recorte é feito no arquivo, não no CSS |
+Nada em `acervo/` é publicado. A pasta está fora de `public/` de propósito: o
+site é export estático, e tudo que fica em `public/` é copiado para o build e
+servido a cada visitante.
+
+### `acervo/fotos/`, material aproveitável
+
+Cinco fotos do site anterior, tiradas da página quando as imagens foram
+mockadas. Continuam disponíveis e valem consideração quando a produção começar.
+
+| Arquivo                     | Leitura                                                                                                                                   | Recorte sugerido                                                                                                                                                                                                                                                         |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `raul-sena-biblioteca.webp` | O melhor ativo do acervo. Marcenaria escura, estantes de livros encadernados, poltrona de couro. É o repertório visual de Wharton e Yale. | Cortar a câmera desfocada do primeiro plano à direita (cerca de 22% da largura) e fechar em 3:2 sobre estante e poltrona. O equipamento de vídeo entrega "creator"; a estante entrega o contrário. Atenção à boneca e aos objetos pessoais na estante superior esquerda. |
+| `sede-auvp-capital.webp`    | Fachada da sede em Goiânia. Painel verde-escuro, letreiro dourado, arquitetura sóbria.                                                    | Para 4:3, cortar centrado no letreiro mantendo o galho de árvore do canto superior esquerdo, que dá profundidade e evita a leitura de catálogo imobiliário. **Nota de marca:** o verde e o dourado da fachada não pertencem à paleta da escola.                          |
+| `raul-sena-palco-b3.webp`   | Ambiente corporativo azul, sujeito deslocado para a direita.                                                                              | **O azul do fundo conflita com a paleta.** Se for usada, precisa de tratamento em preto e branco.                                                                                                                                                                        |
+| `raul-sena-ipo-auvp11.webp` | Cerimônia de listagem na B3, painel azul institucional ao fundo.                                                                          | Crop 4:3 fechado no busto e no painel. Mesmo problema de azul, mesma solução.                                                                                                                                                                                            |
+| `raul-sena-retrato.webp`    | Retrato posado, letreiro de neon ao fundo.                                                                                                | O neon é o **logo antigo**, que conflita com a serifa. Crop vertical 3:4 fechado no busto, cortando todo o lado direito. Sem o neon, sobra um retrato de fundo escuro e luz lateral quente, ótimo para um bloco de fundador.                                             |
+
+### `acervo/legado/`, branding antigo
+
+Fora de uso, e não devem entrar na página.
+
+| Arquivo                                  | Por que não entra                                                                                                                                                |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `modulo-1` a `modulo-7`, `modulo-bonus`  | Cards do branding antigo: preto e ouro, sans condensada, ícones em degradê metálico. Substituídos por ícones em traço fino (`src/components/ui/ModuleIcon.tsx`). |
+| `prancheta-55-300x300.png`               | Selo "Garantia 100% AUVP" skeuomórfico, com relevo e estrelas. O roteiro pede ícone simples de escudo com check, feito em SVG.                                   |
+| `computer-contador-de-proxima-turma.png` | Mockup de contagem regressiva de campanha. Urgência de lançamento é o oposto do tom institucional.                                                               |
+
+Também foi descartado o `hero (1).webp`, duplicata byte a byte de `hero.webp`.
+
+---
+
+## 4. Padrão técnico
+
+| Item              | Regra                                                                         |
+| ----------------- | ----------------------------------------------------------------------------- |
+| Formato           | `.webp`, qualidade 80 a 85                                                    |
+| Largura máxima    | 2400px em faixa larga, 1600px em card e retrato                               |
+| Peso alvo         | até 250 KB por arquivo                                                        |
+| Redimensionamento | obrigatório antes do commit                                                   |
+| Nome              | minúsculas, sem acento, separado por hífen: `private-day-2025-palestras.webp` |
+| Local             | `public/images/`                                                              |
+| Proporção         | recorte feito no arquivo, não no CSS                                          |
 
 **Sobre redimensionar:** o site roda em hospedagem estática, sem o otimizador de
 imagem do Next. O navegador baixa o arquivo exatamente como ele está no
-repositório — não há variante por breakpoint. Uma foto de 6000px custa a mesma
-banda no celular e no desktop.
+repositório, sem variante por breakpoint. Uma foto de 6000px custa a mesma banda
+no celular e no desktop.
 
 ```bash
 npx sharp-cli --input original.jpg --output public/images/nome-da-foto.webp \
   resize 2000 --withoutEnlargement -- webp --quality 82
 ```
 
-As fotos que vieram do site antigo já passaram por isso: a da B3 saiu de
-6192px/606 KB para 2000px/55 KB, e a do palco de 2560px/538 KB para 2000px/40 KB,
-sem diferença visível no tamanho em que aparecem na tela.
+As fotos do acervo já passaram por isso: a da B3 saiu de 6192px e 606 KB para
+2000px e 55 KB, e a do palco de 2560px e 538 KB para 2000px e 40 KB, sem
+diferença visível no tamanho em que apareciam na tela.
 
-**Sobre acento e espaço em nome de arquivo:** os arquivos originais chegaram com
-nomes como `Conhe%C3%A7a%20Raul%20Sena%20mobile.webp`. Isso quebra em servidor
-Linux e em CDN. Todo arquivo novo entra já normalizado.
+**Sobre acento e espaço em nome de arquivo:** os arquivos originais chegaram
+como `Conhe%C3%A7a%20Raul%20Sena%20mobile.webp`. Isso quebra em servidor Linux e
+em CDN. Todo arquivo novo entra normalizado.
 
 **Texto alternativo:** toda imagem precisa de `alt` descritivo em português, no
 próprio arquivo de conteúdo. Descreve o que se vê, não o que se quer provar:
-"Raul Sena discursa na cerimônia de listagem de um ETF da AUVP na B3", não
+"Raul Sena discursa na cerimônia de listagem de um ETF da AUVP na B3", e não
 "Sucesso da AUVP na bolsa".
 
 ---
 
-## 6. Direção de fotografia — o padrão da instituição
+## 5. Direção de fotografia
 
-Para que o conjunto leia como uma escola clássica, e não como um funil de
-lançamento:
+Para que o conjunto leia como escola clássica, e não como funil de lançamento:
 
-- **Luz natural ou contínua quente.** Nunca flash direto na cara.
-- **Cor dessaturada.** Madeira, papel, tinta, latão. Sem laranja e azul de
-  colorização agressiva.
+- **Luz natural ou contínua quente.** Nunca flash direto no rosto.
+- **Cor dessaturada.** Madeira, papel, preto, branco. A paleta da escola é
+  amarelo, branco e preto: fotografia com dominante azul ou verde briga com ela.
+  Quando o cenário não colabora, preto e branco resolve e é mais elegante.
 - **Pessoas trabalhando, não posando.** Olhar para a câmera só em retrato formal.
-- **Arquitetura entra no quadro.** Pé-direito, estante, janela, coluna. O espaço
+- **Arquitetura no quadro.** Pé-direito, estante, janela, coluna. O espaço
   físico é parte do argumento de solidez.
 - **Sem elemento de urgência.** Contagem regressiva, seta, selo, círculo vermelho.
 - **Sem o branding antigo no quadro.** Olho espiral e tipografia arredondada

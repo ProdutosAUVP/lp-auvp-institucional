@@ -52,7 +52,7 @@ export function Reveal({
 
   return (
     <Tag
-      // @ts-expect-error — ref polimórfico entre div/li/article
+      // @ts-expect-error: ref polimórfico entre div/li/article
       ref={ref}
       className={cn("reveal", visible && "reveal-in", className)}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}

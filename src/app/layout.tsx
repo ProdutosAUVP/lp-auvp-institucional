@@ -25,8 +25,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.shortName} — ${site.tagline}`,
-    template: `%s — ${site.name}`,
+    default: `${site.shortName}. ${site.tagline}`,
+    template: `%s | ${site.name}`,
   },
   description: site.description,
   applicationName: site.shortName,
@@ -49,12 +49,12 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: site.url,
     siteName: site.shortName,
-    title: `${site.shortName} — ${site.tagline}`,
+    title: `${site.shortName}. ${site.tagline}`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.shortName} — ${site.tagline}`,
+    title: `${site.shortName}. ${site.tagline}`,
     description: site.description,
   },
   robots: {
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0c1a2a",
+  themeColor: "#101010",
   colorScheme: "light",
 };
 

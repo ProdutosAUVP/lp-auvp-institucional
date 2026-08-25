@@ -1,4 +1,4 @@
-/** Dobra 09 — nossos ETFs. */
+/** Dobra 09: nossos ETFs. */
 
 export type Etf = {
   ticker: string;
@@ -14,9 +14,11 @@ export const etfsSection = {
     "Fundos de índice construídos com método, não com achismo. Quatro estratégias para acompanhar a evolução da carteira do investidor, cada uma com regras claras e transparentes.",
   ctaLabel: "Conheça todos os ETFs da AUVP",
   photo: {
-    src: "/images/raul-sena-ipo-auvp11.webp",
-    alt: "Raul Sena discursa na cerimônia de listagem de um ETF da AUVP na B3.",
+    /** Arquivado em acervo/fotos/raul-sena-ipo-auvp11.webp */
+    src: null as string | null,
+    alt: "Cerimônia de listagem de um ETF da AUVP na B3.",
     caption: "Cerimônia de listagem na B3",
+    brief: "pregão da B3 no dia da listagem, paisagem 4:3",
   },
 } as const;
 

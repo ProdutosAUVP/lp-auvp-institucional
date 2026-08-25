@@ -1,4 +1,4 @@
-/** Dobra 02 — números institucionais. Revisar a cada fechamento trimestral. */
+/** Dobra 02: números institucionais. Revisar a cada fechamento trimestral. */
 
 export type Stat = {
   value: string;

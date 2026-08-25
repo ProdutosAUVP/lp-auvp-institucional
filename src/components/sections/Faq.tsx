@@ -48,7 +48,7 @@ export function Faq() {
                       className={cn(
                         "w-full border-b-2 px-4 py-3 text-left text-sm whitespace-nowrap transition-colors duration-300 lg:border-b-0 lg:border-l-2 lg:px-5",
                         selected
-                          ? "border-gold text-ink font-medium"
+                          ? "border-ink text-ink font-medium"
                           : "text-graphite hover:border-paper-line hover:text-ink lg:border-l-paper-line border-transparent",
                       )}
                     >
@@ -78,7 +78,7 @@ export function Faq() {
                     </h3>
                     <span
                       aria-hidden
-                      className="text-gold relative mt-2 h-3 w-3 shrink-0"
+                      className="text-ink relative mt-2 h-3 w-3 shrink-0"
                     >
                       <span className="absolute top-1/2 left-0 h-px w-3 -translate-y-1/2 bg-current" />
                       <span className="absolute top-0 left-1/2 h-3 w-px -translate-x-1/2 bg-current transition-transform duration-300 group-open:scale-y-0" />

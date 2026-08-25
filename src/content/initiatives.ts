@@ -1,4 +1,4 @@
-/** Dobra 08 — as iniciativas da AUVP. */
+/** Dobra 08: as iniciativas da AUVP. */
 
 export type Product = {
   name: string;
@@ -84,7 +84,7 @@ export const partnerships: Partnership[] = [
       src: null,
       alt: "Palestra da AUVP no CEIA, centro de pesquisa em inteligência artificial da UFG.",
       caption: "CEIA · UFG",
-      brief: "Dia das palestras no CEIA — paisagem 4:3",
+      brief: "dia das palestras no CEIA, paisagem 4:3",
     },
   },
   {
@@ -96,7 +96,7 @@ export const partnerships: Partnership[] = [
       src: null,
       alt: "Equipe da AUVP Capital recebendo o reconhecimento do BTG Pactual.",
       caption: "Reconhecimento BTG Pactual",
-      brief: "Entrega do prêmio no palco — paisagem 4:3",
+      brief: "entrega do prêmio no palco, paisagem 4:3",
     },
   },
   {
@@ -108,7 +108,7 @@ export const partnerships: Partnership[] = [
       src: null,
       alt: "Encontro da liderança da AUVP com um embaixador estrangeiro.",
       caption: "AUVP Atlas · Diplomacia",
-      brief: "Aperto de mãos ou entrevista com embaixador — paisagem 4:3",
+      brief: "aperto de mãos ou entrevista com embaixador, paisagem 4:3",
     },
   },
   {
@@ -120,7 +120,7 @@ export const partnerships: Partnership[] = [
       src: null,
       alt: "Delegação da AUVP Experience durante a missão à China.",
       caption: "AUVP Experience · Missão China",
-      brief: "Delegação em visita técnica — paisagem 4:3",
+      brief: "delegação em visita técnica, paisagem 4:3",
     },
   },
 ];
