@@ -200,10 +200,9 @@ página não faz em lugar nenhum.
 
 ### A barra pousa na régua do hero antes de encaixar no topo
 
-**Existe uma barra só.** Sobre o hero ela não some nem é substituída por outra:
-desce até a âncora da primeira dobra e fica ali. Logo, itens e botão da área do
-aluno aparecem iguais nos dois estados, no mesmo lugar e no mesmo tamanho.
-Quando a âncora alcança o topo da janela, a barra encaixa.
+**Existe uma barra só, e ela fica no topo do começo ao fim.** Logo, itens e
+botão da área do aluno aparecem iguais nos dois estados, no mesmo lugar e no
+mesmo tamanho.
 
 **A única diferença entre os dois estados é o que existe atrás da barra.** Sobre
 o hero, nada: só a borda de baixo, um filete branco a 25%. Encaixada, o fundo de
@@ -224,12 +223,21 @@ outro. Por mais suave que fosse a dissolução, os itens trocavam de lugar e de
 estilo no meio do caminho, porque eram elementos diferentes em grades
 diferentes. Não voltar a isso.
 
-A âncora tem exatamente a altura da barra a partir de `lg`, e é isso que faz a
-borda pousar no fim dela. Ao mexer numa das duas, conferir a outra.
+A troca de estado é geométrica, no `usePassouOHero`: vale quando a base do hero
+alcança a base da barra. É o instante exato em que a segunda dobra, que é clara,
+passa a ficar atrás dela. Um pixel antes o texto branco ainda está sobre a
+fotografia; um pixel depois estaria sobre papel.
 
-Abaixo de `lg` a barra não viaja: ali o menu vive na gaveta, o botão dela
-pertence ao topo da tela, e a linha vai junto. O respiro do topo do hero precisa
-passar dos 96px da barra, senão a linha corta o alto da assinatura.
+**Esse mesmo limite governa o botão do WhatsApp**, que não aparece na abertura:
+a primeira dobra tem um caminho só, o botão amarelo, e um disco escuro flutuando
+sobre a fotografia disputava com ele sem oferecer nada novo. Os dois trocam de
+estado no mesmo pixel porque leem o mesmo hook.
+
+Houve uma versão em que a barra descia até uma âncora no meio da primeira dobra,
+para pousar sob a assinatura AUVP em corpo grande. A assinatura saiu do hero e a
+viagem saiu com ela: sem nada para pousar embaixo, mover a barra era movimento
+sem motivo. O respiro do topo do hero continua precisando passar dos 96px da
+barra, senão o posicionamento entra por baixo dela.
 
 **A camada de texto do hero não pode ganhar deslocamento próprio.** Ela teve um,
 de 72px, para sair mais rápido que a fotografia, e ele separava a régua da barra
@@ -238,37 +246,28 @@ vive dentro dessa camada e a barra não, então duas camadas presas uma na outra
 não podem andar em velocidades diferentes. A profundidade ficou só no
 `HeroBackdrop`, que é a camada de trás e não tem nada preso a ela.
 
-### A assinatura em escala arquitetônica
+### A assinatura em escala arquitetônica saiu
 
-"AUVP" em corpo enorme aparece em um lugar só: o alto do hero, em preenchimento
-sólido, direto pelo `AuvpLettering`. O rodapé tinha a mesma assinatura em corpo
-maior, e ela saiu: fechar a página com o nome em escala de fachada competia com
-a informação do rodapé, que é onde alguém vai procurar um link.
+"AUVP" em corpo enorme abriu o hero por um tempo, vindo de Oxford e da
+Lionheart, onde a palavra nessa escala deixa de ser logotipo e vira arquitetura.
+Aqui não sobreviveu, por dois motivos que valem ficar escritos antes que alguém
+tente de novo:
 
-Funciona porque nessa escala a palavra deixa de ser logotipo e vira arquitetura:
-dá porte institucional à dobra sem nenhum ornamento. Fica em `aria-hidden`,
-porque o nome já é anunciado pelo logo do cabeçalho.
+- **A marca aparecia duas vezes na mesma dobra.** A barra fixa, logo acima,
+  carrega o mesmo logotipo. Nas referências não há barra sobre a capa.
+- **Ela empurrava o menu para longe do topo.** Com 640px de largura a barra
+  descia para 318px, e mesmo com 384px ainda ficava em 226px.
 
-**O tamanho dela tem um teto, e ele não é estético.** A barra fixa pousa logo
-abaixo da assinatura, então cada pixel de altura que ela ganha empurra o menu
-para baixo. Com 640px de largura a barra descia para 318px do topo, longe demais
-de onde um menu é procurado. O valor atual, `lg:max-w-[24rem]`, deixa a
-assinatura com 384px e a barra em 226px. Ao aumentar a assinatura, medir onde a
-barra passa a pousar.
+O rodapé teve a mesma assinatura antes, em corpo maior, e saiu por outro motivo:
+fechar a página com o nome em escala de fachada competia com a informação do
+rodapé, que é onde alguém vai procurar um link.
 
-**São as letras do arquivo da marca, não a palavra composta numa fonte.** O A da
-AUVP é um V invertido, sem travessão, e digitar "A" em qualquer fonte, Sentient
-inclusive, entrega a letra errada. Os contornos vivem em
-`src/components/ui/AuvpLettering.tsx`, extraídos do primeiro grupo de
+**Se voltar, é com as letras do arquivo da marca, e não com a palavra composta
+numa fonte.** O A da AUVP é um V invertido, sem travessão, e digitar "A" em
+qualquer fonte, Sentient inclusive, entrega a letra errada. Os contornos estão
+em `public/logos/auvp-monograma.svg`, extraídos do primeiro grupo de
 `auvp-escola-serif-preta.svg` e recortados na caixa exata das quatro letras. O
-mesmo desenho está em `public/logos/auvp-monograma.svg`, para uso fora do React.
-
-É componente, e não `<img>`, porque as letras precisam herdar `currentColor` e
-poder aparecer em contorno sem um segundo arquivo: filtro sobre `<img>` não
-produz traço, e manter dois arquivos, um cheio e um vazado, duplicaria a marca
-em dois lugares que podem divergir.
-
-Usar nesse lugar e em nenhum outro. Repetida, vira papel de parede.
+componente React que os servia foi removido junto com o uso.
 
 ## Forma
 

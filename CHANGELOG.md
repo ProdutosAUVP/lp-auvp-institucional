@@ -36,6 +36,14 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Removido
 
+- **Assinatura AUVP em corpo grande do hero.** A barra fixa logo acima carrega o
+  mesmo logotipo, então a marca aparecia duas vezes na mesma dobra, e a de baixo
+  empurrava o menu para longe do topo. Com ela saiu a viagem da barra até a
+  âncora: sem nada para pousar embaixo, mover a barra era movimento sem motivo.
+- `AuvpLettering`, que ficou sem uso. Os contornos continuam em
+  `public/logos/auvp-monograma.svg`.
+- Botão do WhatsApp da primeira dobra. Ele entra a partir da segunda, pelo mesmo
+  limite geométrico que troca o fundo da barra.
 - Deslocamento vertical da camada de texto do hero. A profundidade da abertura
   fica por conta do `HeroBackdrop`, que não tem nada preso a ele.
 - Deriva da assinatura do hero em resposta ao ponteiro. A marca da instituição
