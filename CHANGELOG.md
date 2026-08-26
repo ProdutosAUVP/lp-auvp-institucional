@@ -16,6 +16,8 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Corrigido
 
+- **A assinatura do hero empurrava o menu para baixo.** Com 640px de largura ela
+  jogava a barra para 318px do topo. Agora tem 384px, e a barra pousa em 226px.
 - A fotografia da sede terminava mais de 100px antes do último parágrafo ao
   lado. A partir de `lg` ela passa a ter a altura da coluna de texto.
 - As logos dos apoiadores voltam para uma fileira só, agora em escala de cinza:
