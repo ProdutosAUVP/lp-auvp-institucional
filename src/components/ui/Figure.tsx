@@ -9,6 +9,12 @@ type FigureProps = {
   /** Briefing exibido na reserva enquanto a foto definitiva não existe. */
   brief?: string;
   className?: string;
+  /**
+   * Classes da moldura, o retângulo que carrega a proporção. Existe para a
+   * dobra da missão, onde a partir de `lg` a fotografia larga a proporção fixa
+   * e passa a ter a altura da coluna de texto ao lado.
+   */
+  frameClassName?: string;
   imageClassName?: string;
   ratio?: "3/4" | "4/3" | "3/2" | "16/9" | "1/1" | "auto";
   sizes?: string;
@@ -38,6 +44,7 @@ export function Figure({
   caption,
   brief,
   className,
+  frameClassName,
   imageClassName,
   ratio = "4/3",
   sizes = "(min-width: 1024px) 50vw, 100vw",
@@ -51,6 +58,7 @@ export function Figure({
           "relative w-full overflow-hidden",
           ratios[ratio],
           tone === "light" ? "bg-paper-soft" : "bg-ink-soft",
+          frameClassName,
         )}
       >
         {src ? (

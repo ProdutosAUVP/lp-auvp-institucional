@@ -96,10 +96,15 @@ conjunto. Veio em PNG de 244×82 com fundo transparente, e 82px é o limite: a
 dobra o exibe com 80px de altura, ou seja, em 1x, e numa tela retina ele fica
 macio. Trocar por SVG quando o CEIA ou a UFG enviarem um.
 
-As logos ficam numa grade de 2×2, e não numa fileira de quatro. Numa fileira
-só, cada célula media 134px de largura e o `max-w-full` encolhia as logos
-largas a menos da metade da altura pedida: a restrição era de largura, não de
-altura.
+As quatro ficam lado a lado, numa fileira só, **em escala de cinza**. São marcas
+de quatro donos diferentes, cada uma com a própria paleta, e em cor própria elas
+viravam a área mais colorida de uma página de três cores.
+
+Para caber na fileira, a coluna do título encolheu para 0,52 contra 1,48 da
+coluna das logos: na divisão anterior cada célula ficava com 134px e o
+`max-w-full` esmagava as logos largas a menos da metade da altura pedida. A
+restrição sempre foi de largura, não de altura. Com a célula em 170px, `h-14` é
+o teto para um arquivo de proporção 3:1.
 
 **Os outros três estão na página servidos pelo CDN da AUVP**
 (`cdn.asupernova.com.br`), o mesmo que serve a landing de produção da escola.

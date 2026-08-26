@@ -6,6 +6,39 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Adicionado
 
+- **O menu ganha dois estados.** Sobre o hero ele se apoia na régua que separa a
+  assinatura do posicionamento, com filetes correndo entre os itens; da segunda
+  dobra em diante volta a ser a barra fixa. A troca é geométrica, não um
+  `scrollY` contra um número mágico: os dois lados leem o mesmo
+  `useHeroHandoff`, então um se dissolve para cima no mesmo pixel em que o outro
+  desce.
+- `Figure` aceita `frameClassName`, para a moldura largar a proporção fixa onde
+  a dobra precisar.
+
+### Corrigido
+
+- A fotografia da sede terminava mais de 100px antes do último parágrafo ao
+  lado. A partir de `lg` ela passa a ter a altura da coluna de texto.
+- As logos dos apoiadores voltam para uma fileira só, agora em escala de cinza:
+  quatro paletas de quatro donos diferentes eram a área mais colorida de uma
+  página de três cores.
+
+### Removido
+
+- Deriva da assinatura do hero em resposta ao ponteiro. A marca da instituição
+  ganhava comportamento de enfeite, que é a mesma razão pela qual o objeto WebGL
+  foi recusado antes dela.
+- Barra fixa sobre a primeira dobra. Sobra o botão de gaveta, sem barra atrás.
+- `Wordmark`, que ficou sem uso: o hero usa `AuvpLettering` direto.
+
+### Alterado
+
+- O hero larga o `Container` e passa a `px-6 md:px-10 lg:px-14`. É a única dobra
+  da página que faz isso, e é de propósito: as réguas dele são a moldura da
+  capa, e moldura que para a 152px da borda é caixa, não moldura.
+
+### Adicionado
+
 - **O hero vira uma capa.** Fotografia em sangria total, a assinatura da marca
   em corpo arquitetônico no alto e o título partido nas duas pontas da linha de
   base. Embaixo, uma régua separa o texto de apoio do único botão. Referência

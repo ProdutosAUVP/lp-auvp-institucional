@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
+import { useHeroHandoff } from "@/components/layout/heroHandoff";
 import { primaryNav } from "@/content/navigation";
 import { links } from "@/content/site";
 import { Container } from "@/components/ui/Container";
@@ -10,21 +11,23 @@ import { asset } from "@/lib/asset";
 import { cn } from "@/lib/cn";
 
 /**
- * Barra fixa. Começa transparente sobre o hero em tinta e passa a papel
- * assim que a página rola. É o mesmo recurso usado por sites institucionais
- * para não competir com a primeira dobra.
+ * Barra fixa, a partir da segunda dobra.
+ *
+ * Sobre o hero ela não existe: ali o menu se apoia na régua da própria dobra
+ * (ver `HeroNav`), e uma barra por cima da fotografia de capa tiraria dela a
+ * única coisa que a faz capa. Aqui o logo, o menu e o botão entram juntos,
+ * descendo e ganhando corpo no mesmo quadro em que o menu do hero se dissolve
+ * para cima: os dois leem o mesmo `useHeroHandoff`, então a troca acontece no
+ * mesmo pixel, sem piscar e sem sobreposição.
+ *
+ * O que fica de pé sobre o hero é só o botão da gaveta, que abaixo de `lg` é o
+ * único caminho para o menu. Ele não precisa de barra atrás: sobre a
+ * fotografia em tinta o traço branco já se lê.
  */
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
+  const encaixado = useHeroHandoff();
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   /**
    * Marca no menu a dobra que está em tela. Um IntersectionObserver com faixa
@@ -57,7 +60,9 @@ export function SiteHeader() {
     };
   }, [menuOpen]);
 
-  const onPaper = scrolled || menuOpen;
+  const onPaper = encaixado || menuOpen;
+  /** Verdadeiro enquanto a barra ainda é só o botão de gaveta sobre o hero. */
+  const sobreOHero = !encaixado && !menuOpen;
 
   return (
     <header
@@ -71,7 +76,12 @@ export function SiteHeader() {
       <Container className="flex h-24 items-center justify-between gap-8">
         <a
           href="#principal"
-          className="flex shrink-0 items-center"
+          className={cn(
+            "flex shrink-0 items-center transition-[opacity,transform] duration-500 ease-out",
+            sobreOHero && "pointer-events-none -translate-y-2 opacity-0",
+          )}
+          aria-hidden={sobreOHero}
+          tabIndex={sobreOHero ? -1 : undefined}
           aria-label="AUVP Escola de Investimentos, início"
           onClick={() => setMenuOpen(false)}
         >
@@ -91,7 +101,11 @@ export function SiteHeader() {
 
         <nav
           aria-label="Navegação principal"
-          className="hidden items-center gap-9 lg:flex"
+          inert={!encaixado || undefined}
+          className={cn(
+            "hidden items-center gap-9 transition-[opacity,transform] duration-500 ease-out lg:flex",
+            !encaixado && "pointer-events-none -translate-y-2 opacity-0",
+          )}
         >
           {primaryNav.map((item) => {
             const current = item.href === activeSection;
@@ -132,11 +146,14 @@ export function SiteHeader() {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "hidden rounded-full border px-5 py-2.5 text-[0.8125rem] font-medium tracking-[0.06em] transition-colors duration-300 sm:inline-flex",
+              "hidden rounded-full border px-5 py-2.5 text-[0.8125rem] font-medium tracking-[0.06em] transition-[opacity,transform,color,background-color,border-color] duration-500 ease-out sm:inline-flex",
               onPaper
                 ? "border-ink/25 text-ink hover:bg-ink hover:text-paper"
                 : "border-paper/35 text-paper hover:bg-paper hover:text-ink",
+              sobreOHero && "pointer-events-none -translate-y-2 opacity-0",
             )}
+            aria-hidden={sobreOHero}
+            tabIndex={sobreOHero ? -1 : undefined}
           >
             Área do aluno
           </a>
@@ -201,7 +218,7 @@ export function SiteHeader() {
         </div>
       ) : null}
 
-      {scrolled && !menuOpen ? <ScrollProgress /> : null}
+      {encaixado && !menuOpen ? <ScrollProgress /> : null}
     </header>
   );
 }
