@@ -6,7 +6,6 @@ import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { useHeroDock } from "@/components/layout/heroHandoff";
 import { primaryNav } from "@/content/navigation";
 import { links } from "@/content/site";
-import { Container } from "@/components/ui/Container";
 import { asset } from "@/lib/asset";
 import { cn } from "@/lib/cn";
 
@@ -66,28 +65,27 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   const onPaper = encaixado || menuOpen;
-  /** Verdadeiro enquanto a barra ainda é só o botão de gaveta sobre o hero. */
-  const sobreOHero = !encaixado && !menuOpen;
 
   return (
     <header
       ref={ref}
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-500 will-change-transform",
+        // A borda de baixo é o mesmo elemento nos dois estados, e é por isso
+        // que a linha do hero e o pé do fundo branco caem no mesmo lugar: o que
+        // muda é só a cor dela e o fundo atrás.
+        "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 will-change-transform",
         onPaper
-          ? "border-paper-line bg-paper/95 border-b backdrop-blur-sm"
-          : "border-b border-transparent",
+          ? "border-paper-line bg-paper/95 backdrop-blur-sm"
+          : "border-paper/25",
       )}
     >
-      <Container className="flex h-24 items-center justify-between gap-8">
+      {/* Largura total, com a mesma margem lateral do hero. Dentro do
+          `Container` a barra parava 152px antes da borda e a linha dela não
+          batia com nada. */}
+      <div className="flex h-24 items-center justify-between gap-8 px-6 md:px-10 lg:px-14">
         <a
           href="#principal"
-          className={cn(
-            "flex shrink-0 items-center transition-[opacity,transform] duration-500 ease-out",
-            sobreOHero && "pointer-events-none -translate-y-2 opacity-0",
-          )}
-          aria-hidden={sobreOHero}
-          tabIndex={sobreOHero ? -1 : undefined}
+          className="flex shrink-0 items-center"
           aria-label="AUVP Escola de Investimentos, início"
           onClick={() => setMenuOpen(false)}
         >
@@ -150,14 +148,11 @@ export function SiteHeader() {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "hidden rounded-full border px-5 py-2.5 text-[0.8125rem] font-medium tracking-[0.06em] transition-[opacity,transform,color,background-color,border-color] duration-500 ease-out sm:inline-flex",
+              "hidden rounded-full border px-5 py-2.5 text-[0.8125rem] font-medium tracking-[0.06em] transition-colors duration-500 ease-out sm:inline-flex",
               onPaper
                 ? "border-ink/25 text-ink hover:bg-ink hover:text-paper"
                 : "border-paper/35 text-paper hover:bg-paper hover:text-ink",
-              sobreOHero && "pointer-events-none -translate-y-2 opacity-0",
             )}
-            aria-hidden={sobreOHero}
-            tabIndex={sobreOHero ? -1 : undefined}
           >
             Área do aluno
           </a>
@@ -192,14 +187,14 @@ export function SiteHeader() {
             </svg>
           </button>
         </div>
-      </Container>
+      </div>
 
       {menuOpen ? (
         <div
           id="menu-mobile"
           className="border-paper-line bg-paper h-[calc(100svh-6rem)] overflow-y-auto border-t lg:hidden"
         >
-          <Container className="flex flex-col py-4">
+          <div className="flex flex-col px-6 py-4 md:px-10 lg:px-14">
             {primaryNav.map((item) => (
               <a
                 key={item.href}
@@ -218,7 +213,7 @@ export function SiteHeader() {
             >
               Área do aluno
             </a>
-          </Container>
+          </div>
         </div>
       ) : null}
 
