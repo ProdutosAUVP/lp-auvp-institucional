@@ -15,15 +15,15 @@ export const hero = {
     "A AUVP forma investidores independentes, capazes de tomar suas próprias decisões financeiras e construir patrimônio com autonomia. Uma instituição criada para mudar a relação do brasileiro com o dinheiro.",
   ctaLabel: "Estude com a AUVP",
   photo: {
-    src: "/images/private-day-palco.webp" as string | null,
-    alt: "Conversa no palco do Private Day da AUVP, diante da plateia.",
+    src: "/images/private-day-plateia.webp" as string | null,
+    alt: "Raul Sena de braços abertos no palco, diante do auditório lotado no Private Day da AUVP.",
     /**
-     * O arquivo atual é o mesmo negativo que abre a dobra da comunidade, em
-     * recorte e tratamento diferentes, e tem 1616px de largura: numa dobra de
-     * sangria total isso fica no limite. É a última fotografia da página que
-     * ainda pede substituição. Ver docs/ASSETS.md.
+     * O quadro é simétrico e o sujeito fica no eixo central, que é justamente
+     * a faixa onde esta dobra não põe texto: o título ocupa as duas pontas e o
+     * apoio fica na base. Por isso o arquivo entra sem recorte, em 3:2, e quem
+     * decide o corte é o `object-cover`, conforme a altura da janela.
      */
     brief:
-      "plano aberto do auditório ou da sala de aula, escuro e quente, com vazio no alto para a assinatura, paisagem 16:9 com 2400px ou mais",
+      "plano aberto do auditório cheio, escuro e quente, com o eixo central livre de texto, paisagem 3:2 com 2400px ou mais",
   },
 } as const;

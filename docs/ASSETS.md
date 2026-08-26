@@ -35,21 +35,13 @@ etiqueta discreta no rodapé da dobra.
 
 ## 2. Fotos que a página espera
 
-Restam **duas**, e nenhuma delas deixa buraco na página: as duas dobras
-publicam hoje uma foto que funciona.
+Resta **uma**, e ela não deixa buraco na página: a dobra publica hoje uma foto
+que funciona.
 
-**Hero** (dobra 01), paisagem 16:9 com 2400px ou mais
-
-O que está publicado é `private-day-palco.webp`, e ele tem dois defeitos
-conhecidos. O primeiro é a largura: 1616px numa dobra de sangria total é o
-limite, e em tela de 2560px o arquivo é esticado. O segundo é que é o mesmo
-negativo que aparece na dobra da comunidade, em recorte bem diferente (lá o
-enquadramento fecha na poltrona amarela, aqui é o quadro cheio), mas ainda é o
-mesmo palco.
-
-O que substitui: plano aberto de auditório ou sala de aula, escuro e quente,
-com **vazio no alto** para a assinatura e o texto distribuído na base. Não
-precisa de sujeito fora do terço central: o título mudou de lugar.
+O hero saiu desta lista. `private-day-plateia.webp` resolveu os dois defeitos
+que a reserva anterior tinha: veio com 4783px de largura, contra os 1616 que
+ficavam no limite de uma dobra de sangria total, e é um negativo próprio, que
+não aparece em nenhuma outra dobra.
 
 **Encerramento** (dobra final), paisagem larga
 
@@ -63,18 +55,18 @@ antes de entrar no repositório, e **o recorte foi escolhido olhando a imagem**,
 não por corte central automático. O registro serve para refazer, se a foto
 precisar aparecer em outra proporção:
 
-| Foto                             | Origem    | Recorte                        | Por quê                                                                                                                                                                            |
-| -------------------------------- | --------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `private-day-salao.webp`         | 4200×2800 | 3:2, sem corte                 | Plano aberto: cabe inteiro                                                                                                                                                         |
-| `private-day-palestras.webp`     | 1616×1080 | 4:3, fechado no convidado      | O plano aberto do mesmo negativo agora abre a página. Aqui o recorte fecha na poltrona amarela e recusa a versão que pegava os dois: ela cortava a perna do entrevistador na borda |
-| `private-day-networking.webp`    | 2624×3936 | 4:3, janela em `y 280`         | Retrato virando paisagem: a janela precisa pegar os dois rostos e o aperto de mãos. Um corte 150px mais baixo decepava a cabeça do homem à direita                                 |
-| `ceia-ufg.webp`                  | 2730×1820 | 4:3, cortando 303px à esquerda | Descarta as mesas vazias e mantém o grupo com a bandeira                                                                                                                           |
-| `btg-pactual-time.webp`          | 1920×1080 | 4:3, largura centrada no grupo | Descarta a escada vazia e a luz de palco                                                                                                                                           |
-| `auvp-experience-hong-kong.webp` | 4240×2832 | 4:3, janela em `x 475, y 150`  | O recorte anterior, de altura cheia, deixava o grupo 162px à esquerda do centro e sobrava margem à direita. A janela fechada centra o grupo e ainda descarta céu e asfalto vazios  |
-| `auvp-atlas-embaixador.webp`     | 3072×2304 | 4:3, quase sem corte           | O quadro já nasce 4:3 e bem composto: sai só uma faixa de piso embaixo                                                                                                             |
-| `private-day-palco.webp`         | 1616×1080 | 3:2, sem corte                 | Abre a página em sangria total. O quadro cheio é o que tem vazio escuro no alto, onde entra a assinatura                                                                           |
-| `b3-listagem-auvp11.webp`        | 6192×4128 | 4:3, cortando 688px à esquerda | O painel AUVP11 encosta na borda direita e precisa continuar inteiro                                                                                                               |
-| `sede-auvp-capital.webp`         | 1920×1080 | sem corte                      | Publicada como veio                                                                                                                                                                |
+| Foto                             | Origem    | Recorte                         | Por quê                                                                                                                                                                                                                                                                 |
+| -------------------------------- | --------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `private-day-salao.webp`         | 4200×2800 | 3:2, sem corte                  | Plano aberto: cabe inteiro                                                                                                                                                                                                                                              |
+| `private-day-palestras.webp`     | 1616×1080 | 4:3, fechado no convidado       | O plano aberto do mesmo negativo agora abre a página. Aqui o recorte fecha na poltrona amarela e recusa a versão que pegava os dois: ela cortava a perna do entrevistador na borda                                                                                      |
+| `private-day-networking.webp`    | 2624×3936 | 4:3, janela em `y 280`          | Retrato virando paisagem: a janela precisa pegar os dois rostos e o aperto de mãos. Um corte 150px mais baixo decepava a cabeça do homem à direita                                                                                                                      |
+| `ceia-ufg.webp`                  | 2730×1820 | 4:3, cortando 303px à esquerda  | Descarta as mesas vazias e mantém o grupo com a bandeira                                                                                                                                                                                                                |
+| `btg-pactual-time.webp`          | 1920×1080 | 4:3, largura centrada no grupo  | Descarta a escada vazia e a luz de palco                                                                                                                                                                                                                                |
+| `auvp-experience-hong-kong.webp` | 4240×2832 | 4:3, janela em `x 475, y 150`   | O recorte anterior, de altura cheia, deixava o grupo 162px à esquerda do centro e sobrava margem à direita. A janela fechada centra o grupo e ainda descarta céu e asfalto vazios                                                                                       |
+| `auvp-atlas-embaixador.webp`     | 3072×2304 | 4:3, quase sem corte            | O quadro já nasce 4:3 e bem composto: sai só uma faixa de piso embaixo                                                                                                                                                                                                  |
+| `private-day-plateia.webp`       | 4783×3191 | 3:2, sem corte, reduzida a 2400 | Abre a página em sangria total. O quadro é simétrico e o sujeito fica no eixo central, que é a faixa onde a dobra não põe texto: o título ocupa as duas pontas e o apoio fica na base. Sem recorte, quem decide o corte é o `object-cover`, conforme a altura da janela |
+| `b3-listagem-auvp11.webp`        | 6192×4128 | 4:3, cortando 688px à esquerda  | O painel AUVP11 encosta na borda direita e precisa continuar inteiro                                                                                                                                                                                                    |
+| `sede-auvp-capital.webp`         | 1920×1080 | sem corte                       | Publicada como veio                                                                                                                                                                                                                                                     |
 
 **Ao adicionar uma foto, recorte antes de commitar.** A página não recorta: o
 `Figure` define a proporção da moldura e a imagem preenche com `object-cover`,
