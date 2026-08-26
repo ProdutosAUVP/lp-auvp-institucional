@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
-import { useHeroHandoff } from "@/components/layout/heroHandoff";
+import { useHeroDock } from "@/components/layout/heroHandoff";
 import { primaryNav } from "@/content/navigation";
 import { links } from "@/content/site";
 import { Container } from "@/components/ui/Container";
@@ -11,22 +11,27 @@ import { asset } from "@/lib/asset";
 import { cn } from "@/lib/cn";
 
 /**
- * Barra fixa, a partir da segunda dobra.
+ * Barra fixa. Sobre o hero ela pousa na régua da primeira dobra; da segunda em
+ * diante encaixa no topo, em papel.
  *
- * Sobre o hero ela não existe: ali o menu se apoia na régua da própria dobra
- * (ver `HeroNav`), e uma barra por cima da fotografia de capa tiraria dela a
- * única coisa que a faz capa. Aqui o logo, o menu e o botão entram juntos,
- * descendo e ganhando corpo no mesmo quadro em que o menu do hero se dissolve
- * para cima: os dois leem o mesmo `useHeroHandoff`, então a troca acontece no
- * mesmo pixel, sem piscar e sem sobreposição.
+ * **Este é o único menu da página.** Sobre o hero a barra não some e não é
+ * substituída por outra: ela desce até a régua que separa a assinatura AUVP do
+ * posicionamento e fica ali, sem fundo, com o logo e o botão da área do aluno
+ * invisíveis mas ainda ocupando a grade. Os itens não trocam de lugar nem de
+ * corpo entre um estado e outro, porque são os mesmos elementos. Só a cor muda.
  *
- * O que fica de pé sobre o hero é só o botão da gaveta, que abaixo de `lg` é o
- * único caminho para o menu. Ele não precisa de barra atrás: sobre a
- * fotografia em tinta o traço branco já se lê.
+ * Houve uma versão com dois menus, um no hero e outro na barra, dissolvendo um
+ * no outro. Por mais suave que fosse a dissolução, os itens escorregavam na
+ * horizontal no meio do caminho: eram elementos diferentes, em grades
+ * diferentes. Não voltar a isso. Ver `useHeroDock`.
+ *
+ * Abaixo de `lg` a barra não viaja: ali o menu vive na gaveta, e o botão dela
+ * pertence ao topo da tela. Sobre a fotografia em tinta o traço branco se lê
+ * sem barra atrás.
  */
 export function SiteHeader() {
-  const encaixado = useHeroHandoff();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { ref, encaixado } = useHeroDock(menuOpen);
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   /**
@@ -66,8 +71,9 @@ export function SiteHeader() {
 
   return (
     <header
+      ref={ref}
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-500",
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-500 will-change-transform",
         onPaper
           ? "border-paper-line bg-paper/95 border-b backdrop-blur-sm"
           : "border-b border-transparent",
@@ -99,13 +105,11 @@ export function SiteHeader() {
           />
         </a>
 
+        {/* O menu é o mesmo nos dois estados: nunca some, nunca se desloca.
+            Do hero para a página só a cor dos itens muda. */}
         <nav
           aria-label="Navegação principal"
-          inert={!encaixado || undefined}
-          className={cn(
-            "hidden items-center gap-9 transition-[opacity,transform] duration-500 ease-out lg:flex",
-            !encaixado && "pointer-events-none -translate-y-2 opacity-0",
-          )}
+          className="hidden items-center gap-9 lg:flex"
         >
           {primaryNav.map((item) => {
             const current = item.href === activeSection;

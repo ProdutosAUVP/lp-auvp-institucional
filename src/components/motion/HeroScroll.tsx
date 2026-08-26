@@ -70,7 +70,17 @@ export function HeroBackdrop({ children }: { children: React.ReactNode }) {
   );
 }
 
-/** Camada do texto: sobe e se dissolve antes de a próxima dobra encostar. */
+/**
+ * Camada do texto: dissolve antes de a próxima dobra encostar.
+ *
+ * Aqui havia também um deslocamento de 72px para cima, para o texto sair mais
+ * rápido que a fotografia. Ele saiu quando a barra fixa passou a pousar sobre a
+ * régua desta dobra: a régua vive dentro desta camada e a barra não, então o
+ * deslocamento separava as duas em até 10px no meio da rolagem, e o menu
+ * flutuava acima da própria linha. Duas camadas presas uma na outra não podem
+ * andar em velocidades diferentes. A profundidade continua no `HeroBackdrop`,
+ * que é a camada de trás e não tem nada preso a ela.
+ */
 export function HeroForeground({
   children,
   className,
@@ -79,14 +89,13 @@ export function HeroForeground({
   className?: string;
 }) {
   const ref = useHeroProgress((node, progress) => {
-    node.style.transform = `translate3d(0, ${-progress * 72}px, 0)`;
     node.style.opacity = String(clamp(1 - progress * 1.35, 0, 1));
   });
 
   return (
     <div
       ref={ref}
-      className={cn("relative w-full will-change-transform", className)}
+      className={cn("relative w-full will-change-[opacity]", className)}
     >
       {children}
     </div>
