@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { HeroBackdrop, HeroForeground } from "@/components/motion/HeroScroll";
-import { HeroNav } from "@/components/sections/HeroNav";
+import {
+  CLASSE_ANCORA_HERO,
+  ID_ANCORA_HERO,
+} from "@/components/layout/heroHandoff";
 import { AuvpLettering } from "@/components/ui/AuvpLettering";
 import { BackdropReserve } from "@/components/ui/Figure";
 import { Button } from "@/components/ui/Button";
@@ -79,10 +82,19 @@ export function Hero() {
               "AUVP" composta numa fonte: o A da AUVP é um V invertido.
               Fica parada: seguir o ponteiro dava à marca um comportamento de
               enfeite, e a assinatura da instituição não é enfeite. */}
-          <AuvpLettering className="text-paper w-full max-w-[22rem] sm:max-w-[32rem] lg:max-w-[47rem]" />
+          <AuvpLettering className="text-paper w-full max-w-[22rem] sm:max-w-[30rem] lg:max-w-[40rem]" />
 
           <div className="mt-7 md:mt-9">
-            <HeroNav />
+            {/* A barra fixa pousa aqui enquanto o hero está em tela, com os
+                itens do menu apoiados na régua logo abaixo. A âncora não tem
+                conteúdo: ela só reserva a altura. Ver `useHeroDock`. */}
+            <div
+              id={ID_ANCORA_HERO}
+              aria-hidden
+              className={CLASSE_ANCORA_HERO}
+            />
+
+            <span aria-hidden className="bg-paper/25 block h-px w-full" />
 
             <div className="text-paper/60 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 pt-4">
               <p className="eyebrow">{hero.positioning}</p>

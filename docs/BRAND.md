@@ -198,25 +198,38 @@ ela virava ruído sobre a imagem, e uma curva de crescimento a poucos pixels de
 um botão sempre corre o risco de ser lida como promessa de rentabilidade, que a
 página não faz em lugar nenhum.
 
-### O menu tem dois estados, e eles são o mesmo evento
+### A barra pousa na régua do hero antes de encaixar no topo
 
-Sobre o hero não existe barra fixa. O menu se apoia na régua que separa a
-assinatura do posicionamento, com os filetes correndo entre os itens, como
-índice de livro antigo. É o que mantém a capa sendo capa: uma barra de papel por
-cima da fotografia tiraria dela a única coisa que a faz abertura.
+**Existe um menu só.** Sobre o hero a barra não some nem é substituída por
+outra: ela desce até a régua que separa a assinatura do posicionamento e fica
+apoiada ali, sem fundo, com o logo e o botão da área do aluno invisíveis mas
+ainda ocupando a grade. É o que mantém a capa sendo capa, e ao mesmo tempo
+mantém o menu no lugar. Quando a âncora do hero alcança o topo da janela, a
+barra encaixa e ganha papel, logo e botão.
 
-Da segunda dobra em diante o menu é a barra fixa de sempre, com logo, itens e o
-botão da área do aluno.
+Entre um estado e o outro **os itens não se movem um pixel na horizontal e não
+mudam de corpo**. Só a cor muda: branco sobre a fotografia, grafite sobre papel,
+com o filete do item atual passando de amarelo para preto.
 
-A troca não é um `scrollY` comparado com um número mágico. Os dois lados leem o
-mesmo `useHeroHandoff`, que mede quando a régua do hero alcança a base da barra:
-o corte cai no mesmo pixel em qualquer altura de tela, e um se dissolve para
-cima enquanto o outro desce, em 500ms com a mesma curva. Ao mexer em qualquer um
-dos dois, mexer no outro junto.
+Houve uma versão com dois menus, um no hero e outro na barra, dissolvendo um no
+outro. Por mais suave que fosse a dissolução, os itens trocavam de lugar e de
+estilo no meio do caminho, porque eram elementos diferentes em grades
+diferentes. Não voltar a isso.
 
-Abaixo de `lg` não cabem quatro itens numa linha, então ali o menu do hero é só
-a régua, e o caminho continua sendo o botão de gaveta, que fica de pé sobre a
-fotografia sem barra atrás.
+O logo e o botão precisam continuar no fluxo enquanto estão invisíveis. Se
+saírem da grade, o menu escorrega na horizontal no instante do encaixe, que é
+exatamente o defeito que essa arquitetura existe para evitar.
+
+Abaixo de `lg` a barra não viaja: ali o menu vive na gaveta, e o botão dela
+pertence ao topo da tela. A régua da primeira dobra continua, sozinha, e sobre a
+fotografia em tinta o traço branco se lê sem barra atrás.
+
+**A camada de texto do hero não pode ganhar deslocamento próprio.** Ela teve um,
+de 72px, para sair mais rápido que a fotografia, e ele separava a régua da barra
+em até 10px no meio da rolagem: o menu flutuava acima da própria linha. A régua
+vive dentro dessa camada e a barra não, então duas camadas presas uma na outra
+não podem andar em velocidades diferentes. A profundidade ficou só no
+`HeroBackdrop`, que é a camada de trás e não tem nada preso a ela.
 
 ### A assinatura em escala arquitetônica
 

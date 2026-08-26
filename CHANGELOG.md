@@ -6,12 +6,11 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Adicionado
 
-- **O menu ganha dois estados.** Sobre o hero ele se apoia na régua que separa a
-  assinatura do posicionamento, com filetes correndo entre os itens; da segunda
-  dobra em diante volta a ser a barra fixa. A troca é geométrica, não um
-  `scrollY` contra um número mágico: os dois lados leem o mesmo
-  `useHeroHandoff`, então um se dissolve para cima no mesmo pixel em que o outro
-  desce.
+- **A barra pousa na régua do hero antes de encaixar no topo.** Existe um menu
+  só: sobre a primeira dobra a barra desce até a régua e fica apoiada ali, sem
+  fundo, com logo e botão invisíveis mas ainda ocupando a grade. Entre um estado
+  e o outro os itens não se movem um pixel na horizontal e não mudam de corpo,
+  porque são os mesmos elementos. Só a cor muda.
 - `Figure` aceita `frameClassName`, para a moldura largar a proporção fixa onde
   a dobra precisar.
 
@@ -22,9 +21,15 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 - As logos dos apoiadores voltam para uma fileira só, agora em escala de cinza:
   quatro paletas de quatro donos diferentes eram a área mais colorida de uma
   página de três cores.
+- **A régua do hero e a barra se separavam em até 10px no meio da rolagem**, e o
+  menu flutuava acima da própria linha. A causa era o deslocamento de 72px da
+  camada de texto do hero: a régua vive dentro dela e a barra não. O
+  deslocamento saiu; a dissolução ficou.
 
 ### Removido
 
+- Deslocamento vertical da camada de texto do hero. A profundidade da abertura
+  fica por conta do `HeroBackdrop`, que não tem nada preso a ele.
 - Deriva da assinatura do hero em resposta ao ponteiro. A marca da instituição
   ganhava comportamento de enfeite, que é a mesma razão pela qual o objeto WebGL
   foi recusado antes dela.
