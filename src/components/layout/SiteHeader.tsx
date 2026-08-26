@@ -3,34 +3,33 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
-import { useHeroDock } from "@/components/layout/heroHandoff";
+import { usePassouOHero } from "@/components/layout/heroHandoff";
 import { primaryNav } from "@/content/navigation";
 import { links } from "@/content/site";
 import { asset } from "@/lib/asset";
 import { cn } from "@/lib/cn";
 
 /**
- * Barra fixa. Sobre o hero ela pousa na régua da primeira dobra; da segunda em
- * diante encaixa no topo, em papel.
+ * Barra fixa, no topo do começo ao fim.
  *
- * **Este é o único menu da página.** Sobre o hero a barra não some e não é
- * substituída por outra: ela desce até a régua que separa a assinatura AUVP do
- * posicionamento e fica ali, sem fundo, com o logo e o botão da área do aluno
- * invisíveis mas ainda ocupando a grade. Os itens não trocam de lugar nem de
- * corpo entre um estado e outro, porque são os mesmos elementos. Só a cor muda.
+ * **É a mesma barra nos dois estados.** Logo, itens e botão da área do aluno
+ * aparecem no mesmo lugar e no mesmo tamanho sobre a primeira dobra e sobre o
+ * resto da página. O que muda é a cor deles e o que existe atrás: sobre o hero,
+ * só a borda de baixo, um filete branco; depois, o fundo de papel. A borda é o
+ * mesmo elemento nos dois casos, então a linha da abertura e o pé do fundo
+ * branco caem no mesmo ponto da grade.
  *
  * Houve uma versão com dois menus, um no hero e outro na barra, dissolvendo um
  * no outro. Por mais suave que fosse a dissolução, os itens escorregavam na
  * horizontal no meio do caminho: eram elementos diferentes, em grades
- * diferentes. Não voltar a isso. Ver `useHeroDock`.
+ * diferentes. Não voltar a isso.
  *
- * Abaixo de `lg` a barra não viaja: ali o menu vive na gaveta, e o botão dela
- * pertence ao topo da tela. Sobre a fotografia em tinta o traço branco se lê
- * sem barra atrás.
+ * A troca de estado é geométrica, no `usePassouOHero`, e não um `scrollY` contra
+ * um número escolhido a dedo.
  */
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { ref, encaixado } = useHeroDock(menuOpen);
+  const encaixado = usePassouOHero();
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   /**
@@ -68,12 +67,11 @@ export function SiteHeader() {
 
   return (
     <header
-      ref={ref}
       className={cn(
         // A borda de baixo é o mesmo elemento nos dois estados, e é por isso
         // que a linha do hero e o pé do fundo branco caem no mesmo lugar: o que
         // muda é só a cor dela e o fundo atrás.
-        "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 will-change-transform",
+        "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500",
         onPaper
           ? "border-paper-line bg-paper/95 backdrop-blur-sm"
           : "border-paper/25",

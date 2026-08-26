@@ -1,10 +1,5 @@
 import Image from "next/image";
 import { HeroBackdrop, HeroForeground } from "@/components/motion/HeroScroll";
-import {
-  CLASSE_ANCORA_HERO,
-  ID_ANCORA_HERO,
-} from "@/components/layout/heroHandoff";
-import { AuvpLettering } from "@/components/ui/AuvpLettering";
 import { BackdropReserve } from "@/components/ui/Figure";
 import { Button } from "@/components/ui/Button";
 import { hero } from "@/content/hero";
@@ -15,11 +10,13 @@ import { asset } from "@/lib/asset";
  * Dobra 01.
  *
  * A abertura é uma capa, não um bloco de texto centralizado: fotografia em
- * sangria total, a assinatura da marca em corpo arquitetônico no alto e o
- * título partido nas duas pontas da linha de base. A referência aprovada é a
- * abertura da Lionheart, e o recurso é o mesmo que Yale e Oxford usam em
- * página de reitoria: o nome da instituição ocupa o quadro e a fotografia
- * responde por todo o resto.
+ * sangria total e o título partido nas duas pontas da linha de base. Entre o
+ * posicionamento, no alto, e o título, embaixo, não há nada além da fotografia.
+ *
+ * A assinatura AUVP em corpo arquitetônico ficou aqui por um tempo, vinda da
+ * abertura da Lionheart. Saiu: com a barra fixa logo acima carregando o mesmo
+ * logotipo, a marca aparecia duas vezes na mesma dobra, e a de baixo empurrava
+ * o menu para longe do topo.
  *
  * **Esta dobra não usa o `Container`.** É a única da página que não usa, e é de
  * propósito: aqui as réguas são a moldura da capa, e moldura que para a 152px
@@ -76,36 +73,16 @@ export function Hero() {
         className="to-ink absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent"
       />
 
-      <HeroForeground /* Abaixo de `lg` a barra fica parada no topo, e o respiro precisa
-              passar dos 96px dela: com menos, a linha da barra corta o alto da
-              assinatura. A partir de `lg` a barra desce até a âncora e o topo
-              da dobra fica livre. */
-        className="relative z-10 flex min-h-[100svh] flex-col pt-28 pb-10 md:pb-16 lg:pt-24"
-      >
+      {/* O respiro do topo precisa passar dos 96px da barra fixa, senão o
+          posicionamento entra por baixo dela. */}
+      <HeroForeground className="relative z-10 flex min-h-[100svh] flex-col pt-32 pb-10 md:pb-16">
         <div className="flex flex-1 flex-col px-6 md:px-10 lg:px-14">
-          {/* Assinatura. São os contornos do arquivo da marca, não a palavra
-              "AUVP" composta numa fonte: o A da AUVP é um V invertido.
-              Fica parada: seguir o ponteiro dava à marca um comportamento de
-              enfeite, e a assinatura da instituição não é enfeite. */}
-          <AuvpLettering className="text-paper w-full max-w-[15rem] sm:max-w-[19rem] lg:max-w-[24rem]" />
-
-          <div className="mt-6 md:mt-7">
-            {/* A barra fixa pousa aqui enquanto o hero está em tela. A âncora
-                não tem conteúdo: ela reserva exatamente a altura da barra, para
-                a borda de baixo dela cair no fim deste bloco. A linha que
-                separa a assinatura do posicionamento é essa borda, e não uma
-                régua desta dobra: assim ela e o pé do fundo branco da barra
-                encaixada ficam no mesmo lugar. Ver `useHeroDock`. */}
-            <div
-              id={ID_ANCORA_HERO}
-              aria-hidden
-              className={CLASSE_ANCORA_HERO}
-            />
-
-            <div className="text-paper/60 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 pt-4">
-              <p className="eyebrow">{hero.positioning}</p>
-              <p className="eyebrow">Fundada em {site.foundingYear}</p>
-            </div>
+          {/* A linha logo acima destes dois é a borda de baixo da barra fixa, e
+              não uma régua desta dobra: é o que faz ela e o pé do fundo branco
+              caírem no mesmo ponto da grade. Ver `usePassouOHero`. */}
+          <div className="text-paper/60 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
+            <p className="eyebrow">{hero.positioning}</p>
+            <p className="eyebrow">Fundada em {site.foundingYear}</p>
           </div>
 
           {/* Empurra o título para a base sem prender a dobra a uma altura fixa. */}
