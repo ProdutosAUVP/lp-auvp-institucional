@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
   pull_request:
+  # Escotilha manual, igual à do deploy. Quando a Actions para de agendar os
+  # runs automáticos, e isso já aconteceu, um PR fica sem verificação nenhuma e
+  # sem jeito de pedir uma: `push` e `pull_request` não se disparam à mão.
+  workflow_dispatch:
 
 jobs:
   verificacao:
