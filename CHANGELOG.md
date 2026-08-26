@@ -6,6 +6,12 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Adicionado
 
+- **Fotografia própria na abertura**: o auditório lotado do Private Day, com
+  4783px de largura no negativo. Encerra a última reserva de foto de dobra
+  interna: a anterior tinha 1616px, no limite para sangria total, e era o mesmo
+  negativo da dobra da comunidade. O sujeito fica no eixo central, que é a
+  faixa onde o hero não põe texto, então o arquivo entra sem recorte.
+
 - **A barra pousa na régua do hero antes de encaixar no topo.** Existe um menu
   só: sobre a primeira dobra a barra desce até a régua e fica apoiada ali, sem
   fundo, com logo e botão invisíveis mas ainda ocupando a grade. Entre um estado
@@ -46,6 +52,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Removido
 
+- `private-day-palco.webp`, o antigo fundo do hero, sem uso depois da troca.
 - **Assinatura AUVP em corpo grande do hero.** A barra fixa logo acima carrega o
   mesmo logotipo, então a marca aparecia duas vezes na mesma dobra, e a de baixo
   empurrava o menu para longe do topo. Com ela saiu a viagem da barra até a

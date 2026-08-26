@@ -41,13 +41,10 @@ export function Hero() {
             fill
             priority
             sizes="100vw"
-            /*
-              Em retrato o quadro escala pela altura e sobra corte lateral: o
-              centro cai no vão entre as duas poltronas, que é justamente onde
-              não há ninguém. Puxar para 70% mantém o convidado e a poltrona
-              amarela dentro da tela estreita.
-            */
-            className="object-cover object-[70%_center] md:object-center"
+            /* O sujeito está no eixo do quadro, então o centro serve em
+               qualquer largura: em retrato, onde a foto escala pela altura e
+               sobra corte lateral, é ele que sobra em tela. */
+            className="object-cover object-center"
           />
         ) : (
           <BackdropReserve brief={hero.photo.brief} />
