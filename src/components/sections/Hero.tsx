@@ -76,7 +76,7 @@ export function Hero() {
       {/* O respiro do topo precisa passar dos 96px da barra fixa, senão o
           posicionamento entra por baixo dela. */}
       <HeroForeground className="relative z-10 flex min-h-[100svh] flex-col pt-32 pb-10 md:pb-16">
-        <div className="flex flex-1 flex-col px-6 md:px-10 lg:px-14">
+        <div className="flex flex-1 flex-col px-6 md:px-10 lg:px-10 xl:px-14">
           {/* A linha logo acima destes dois é a borda de baixo da barra fixa, e
               não uma régua desta dobra: é o que faz ela e o pé do fundo branco
               caírem no mesmo ponto da grade. Ver `usePassouOHero`. */}

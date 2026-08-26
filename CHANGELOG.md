@@ -16,6 +16,16 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Corrigido
 
+- **A fotografia da sede aparecia quase quadrada**, cortando um terço da
+  largura de um quadro 16:9. A moldura copia a altura da coluna de texto ao
+  lado, então o texto foi enxugado, sem perder nenhum fato, e a coluna da
+  imagem cresceu: a moldura passou de 1,14 para 1,42.
+- **A mesma dobra ficava pior em 1024px do que em 1440**: a coluna de texto
+  caía para 361px, o que a deixava com 616px de altura, e a moldura virava um
+  retrato de 0,88. As duas colunas agora só valem a partir de `xl`; abaixo
+  disso a dobra empilha e a fotografia ocupa a largura inteira.
+- **Os itens do menu quebravam em duas linhas entre 1024 e 1180px.** Nessa
+  faixa eles entram menores e mais juntos, e voltam ao corpo cheio em `xl`.
 - **A barra mudava de conteúdo entre os dois estados.** Sobre o hero ela
   escondia o logo e o botão da área do aluno, e ficava dentro do `Container`
   enquanto a régua da dobra corria de ponta a ponta: nada batia. Agora a barra é

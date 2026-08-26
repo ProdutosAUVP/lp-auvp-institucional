@@ -79,8 +79,8 @@ export function SiteHeader() {
     >
       {/* Largura total, com a mesma margem lateral do hero. Dentro do
           `Container` a barra parava 152px antes da borda e a linha dela não
-          batia com nada. */}
-      <div className="flex h-24 items-center justify-between gap-8 px-6 md:px-10 lg:px-14">
+          batia com nada. Ao mexer no `px` daqui, mexer no do hero junto. */}
+      <div className="flex h-24 items-center justify-between gap-8 px-6 md:px-10 lg:px-10 xl:px-14">
         <a
           href="#principal"
           className="flex shrink-0 items-center"
@@ -103,9 +103,14 @@ export function SiteHeader() {
 
         {/* O menu é o mesmo nos dois estados: nunca some, nunca se desloca.
             Do hero para a página só a cor dos itens muda. */}
+        {/*
+          Entre 1024 e 1180px os quatro itens não cabiam entre o logo e o botão
+          da área do aluno, e quebravam em duas linhas. Nessa faixa eles entram
+          menores e mais juntos, e voltam ao corpo cheio a partir de `xl`.
+        */}
         <nav
           aria-label="Navegação principal"
-          className="hidden items-center gap-9 lg:flex"
+          className="hidden items-center gap-5 lg:flex xl:gap-9"
         >
           {primaryNav.map((item) => {
             const current = item.href === activeSection;
@@ -115,7 +120,7 @@ export function SiteHeader() {
                 href={item.href}
                 aria-current={current ? "true" : undefined}
                 className={cn(
-                  "group relative text-sm transition-colors duration-300",
+                  "group relative text-[0.8125rem] whitespace-nowrap transition-colors duration-300 xl:text-sm",
                   onPaper
                     ? current
                       ? "text-ink"
