@@ -181,18 +181,49 @@ e a fotografia responde por todo o resto.
 O título fica embaixo por um motivo prático, além do estético: é onde o véu
 inferior garante contraste, seja qual for a foto que entrar no lugar desta.
 
+**É a única dobra da página que não usa o `Container`.** As réguas do hero são a
+moldura da capa, e moldura que para a 152px da borda não é moldura, é caixa:
+elas correm de ponta a ponta, com `px-6 md:px-10 lg:px-14` de margem. Da segunda
+dobra em diante a grade única volta a valer, sem exceção. Não estender essa
+licença para nenhuma outra dobra: foi exatamente isso que produziu o defeito das
+duas larguras de container.
+
+**Nada no hero segue o ponteiro.** Houve uma versão em que a assinatura derivava
+uns pixels com o mouse. Saiu: a marca da instituição ganhava comportamento de
+enfeite, que é a mesma razão pela qual o objeto WebGL foi recusado antes dela.
+
 A tentativa anterior punha uma curva de crescimento traçada atrás do texto
 centralizado. Saiu junto com o texto centralizado: com a foto em sangria total
 ela virava ruído sobre a imagem, e uma curva de crescimento a poucos pixels de
 um botão sempre corre o risco de ser lida como promessa de rentabilidade, que a
 página não faz em lugar nenhum.
 
+### O menu tem dois estados, e eles são o mesmo evento
+
+Sobre o hero não existe barra fixa. O menu se apoia na régua que separa a
+assinatura do posicionamento, com os filetes correndo entre os itens, como
+índice de livro antigo. É o que mantém a capa sendo capa: uma barra de papel por
+cima da fotografia tiraria dela a única coisa que a faz abertura.
+
+Da segunda dobra em diante o menu é a barra fixa de sempre, com logo, itens e o
+botão da área do aluno.
+
+A troca não é um `scrollY` comparado com um número mágico. Os dois lados leem o
+mesmo `useHeroHandoff`, que mede quando a régua do hero alcança a base da barra:
+o corte cai no mesmo pixel em qualquer altura de tela, e um se dissolve para
+cima enquanto o outro desce, em 500ms com a mesma curva. Ao mexer em qualquer um
+dos dois, mexer no outro junto.
+
+Abaixo de `lg` não cabem quatro itens numa linha, então ali o menu do hero é só
+a régua, e o caminho continua sendo o botão de gaveta, que fica de pé sobre a
+fotografia sem barra atrás.
+
 ### A assinatura em escala arquitetônica
 
 "AUVP" em corpo enorme aparece em um lugar só: o alto do hero, em preenchimento
-sólido. O rodapé tinha a mesma assinatura em corpo maior, e ela saiu: fechar a
-página com o nome em escala de fachada competia com a informação do rodapé, que
-é onde alguém vai procurar um link.
+sólido, direto pelo `AuvpLettering`. O rodapé tinha a mesma assinatura em corpo
+maior, e ela saiu: fechar a página com o nome em escala de fachada competia com
+a informação do rodapé, que é onde alguém vai procurar um link.
 
 Funciona porque nessa escala a palavra deixa de ser logotipo e vira arquitetura:
 dá porte institucional à dobra sem nenhum ornamento. Fica em `aria-hidden`,
@@ -205,9 +236,10 @@ inclusive, entrega a letra errada. Os contornos vivem em
 `auvp-escola-serif-preta.svg` e recortados na caixa exata das quatro letras. O
 mesmo desenho está em `public/logos/auvp-monograma.svg`, para uso fora do React.
 
-É componente, e não `<img>`, porque o `Wordmark` ainda oferece a versão em
-contorno: filtro sobre `<img>` não produz traço, e manter dois arquivos, um
-cheio e um vazado, duplicaria a marca em dois lugares que podem divergir.
+É componente, e não `<img>`, porque as letras precisam herdar `currentColor` e
+poder aparecer em contorno sem um segundo arquivo: filtro sobre `<img>` não
+produz traço, e manter dois arquivos, um cheio e um vazado, duplicaria a marca
+em dois lugares que podem divergir.
 
 Usar nesse lugar e em nenhum outro. Repetida, vira papel de parede.
 
@@ -269,5 +301,8 @@ leitura**: dá profundidade e continuidade à rolagem, nunca chama atenção par
 - Travessão, o traço longo, em qualquer texto, comentário ou documento. Use dois-pontos,
   vírgula, parênteses ou ponto final.
 - Contagem regressiva, selo de desconto, seta piscante.
-- Mais de uma cor de destaque. O amarelo é a única.
+- Mais de uma cor de destaque. O amarelo é a única, com a exceção documentada
+  das cores de ETF.
+- Elemento do hero que responda ao ponteiro.
+- Logo de apoiador em cor própria: a fileira é em escala de cinza.
 - Foto com o branding antigo (olho espiral) no quadro. Ver `docs/ASSETS.md`.

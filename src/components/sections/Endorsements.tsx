@@ -15,19 +15,18 @@ export function Endorsements() {
   return (
     <Section tone="paper" rule compact>
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
-          <h2 className="font-[family-name:var(--font-display)] text-3xl leading-tight font-medium text-balance md:text-4xl">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.52fr)_minmax(0,1.48fr)] lg:gap-14">
+          <h2 className="max-w-[14ch] font-[family-name:var(--font-display)] text-3xl leading-tight font-medium text-balance md:text-4xl">
             {endorsements.title}
           </h2>
 
           {/*
-              Duas colunas em qualquer largura, e não quatro. Numa fileira só,
-              cada célula media 134px e o `max-w-full` encolhia as logos largas
-              a menos da metade da altura pedida: a restrição era de largura,
-              não de altura. Em 2x2 a célula passa de 300px e cada arquivo
-              aparece no tamanho natural.
-            */}
-          <ul className="grid grid-cols-2 gap-x-10 gap-y-12 lg:gap-x-12">
+            Os quatro lado a lado, numa fileira só. A coluna do título encolheu
+            para caber: numa divisão 0,8 por 1,2 cada célula ficava com 134px e
+            o `max-w-full` esmagava as logos largas a menos da metade da altura
+            pedida. A restrição sempre foi de largura, não de altura.
+          */}
+          <ul className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4 lg:gap-x-10">
             {endorsements.items.map((item) => (
               <li key={item.name} className="flex items-center justify-center">
                 <EndorsementLogo name={item.name} logo={item.logo} />

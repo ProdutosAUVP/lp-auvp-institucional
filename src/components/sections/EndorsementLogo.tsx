@@ -13,10 +13,15 @@ import { asset } from "@/lib/asset";
  * ele volta a exibir o nome em versalete, que era o estado anterior e continua
  * apresentável.
  *
- * As logos aparecem em cor própria. O único filtro é `mix-blend-multiply`, que
- * sobre papel branco é neutro para o desenho (multiplicar por branco não muda
- * pixel nenhum) e some com fundo branco chapado, caso algum arquivo tenha um.
- * Nenhum deles foi conferido visualmente. Ver docs/ASSETS.md.
+ * As logos aparecem em preto e branco. São marcas de quatro donos diferentes,
+ * cada uma com a própria paleta, e lado a lado em cor própria elas viravam a
+ * área mais colorida de uma página de três cores. Em escala de cinza a fileira
+ * lê como um conjunto, que é o que a dobra afirma.
+ *
+ * O `mix-blend-multiply` continua: sobre papel branco é neutro para o desenho
+ * (multiplicar por branco não muda pixel nenhum) e some com fundo branco
+ * chapado, caso algum arquivo tenha um. Nenhum dos três arquivos servidos pelo
+ * CDN foi conferido visualmente. Ver docs/ASSETS.md.
  */
 export function EndorsementLogo({
   name,
@@ -43,7 +48,7 @@ export function EndorsementLogo({
       height={120}
       unoptimized
       onError={() => setFalhou(true)}
-      className="h-16 w-auto max-w-full object-contain mix-blend-multiply md:h-20"
+      className="h-12 w-auto max-w-full object-contain mix-blend-multiply grayscale md:h-14"
     />
   );
 }

@@ -1,10 +1,9 @@
 import Image from "next/image";
 import { HeroBackdrop, HeroForeground } from "@/components/motion/HeroScroll";
-import { PointerDrift } from "@/components/motion/PointerDrift";
+import { HeroNav } from "@/components/sections/HeroNav";
 import { AuvpLettering } from "@/components/ui/AuvpLettering";
 import { BackdropReserve } from "@/components/ui/Figure";
 import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
 import { hero } from "@/content/hero";
 import { links, site } from "@/content/site";
 import { asset } from "@/lib/asset";
@@ -18,6 +17,11 @@ import { asset } from "@/lib/asset";
  * abertura da Lionheart, e o recurso é o mesmo que Yale e Oxford usam em
  * página de reitoria: o nome da instituição ocupa o quadro e a fotografia
  * responde por todo o resto.
+ *
+ * **Esta dobra não usa o `Container`.** É a única da página que não usa, e é de
+ * propósito: aqui as réguas são a moldura da capa, e moldura que para a 152px
+ * da borda não é moldura, é caixa. Elas correm de ponta a ponta com uma margem
+ * curta. Da segunda dobra em diante a grade volta a valer, sem exceção.
  *
  * O título fica embaixo por um motivo prático: é onde a fotografia costuma ser
  * mais escura e onde o véu inferior garante contraste, seja qual for a foto
@@ -69,17 +73,21 @@ export function Hero() {
         className="to-ink absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent"
       />
 
-      <HeroForeground className="relative z-10 flex min-h-[100svh] flex-col pt-24 pb-10 md:pt-32 md:pb-16">
-        <Container className="flex flex-1 flex-col">
+      <HeroForeground className="relative z-10 flex min-h-[100svh] flex-col pt-24 pb-10 md:pt-28 md:pb-16">
+        <div className="flex flex-1 flex-col px-6 md:px-10 lg:px-14">
           {/* Assinatura. São os contornos do arquivo da marca, não a palavra
-              "AUVP" composta numa fonte: o A da AUVP é um V invertido. */}
-          <PointerDrift amount={14} className="w-fit">
-            <AuvpLettering className="text-paper w-full max-w-[22rem] sm:max-w-[30rem] lg:max-w-[40rem]" />
-          </PointerDrift>
+              "AUVP" composta numa fonte: o A da AUVP é um V invertido.
+              Fica parada: seguir o ponteiro dava à marca um comportamento de
+              enfeite, e a assinatura da instituição não é enfeite. */}
+          <AuvpLettering className="text-paper w-full max-w-[22rem] sm:max-w-[32rem] lg:max-w-[47rem]" />
 
-          <div className="border-paper/20 text-paper/60 mt-6 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 border-t pt-4 md:mt-7">
-            <p className="eyebrow">{hero.positioning}</p>
-            <p className="eyebrow">Fundada em {site.foundingYear}</p>
+          <div className="mt-7 md:mt-9">
+            <HeroNav />
+
+            <div className="text-paper/60 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 pt-4">
+              <p className="eyebrow">{hero.positioning}</p>
+              <p className="eyebrow">Fundada em {site.foundingYear}</p>
+            </div>
           </div>
 
           {/* Empurra o título para a base sem prender a dobra a uma altura fixa. */}
@@ -110,7 +118,7 @@ export function Hero() {
               {hero.ctaLabel}
             </Button>
           </div>
-        </Container>
+        </div>
       </HeroForeground>
     </section>
   );
