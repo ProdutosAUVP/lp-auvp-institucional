@@ -2,9 +2,17 @@
 
 export const mission = {
   title: "O Brasil merece educação financeira de verdade.",
+  /**
+   * Texto enxuto de propósito, e não por acaso: a fotografia ao lado tem a
+   * altura desta coluna, então cada linha a mais aqui deixa a moldura mais
+   * alta e o recorte da fachada mais fechado. Nenhum fato saiu na redução, só
+   * repetição: "em todas as frentes da vida financeira" dizia o mesmo que "da
+   * educação à gestão de patrimônio", e "essa trajetória é reforçada por" era
+   * rodeio para chegar na AUVP Capital.
+   */
   paragraphs: [
-    "A maioria dos brasileiros nunca teve acesso a um ensino financeiro honesto e de qualidade. Foi para mudar essa realidade que a AUVP nasceu, em 2020, com a missão de transformar o Brasil em um país de investidores.",
-    "O que começou como uma escola de investimentos evoluiu para um ecossistema financeiro completo, que acompanha o investidor em todas as frentes da vida financeira, da educação à gestão de patrimônio. Essa trajetória é reforçada pela AUVP Capital, reconhecida pelo BTG Pactual como a consultoria nº 1 do país por dois anos consecutivos.",
+    "A maioria dos brasileiros nunca teve acesso a um ensino financeiro honesto. Foi para mudar isso que a AUVP nasceu, em 2020, com a missão de transformar o Brasil em um país de investidores.",
+    "O que começou como uma escola de investimentos virou um ecossistema financeiro completo, da educação à gestão de patrimônio. A AUVP Capital é reconhecida pelo BTG Pactual como a consultoria nº 1 do país por dois anos consecutivos.",
   ],
   photo: {
     src: "/images/sede-auvp-capital.webp" as string | null,
