@@ -242,6 +242,13 @@ Funciona porque nessa escala a palavra deixa de ser logotipo e vira arquitetura:
 dá porte institucional à dobra sem nenhum ornamento. Fica em `aria-hidden`,
 porque o nome já é anunciado pelo logo do cabeçalho.
 
+**O tamanho dela tem um teto, e ele não é estético.** A barra fixa pousa logo
+abaixo da assinatura, então cada pixel de altura que ela ganha empurra o menu
+para baixo. Com 640px de largura a barra descia para 318px do topo, longe demais
+de onde um menu é procurado. O valor atual, `lg:max-w-[24rem]`, deixa a
+assinatura com 384px e a barra em 226px. Ao aumentar a assinatura, medir onde a
+barra passa a pousar.
+
 **São as letras do arquivo da marca, não a palavra composta numa fonte.** O A da
 AUVP é um V invertido, sem travessão, e digitar "A" em qualquer fonte, Sentient
 inclusive, entrega a letra errada. Os contornos vivem em

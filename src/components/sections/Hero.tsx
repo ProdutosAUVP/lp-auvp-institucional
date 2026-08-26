@@ -76,15 +76,15 @@ export function Hero() {
         className="to-ink absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent"
       />
 
-      <HeroForeground className="relative z-10 flex min-h-[100svh] flex-col pt-24 pb-10 md:pt-28 md:pb-16">
+      <HeroForeground className="relative z-10 flex min-h-[100svh] flex-col pt-20 pb-10 md:pt-24 md:pb-16">
         <div className="flex flex-1 flex-col px-6 md:px-10 lg:px-14">
           {/* Assinatura. São os contornos do arquivo da marca, não a palavra
               "AUVP" composta numa fonte: o A da AUVP é um V invertido.
               Fica parada: seguir o ponteiro dava à marca um comportamento de
               enfeite, e a assinatura da instituição não é enfeite. */}
-          <AuvpLettering className="text-paper w-full max-w-[22rem] sm:max-w-[30rem] lg:max-w-[40rem]" />
+          <AuvpLettering className="text-paper w-full max-w-[15rem] sm:max-w-[19rem] lg:max-w-[24rem]" />
 
-          <div className="mt-7 md:mt-9">
+          <div className="mt-6 md:mt-7">
             {/* A barra fixa pousa aqui enquanto o hero está em tela, com os
                 itens do menu apoiados na régua logo abaixo. A âncora não tem
                 conteúdo: ela só reserva a altura. Ver `useHeroDock`. */}
