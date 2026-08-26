@@ -17,23 +17,26 @@ import { useEffect, useRef, useState } from "react";
  * um só, os itens não se movem um pixel na horizontal e não mudam de corpo. O
  * que muda é cor, e mais nada.
  *
- * O logo e o botão da área do aluno continuam no fluxo enquanto o hero está em
- * tela, apenas invisíveis. Isso é essencial: se saíssem da grade, o menu
- * escorregaria na horizontal no momento do encaixe.
+ * A barra é a mesma nos dois estados, e não só o menu: logo, itens e botão da
+ * área do aluno aparecem iguais sobre o hero e sobre a página, no mesmo lugar e
+ * no mesmo tamanho. O que muda é a cor deles, e o que existe atrás: sobre o
+ * hero, só a borda de baixo; encaixada, o fundo de papel. É por isso que a
+ * âncora tem exatamente a altura da barra, e que a barra usa a mesma margem
+ * lateral do hero em vez do `Container`.
  */
 
 /** Id da âncora do hero, o elemento que a barra persegue. */
 export const ID_ANCORA_HERO = "hero-ancora";
 
 /**
- * Altura da âncora, e portanto a distância entre o topo da barra e a régua.
- * `h-16` deixa a régua uns 6px abaixo da base do texto dos itens, que é o que
- * faz eles parecerem apoiados nela. Abaixo de `lg` a barra não viaja, então a
- * âncora vira só um respiro.
+ * Altura da âncora. A partir de `lg` ela é exatamente a altura da barra
+ * (`h-24`), então a borda de baixo da barra pousa no fim da âncora: a linha do
+ * hero e o pé do fundo branco ficam no mesmo lugar da grade, que é o ponto.
  *
- * Ao mexer aqui, conferir de novo o encontro entre item e régua.
+ * Abaixo de `lg` a barra não viaja e fica no topo, com a própria linha. A
+ * âncora ali vira só um respiro entre a assinatura e o posicionamento.
  */
-export const CLASSE_ANCORA_HERO = "h-6 lg:h-16";
+export const CLASSE_ANCORA_HERO = "h-10 lg:h-24";
 
 /** Abaixo disto o menu vive na gaveta e a barra fica parada no topo. */
 const LARGURA_VIAGEM = "(min-width: 1024px)";

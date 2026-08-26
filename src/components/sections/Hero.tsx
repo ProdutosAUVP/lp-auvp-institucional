@@ -76,7 +76,12 @@ export function Hero() {
         className="to-ink absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent"
       />
 
-      <HeroForeground className="relative z-10 flex min-h-[100svh] flex-col pt-20 pb-10 md:pt-24 md:pb-16">
+      <HeroForeground /* Abaixo de `lg` a barra fica parada no topo, e o respiro precisa
+              passar dos 96px dela: com menos, a linha da barra corta o alto da
+              assinatura. A partir de `lg` a barra desce até a âncora e o topo
+              da dobra fica livre. */
+        className="relative z-10 flex min-h-[100svh] flex-col pt-28 pb-10 md:pb-16 lg:pt-24"
+      >
         <div className="flex flex-1 flex-col px-6 md:px-10 lg:px-14">
           {/* Assinatura. São os contornos do arquivo da marca, não a palavra
               "AUVP" composta numa fonte: o A da AUVP é um V invertido.
@@ -85,16 +90,17 @@ export function Hero() {
           <AuvpLettering className="text-paper w-full max-w-[15rem] sm:max-w-[19rem] lg:max-w-[24rem]" />
 
           <div className="mt-6 md:mt-7">
-            {/* A barra fixa pousa aqui enquanto o hero está em tela, com os
-                itens do menu apoiados na régua logo abaixo. A âncora não tem
-                conteúdo: ela só reserva a altura. Ver `useHeroDock`. */}
+            {/* A barra fixa pousa aqui enquanto o hero está em tela. A âncora
+                não tem conteúdo: ela reserva exatamente a altura da barra, para
+                a borda de baixo dela cair no fim deste bloco. A linha que
+                separa a assinatura do posicionamento é essa borda, e não uma
+                régua desta dobra: assim ela e o pé do fundo branco da barra
+                encaixada ficam no mesmo lugar. Ver `useHeroDock`. */}
             <div
               id={ID_ANCORA_HERO}
               aria-hidden
               className={CLASSE_ANCORA_HERO}
             />
-
-            <span aria-hidden className="bg-paper/25 block h-px w-full" />
 
             <div className="text-paper/60 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 pt-4">
               <p className="eyebrow">{hero.positioning}</p>

@@ -200,29 +200,36 @@ página não faz em lugar nenhum.
 
 ### A barra pousa na régua do hero antes de encaixar no topo
 
-**Existe um menu só.** Sobre o hero a barra não some nem é substituída por
-outra: ela desce até a régua que separa a assinatura do posicionamento e fica
-apoiada ali, sem fundo, com o logo e o botão da área do aluno invisíveis mas
-ainda ocupando a grade. É o que mantém a capa sendo capa, e ao mesmo tempo
-mantém o menu no lugar. Quando a âncora do hero alcança o topo da janela, a
-barra encaixa e ganha papel, logo e botão.
+**Existe uma barra só.** Sobre o hero ela não some nem é substituída por outra:
+desce até a âncora da primeira dobra e fica ali. Logo, itens e botão da área do
+aluno aparecem iguais nos dois estados, no mesmo lugar e no mesmo tamanho.
+Quando a âncora alcança o topo da janela, a barra encaixa.
 
-Entre um estado e o outro **os itens não se movem um pixel na horizontal e não
-mudam de corpo**. Só a cor muda: branco sobre a fotografia, grafite sobre papel,
-com o filete do item atual passando de amarelo para preto.
+**A única diferença entre os dois estados é o que existe atrás da barra.** Sobre
+o hero, nada: só a borda de baixo, um filete branco a 25%. Encaixada, o fundo de
+papel. A borda é o mesmo elemento nos dois casos, então a linha do hero e o pé
+do fundo branco caem exatamente no mesmo ponto da grade.
+
+Por isso a barra usa a mesma margem lateral do hero (`px-6 md:px-10 lg:px-14`) e
+não o `Container`: dentro dele ela parava 152px antes da borda e a linha não
+batia com nada. É a mesma licença de largura total da primeira dobra, e vale só
+para a barra e para o hero.
+
+Entre um estado e o outro **nada se move na horizontal e nada muda de corpo**.
+Só a cor: branco sobre a fotografia, tinta sobre papel, com o filete do item
+atual passando de amarelo para preto.
 
 Houve uma versão com dois menus, um no hero e outro na barra, dissolvendo um no
 outro. Por mais suave que fosse a dissolução, os itens trocavam de lugar e de
 estilo no meio do caminho, porque eram elementos diferentes em grades
 diferentes. Não voltar a isso.
 
-O logo e o botão precisam continuar no fluxo enquanto estão invisíveis. Se
-saírem da grade, o menu escorrega na horizontal no instante do encaixe, que é
-exatamente o defeito que essa arquitetura existe para evitar.
+A âncora tem exatamente a altura da barra a partir de `lg`, e é isso que faz a
+borda pousar no fim dela. Ao mexer numa das duas, conferir a outra.
 
-Abaixo de `lg` a barra não viaja: ali o menu vive na gaveta, e o botão dela
-pertence ao topo da tela. A régua da primeira dobra continua, sozinha, e sobre a
-fotografia em tinta o traço branco se lê sem barra atrás.
+Abaixo de `lg` a barra não viaja: ali o menu vive na gaveta, o botão dela
+pertence ao topo da tela, e a linha vai junto. O respiro do topo do hero precisa
+passar dos 96px da barra, senão a linha corta o alto da assinatura.
 
 **A camada de texto do hero não pode ganhar deslocamento próprio.** Ela teve um,
 de 72px, para sair mais rápido que a fotografia, e ele separava a régua da barra

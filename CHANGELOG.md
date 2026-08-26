@@ -16,6 +16,12 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Corrigido
 
+- **A barra mudava de conteúdo entre os dois estados.** Sobre o hero ela
+  escondia o logo e o botão da área do aluno, e ficava dentro do `Container`
+  enquanto a régua da dobra corria de ponta a ponta: nada batia. Agora a barra é
+  a mesma nos dois estados, em largura total, e a única diferença é o que existe
+  atrás dela: filete sobre o hero, fundo de papel depois. A borda de baixo é o
+  mesmo elemento, então a linha e o pé do fundo caem no mesmo ponto da grade.
 - **A assinatura do hero empurrava o menu para baixo.** Com 640px de largura ela
   jogava a barra para 318px do topo. Agora tem 384px, e a barra pousa em 226px.
 - A fotografia da sede terminava mais de 100px antes do último parágrafo ao
