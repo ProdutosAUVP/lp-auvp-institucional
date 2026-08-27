@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { ModuleIcon } from "@/components/ui/ModuleIcon";
 import { Section } from "@/components/ui/Section";
 import { curriculum, modules } from "@/content/curriculum";
-import { links } from "@/content/site";
 import { cn } from "@/lib/cn";
 
 /**
@@ -78,13 +76,6 @@ export function Curriculum() {
                 de {String(modules.length).padStart(2, "0")}
               </span>
             </p>
-
-            <div className="mt-10 hidden lg:block">
-              <Button href={links.training} variant="outline" size="lg">
-                {curriculum.ctaLabel}
-                <ArrowRight />
-              </Button>
-            </div>
           </div>
 
           <ol className="flex flex-col">
@@ -133,13 +124,6 @@ export function Curriculum() {
               </li>
             ))}
           </ol>
-        </div>
-
-        <div className="mt-14 flex justify-center lg:hidden">
-          <Button href={links.training} variant="outline" size="lg">
-            {curriculum.ctaLabel}
-            <ArrowRight />
-          </Button>
         </div>
       </Container>
     </Section>

@@ -24,7 +24,6 @@ export const curriculum = {
   title: "Conteúdo programático.",
   subtitle:
     "Oito módulos que levam o aluno do primeiro conceito à gestão autônoma da própria carteira.",
-  ctaLabel: "Veja tudo que está incluído no treinamento",
 } as const;
 
 export const modules: Module[] = [
