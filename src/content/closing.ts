@@ -18,7 +18,12 @@ export const closing = {
    */
   countdown: {
     target: "2026-09-30T23:59:00-03:00" as string | null,
-    label: "As inscrições da próxima turma encerram em",
+    /**
+     * Curto de propósito: o rótulo da dobra, na coluna ao lado, já diz
+     * "Próxima turma". Repetir aqui punha a mesma expressão duas vezes na
+     * mesma linha da tela.
+     */
+    label: "Inscrições encerram em",
   },
   title: "A formação começa por uma conversa honesta sobre o seu momento.",
   ctaLabel: "Faça sua Análise de Perfil",

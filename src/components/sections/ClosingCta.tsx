@@ -34,29 +34,43 @@ export function ClosingCta() {
       />
 
       <Container className="relative py-24 md:py-32">
-        <Reveal className="flex max-w-[44rem] flex-col items-start gap-7">
-          <p className="eyebrow text-yellow">{closing.eyebrow}</p>
-          <h2 className="font-[family-name:var(--font-display)] text-4xl leading-[1.08] font-medium tracking-[-0.01em] text-balance md:text-5xl lg:text-[3.5rem]">
-            {closing.title}
-          </h2>
-          <p className="text-mist max-w-[52ch] text-base leading-relaxed md:text-lg">
-            {site.shortName} avalia o perfil de cada candidato antes da
-            matrícula. Leva poucos minutos e não custa nada.
-          </p>
-          {/* Fica entre o texto e o botão de propósito: é o prazo que dá
-              motivo ao clique, então precisa vir logo antes dele. */}
-          <ClassCountdown />
+        {/*
+          Duas colunas a partir de `lg`: o prazo de um lado, o convite do outro.
+          O contador estava empilhado abaixo do texto e ali competia com o botão
+          pelo mesmo lugar na leitura. Numa coluna própria ele vira o dado que
+          justifica o clique, e não mais um bloco na fila.
 
-          <Button
-            href={links.profileAnalysis}
-            variant="yellow"
-            size="lg"
-            className="mt-2"
-          >
-            {closing.ctaLabel}
-            <ArrowRight />
-          </Button>
-        </Reveal>
+          A ordem do DOM é a ordem visual nos dois casos, sem `order` para
+          inverter coluna: empilhado, o contador abre a dobra; em duas colunas,
+          ele é o da esquerda. Trocar com `order` deixaria quem navega por
+          teclado ou leitor de tela numa sequência diferente da que vê.
+        */}
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16">
+          <Reveal>
+            <ClassCountdown />
+          </Reveal>
+
+          <Reveal delay={90} className="flex flex-col items-start gap-7">
+            <p className="eyebrow text-yellow">{closing.eyebrow}</p>
+            <h2 className="font-[family-name:var(--font-display)] text-4xl leading-[1.08] font-medium tracking-[-0.01em] text-balance md:text-5xl">
+              {closing.title}
+            </h2>
+            <p className="text-mist max-w-[52ch] text-base leading-relaxed md:text-lg">
+              {site.shortName} avalia o perfil de cada candidato antes da
+              matrícula. Leva poucos minutos e não custa nada.
+            </p>
+
+            <Button
+              href={links.profileAnalysis}
+              variant="yellow"
+              size="lg"
+              className="mt-2"
+            >
+              {closing.ctaLabel}
+              <ArrowRight />
+            </Button>
+          </Reveal>
+        </div>
       </Container>
     </section>
   );
