@@ -23,7 +23,7 @@ export function StructuredData() {
       addressRegion: "GO",
       addressCountry: "BR",
     },
-    sameAs: [links.instagram, links.youtube, links.linkedin],
+    sameAs: [links.instagram, links.youtube, links.spotify],
   };
 
   const faqPage = {

@@ -1,5 +1,7 @@
 /** Dobra 09: nossos ETFs. */
 
+import { links } from "@/content/site";
+
 export type Etf = {
   ticker: string;
   category: string;
@@ -11,6 +13,13 @@ export type Etf = {
    */
   accentClass: string;
   description: string;
+  /**
+   * O site dos fundos, `auvpetfs.com.br`, é onde a metodologia e a composição
+   * de cada um ficam abertas. Os quatro cartões apontam para a raiz dele, e
+   * não para um caminho por ticker: `lp-auvp-escola-prod` linka o site inteiro
+   * e não expõe o caminho de cada fundo, e caminho deduzido é caminho que
+   * quebra. Quando alguém confirmar os endereços por fundo, é aqui que entram.
+   */
   href: string;
 };
 
@@ -34,7 +43,7 @@ export const etfs: Etf[] = [
     accentClass: "text-etf-auvp11",
     description:
       "Empresas sólidas, selecionadas por fundamentos consistentes e estrutura de capital saudável.",
-    href: "https://auvp.com.br/etfs/auvp11",
+    href: links.etfs,
   },
   {
     ticker: "AUPO11",
@@ -42,7 +51,7 @@ export const etfs: Etf[] = [
     accentClass: "text-etf-aupo11",
     description:
       "Carteira de renda fixa com controle de prazo, critérios objetivos e rebalanceamento periódico.",
-    href: "https://auvp.com.br/etfs/aupo11",
+    href: links.etfs,
   },
   {
     ticker: "AREA11",
@@ -50,7 +59,7 @@ export const etfs: Etf[] = [
     accentClass: "text-etf-area11",
     description:
       "Alocação organizada em fundos imobiliários, com foco em distribuição de renda mensal.",
-    href: "https://auvp.com.br/etfs/area11",
+    href: links.etfs,
   },
   {
     ticker: "ABTC11",
@@ -58,6 +67,6 @@ export const etfs: Etf[] = [
     accentClass: "text-etf-abtc11",
     description:
       "Combinação dinâmica entre Bitcoin e renda fixa, com alocação baseada no sentimento do mercado.",
-    href: "https://auvp.com.br/etfs/abtc11",
+    href: links.etfs,
   },
 ];

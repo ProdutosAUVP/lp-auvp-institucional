@@ -49,7 +49,7 @@ export function Community() {
         </div>
 
         <div className="mt-14 flex justify-center">
-          <Button href={links.students} variant="outline" size="lg">
+          <Button href={links.community} variant="outline" size="lg">
             {community.ctaLabel}
             <ArrowRight />
           </Button>

@@ -102,8 +102,8 @@ export function ClassCountdown() {
     ...(semSegundos ? [] : [{ valor: restante.segundos, rotulo: "seg" }]),
   ];
 
-  // Sem régua própria: na coluna da esquerda ela não teria com o que se
-  // alinhar do outro lado, e sobraria um traço solto.
+  // Sem régua própria: numa coluna estreita ela não teria com o que se alinhar
+  // do outro lado, e sobraria um traço solto.
   return (
     <div className="flex flex-col gap-5">
       {/* Neutro, e não amarelo: o rótulo da dobra, na outra coluna, já é

@@ -23,32 +23,46 @@ export function Initiatives() {
         <div className="mt-14">
           <GroupLabel className="mb-6">{initiatives.productsLabel}</GroupLabel>
           <ul className="border-paper-line bg-paper-line grid gap-px border sm:grid-cols-2 lg:grid-cols-4">
-            {products.map((product, index) => (
-              <Reveal
-                key={product.name}
-                as="li"
-                delay={(index % 4) * 70}
-                className="bg-paper"
-              >
-                <a
-                  href={product.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group hover:bg-paper-soft flex h-full flex-col gap-3 p-7 transition-colors duration-500"
+            {products.map((product, index) => {
+              // Produto sem endereço confirmado vira `div`, e não `a` sem
+              // `href`: âncora sem destino continua no caminho do Tab e não
+              // leva a lugar nenhum. Ver o tipo `Product`.
+              const Casca = product.href ? "a" : "div";
+              return (
+                <Reveal
+                  key={product.name}
+                  as="li"
+                  delay={(index % 4) * 70}
+                  className="bg-paper"
                 >
-                  <h3 className="text-ink font-[family-name:var(--font-display)] text-2xl leading-tight font-medium">
-                    {product.name}
-                  </h3>
-                  <p className="text-graphite flex-1 text-sm leading-relaxed">
-                    {product.description}
-                  </p>
-                  <span className="eyebrow text-ink mt-2 flex items-center gap-2 transition-transform duration-500 group-hover:translate-x-1">
-                    Saiba mais
-                    <ArrowRight className="h-3 w-3" />
-                  </span>
-                </a>
-              </Reveal>
-            ))}
+                  <Casca
+                    {...(product.href
+                      ? {
+                          href: product.href,
+                          target: "_blank",
+                          rel: "noopener noreferrer",
+                        }
+                      : {})}
+                    className={`group flex h-full flex-col gap-3 p-7 transition-colors duration-500 ${
+                      product.href ? "hover:bg-paper-soft" : ""
+                    }`}
+                  >
+                    <h3 className="text-ink font-[family-name:var(--font-display)] text-2xl leading-tight font-medium">
+                      {product.name}
+                    </h3>
+                    <p className="text-graphite flex-1 text-sm leading-relaxed">
+                      {product.description}
+                    </p>
+                    {product.href ? (
+                      <span className="eyebrow text-ink mt-2 flex items-center gap-2 transition-transform duration-500 group-hover:translate-x-1">
+                        Saiba mais
+                        <ArrowRight className="h-3 w-3" />
+                      </span>
+                    ) : null}
+                  </Casca>
+                </Reveal>
+              );
+            })}
           </ul>
         </div>
 
@@ -82,15 +96,17 @@ export function Initiatives() {
                     <p className="text-graphite max-w-[54ch] text-base leading-[1.75]">
                       {partnership.description}
                     </p>
-                    <a
-                      href={partnership.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="eyebrow text-ink/70 hover:text-ink mt-2 inline-flex w-fit items-center gap-2 transition-colors duration-300"
-                    >
-                      Saiba mais
-                      <ArrowRight className="h-3 w-3" />
-                    </a>
+                    {partnership.href ? (
+                      <a
+                        href={partnership.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="eyebrow text-ink/70 hover:text-ink mt-2 inline-flex w-fit items-center gap-2 transition-colors duration-300"
+                      >
+                        Saiba mais
+                        <ArrowRight className="h-3 w-3" />
+                      </a>
+                    ) : null}
                   </div>
                 </Reveal>
               );
