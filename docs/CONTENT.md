@@ -45,6 +45,19 @@ tipo de erro que custa credibilidade.
 `src/content/site.ts`, objeto `links`. Um lugar só: o link aparece em vários
 botões da página e todos leem daqui.
 
+**A fonte de um endereço externo é a página da escola em produção**, o
+`index.html` de `ProdutosAUVP/lp-auvp-escola-prod`, e não a dedução a partir do
+nome. Houve aqui um conjunto inteiro de URLs no formato `auvp.com.br/<coisa>`,
+inventado por analogia, e nenhuma delas existe: o checkout é um formulário
+(`form.auvp.com.br/to/...`), a área do aluno é `aulasauvp.com.br`, os fundos
+são `auvpetfs.com.br`, a comunidade é `comunidade.auvp.com.br` e os produtos da
+consultoria ficam sob `auvpcapital.com.br`.
+
+Quando um produto ou uma parceria não tiver endereço confirmado, deixe o `href`
+de fora: `Product` e `Partnership` aceitam a ausência, e o cartão simplesmente
+não vira link. Link institucional quebrado custa mais do que link
+ausente, e âncora sem destino ainda por cima entra no caminho do Tab.
+
 ### Adicionar uma pergunta ao FAQ
 
 `src/content/faq.ts`, dentro da categoria certa. A pergunta entra
@@ -68,6 +81,10 @@ Os ícones são traço de 1px em `viewBox` 32×32, sem preenchimento. Ver
 `src/content/initiatives.ts`. Produtos entram na grade; parcerias entram nas
 faixas horizontais e **alternam o lado da foto automaticamente** pelo índice,
 não é preciso configurar nada.
+
+O `href` é opcional nos dois. Sem endereço confirmado, o cartão perde o "Saiba
+mais" e deixa de ser clicável, o que é o comportamento desejado: ver "Trocar um
+link".
 
 ### Preencher uma foto pendente
 

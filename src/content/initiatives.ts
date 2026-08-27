@@ -1,15 +1,23 @@
 /** Dobra 08: as iniciativas da AUVP. */
 
+/**
+ * `href` é opcional de propósito. Os endereços daqui saem do `index.html` de
+ * `ProdutosAUVP/lp-auvp-escola-prod`, a página da escola no ar, e nem todo
+ * produto da instituição aparece lá. Os que não aparecem ficam sem link, e o
+ * componente os mostra como cartão comum: melhor um cartão que não clica do que
+ * um "Saiba mais" que cai em 404.
+ */
 export type Product = {
   name: string;
   description: string;
-  href: string;
+  href?: string;
 };
 
+/** Mesma regra do `Product`: sem endereço confirmado, sem link. */
 export type Partnership = {
   name: string;
   description: string;
-  href: string;
+  href?: string;
   photo: {
     src: string | null;
     alt: string;
@@ -30,46 +38,43 @@ export const products: Product[] = [
     name: "AUVP Capital",
     description:
       "Consultoria de investimentos com gestão completa do patrimônio. Top 1 no ranking BTG Pactual.",
-    href: "https://auvp.com.br/capital",
+    href: "https://www.auvpcapital.com.br/",
   },
   {
     name: "AUVP Wealth",
     description:
       "Planejamento patrimonial, sucessório e tributário, com holdings e offshore.",
-    href: "https://auvp.com.br/wealth",
+    href: "https://auvpcapital.com.br/wealth",
   },
   {
     name: "AUVP Seguros",
     description:
       "Seguro de vida como estratégia patrimonial, com as melhores seguradoras do mercado.",
-    href: "https://auvp.com.br/seguros",
   },
   {
     name: "AUVP Crédito",
     description: "Crédito sob medida com cotação em mais de 20 instituições.",
-    href: "https://auvp.com.br/credito",
+    href: "https://auvpcapital.com.br/credito",
   },
   {
     name: "AUVP Câmbio",
     description: "Câmbio e remessas internacionais, com taxas competitivas.",
-    href: "https://auvp.com.br/cambio",
+    href: "https://auvpcapital.com.br/cambio",
   },
   {
     name: "AUVP Corporate",
     description: "Conta PJ, folha de pagamento e automação para a sua empresa.",
-    href: "https://auvp.com.br/corporate",
   },
   {
     name: "AUVP Agro",
     description:
       "Educação em seguro de preço e execução de hedge para o agronegócio.",
-    href: "https://auvp.com.br/agro",
+    href: "https://auvpagro.com.br/",
   },
   {
     name: "AUVP Pro",
     description:
       "Preparatórios para as principais certificações do mercado financeiro.",
-    href: "https://auvp.com.br/pro",
   },
 ];
 
@@ -78,7 +83,6 @@ export const partnerships: Partnership[] = [
     name: "CEIA",
     description:
       "Parceria com o maior centro de pesquisa em inteligência artificial aplicada do país, na UFG. Juntos, levamos educação financeira aos pesquisadores que constroem a tecnologia do Brasil.",
-    href: "https://auvp.com.br/ceia",
     photo: {
       src: "/images/ceia-ufg.webp",
       alt: "Pesquisadores do CEIA erguem a bandeira do Brasil diante de um auditório lotado.",
@@ -90,7 +94,7 @@ export const partnerships: Partnership[] = [
     name: "BTG Pactual",
     description:
       "A AUVP Capital, a consultoria de investimentos da AUVP, opera sobre a infraestrutura do maior banco de investimentos da América Latina, e é reconhecida pelo próprio BTG Pactual como a consultoria nº 1 do país.",
-    href: "https://auvp.com.br/capital",
+    href: "https://www.auvpcapital.com.br/",
     photo: {
       src: "/images/btg-pactual-time.webp",
       alt: "Time da AUVP Capital reunido no palco, com o gesto de número um.",
@@ -102,7 +106,6 @@ export const partnerships: Partnership[] = [
     name: "Relações internacionais",
     description:
       "Relações com instituições e embaixadas que abrem novas fronteiras de investimento e de negócios, para a AUVP e para os seus membros. No AUVP Atlas, o canal da AUVP, essas relações viram entrevistas com embaixadores e líderes globais sobre novas oportunidades pelo mundo.",
-    href: "https://auvp.com.br/atlas",
     photo: {
       src: "/images/auvp-atlas-embaixador.webp",
       alt: "Entrevista do AUVP Atlas com um embaixador, gravada no estúdio da escola.",
@@ -114,7 +117,6 @@ export const partnerships: Partnership[] = [
     name: "AUVP Experience",
     description:
       "Imersão executiva internacional que leva investidores para dentro dos grandes polos de tecnologia e comércio do mundo.",
-    href: "https://auvp.com.br/experience",
     photo: {
       src: "/images/auvp-experience-hong-kong.webp",
       alt: "Delegação da AUVP Experience com a bandeira do Brasil, diante da paisagem de Hong Kong.",

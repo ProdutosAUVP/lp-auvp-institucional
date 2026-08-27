@@ -162,11 +162,13 @@ defeito mais visível possível.
 **Não reintroduzir.** Se uma grade precisar de mais ar, o caminho é reduzir a
 coluna ou o `gap`, não alargar o container de uma dobra só.
 
-**A dobra de encerramento é a exceção conhecida, e é uma só.** O título dela
-começa em 618px, e não em 152 como todos os outros, porque a coluna da esquerda
-é do contador. Foi decisão de conteúdo, não descuido: no fecho da página o
-prazo vem antes do convite. Se em algum momento o contador voltar para baixo do
-texto, o título volta para os 152.
+**A dobra de encerramento chegou a ser exceção, e deixou de ser.** Com o
+contador na coluna da esquerda, o título dela começava em 618px, e não nos
+152px de todos os outros títulos alinhados à esquerda. O contador passou para a
+coluna da direita e o título voltou para a margem da página. Fica registrado
+para que a troca não seja desfeita sem querer: numa página cujo argumento é a
+régua, um título fora da margem custa mais do que a ordem de leitura de duas
+colunas.
 
 Faixas curtas, de uma linha só, usam `compact` no `Section`, que é uma prop e
 não uma classe: passar `py-*` pelo `className` não funciona, porque a

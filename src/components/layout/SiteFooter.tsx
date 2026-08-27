@@ -4,10 +4,15 @@ import { footerNav } from "@/content/navigation";
 import { contact, links, site } from "@/content/site";
 import { asset } from "@/lib/asset";
 
+/**
+ * Os canais que a landing page da escola de fato divulga. Havia um LinkedIn
+ * aqui, com uma URL deduzida do nome da instituição, e ela não aparece em lugar
+ * nenhum da página em produção: saiu. No lugar entrou o Spotify, que aparece.
+ */
 const social = [
   { label: "Instagram", href: links.instagram },
   { label: "YouTube", href: links.youtube },
-  { label: "LinkedIn", href: links.linkedin },
+  { label: "Spotify", href: links.spotify },
 ];
 
 export function SiteFooter() {
@@ -75,10 +80,31 @@ export function SiteFooter() {
         </div>
 
         <div className="border-ink-line text-mist/60 mt-14 flex flex-col gap-4 border-t pt-8 text-xs md:flex-row md:items-center md:justify-between">
-          <p>
-            © {new Date().getFullYear()} {site.legalName}. Todos os direitos
-            reservados.
-          </p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <p>
+              © {new Date().getFullYear()} {site.legalName}. Todos os direitos
+              reservados.
+            </p>
+            {/* Documentos legais da instituição, nos endereços que a página em
+                produção usa. Ficam na régua de baixo, junto do aviso de risco,
+                porque é ali que quem procura por eles olha. */}
+            <a
+              href={links.terms}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-paper underline underline-offset-4 transition-colors duration-300"
+            >
+              Termos de uso
+            </a>
+            <a
+              href={links.privacy}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-paper underline underline-offset-4 transition-colors duration-300"
+            >
+              Política de privacidade
+            </a>
+          </div>
           <p className="max-w-[62ch] leading-relaxed">
             Conteúdo de caráter educacional. A AUVP não realiza recomendação
             personalizada de investimentos nesta página. Rentabilidade passada

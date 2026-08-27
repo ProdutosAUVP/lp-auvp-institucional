@@ -35,22 +35,23 @@ export function ClosingCta() {
 
       <Container className="relative py-24 md:py-32">
         {/*
-          Duas colunas a partir de `lg`: o prazo de um lado, o convite do outro.
-          O contador estava empilhado abaixo do texto e ali competia com o botão
-          pelo mesmo lugar na leitura. Numa coluna própria ele vira o dado que
-          justifica o clique, e não mais um bloco na fila.
+          Duas colunas a partir de `lg`: o convite de um lado, o prazo do outro.
+          O contador esteve empilhado abaixo do texto, e ali competia com o
+          botão pelo mesmo lugar na leitura. Numa coluna própria ele vira o dado
+          que justifica o clique, e não mais um bloco na fila.
+
+          Ele fica na coluna da direita, e não na da esquerda: assim o título
+          desta dobra começa nos mesmos 152px de todos os outros títulos
+          alinhados à esquerda da página, e o fecho deixa de ser uma exceção de
+          grade. Quem chega aqui já leu a página inteira nessa margem.
 
           A ordem do DOM é a ordem visual nos dois casos, sem `order` para
-          inverter coluna: empilhado, o contador abre a dobra; em duas colunas,
-          ele é o da esquerda. Trocar com `order` deixaria quem navega por
+          inverter coluna: empilhado, o convite abre a dobra e o prazo vem
+          logo abaixo do botão. Trocar com `order` deixaria quem navega por
           teclado ou leitor de tela numa sequência diferente da que vê.
         */}
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16">
-          <Reveal>
-            <ClassCountdown />
-          </Reveal>
-
-          <Reveal delay={90} className="flex flex-col items-start gap-7">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:gap-16">
+          <Reveal className="flex flex-col items-start gap-7">
             <p className="eyebrow text-yellow">{closing.eyebrow}</p>
             <h2 className="font-[family-name:var(--font-display)] text-4xl leading-[1.08] font-medium tracking-[-0.01em] text-balance md:text-5xl">
               {closing.title}
@@ -69,6 +70,10 @@ export function ClosingCta() {
               {closing.ctaLabel}
               <ArrowRight />
             </Button>
+          </Reveal>
+
+          <Reveal delay={90}>
+            <ClassCountdown />
           </Reveal>
         </div>
       </Container>
