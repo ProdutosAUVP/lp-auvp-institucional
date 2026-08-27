@@ -326,7 +326,12 @@ leitura**: dá profundidade e continuidade à rolagem, nunca chama atenção par
 - Ícone preenchido. Todos os ícones são traço de 1px em `viewBox` 32.
 - Travessão, o traço longo, em qualquer texto, comentário ou documento. Use dois-pontos,
   vírgula, parênteses ou ponto final.
-- Contagem regressiva, selo de desconto, seta piscante.
+- Selo de desconto, seta piscante, qualquer pressa inventada.
+- Contagem regressiva **que não conte um prazo real**. Existe uma na dobra de
+  encerramento, para o fim das inscrições da turma, e ela vale sob três
+  condições: some sozinha quando a data passa ou some do conteúdo, não pisca
+  nem fica vermelha, e entrega a data por extenso a leitor de tela em vez do
+  tique-taque. Ver `src/components/sections/ClassCountdown.tsx`.
 - Mais de uma cor de destaque. O amarelo é a única, com a exceção documentada
   das cores de ETF.
 - Elemento do hero que responda ao ponteiro.

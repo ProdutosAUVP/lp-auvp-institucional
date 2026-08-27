@@ -31,6 +31,11 @@ export const site = {
 export const links = {
   profileAnalysis: "https://auvp.com.br/analise-de-perfil",
   studentArea: "https://areadoaluno.auvp.com.br",
+  /**
+   * Hoje nada na página aponta para cá: os botões que levavam ao treinamento
+   * saíram da dobra do conteúdo programático. A URL fica registrada porque é
+   * um endereço real da instituição, não código morto.
+   */
   training: "https://auvp.com.br/treinamento",
   students: "https://auvp.com.br/alunos",
   etfs: "https://auvp.com.br/etfs",

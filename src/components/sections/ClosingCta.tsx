@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowRight, Button } from "@/components/ui/Button";
+import { ClassCountdown } from "@/components/sections/ClassCountdown";
 import { Container } from "@/components/ui/Container";
 import { BackdropReserve } from "@/components/ui/Figure";
 import { Reveal } from "@/components/ui/Reveal";
@@ -42,6 +43,10 @@ export function ClosingCta() {
             {site.shortName} avalia o perfil de cada candidato antes da
             matrícula. Leva poucos minutos e não custa nada.
           </p>
+          {/* Fica entre o texto e o botão de propósito: é o prazo que dá
+              motivo ao clique, então precisa vir logo antes dele. */}
+          <ClassCountdown />
+
           <Button
             href={links.profileAnalysis}
             variant="yellow"

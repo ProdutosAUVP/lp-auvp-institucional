@@ -6,6 +6,13 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Adicionado
 
+- **Contagem regressiva na dobra de encerramento**, para o fim das inscrições
+  da próxima turma. É a única da página e a única permitida: some sozinha
+  quando a data passa ou sai do conteúdo, não pisca nem muda de cor, e entrega
+  a data por extenso a leitor de tela em vez do tique-taque. Com
+  `prefers-reduced-motion` os segundos somem e o relógio anda de meio em meio
+  minuto. **A data em `src/content/closing.ts` é provisória e precisa da real.**
+
 - **Fotografia própria na abertura**: o auditório lotado do Private Day, com
   4783px de largura no negativo. Encerra a última reserva de foto de dobra
   interna: a anterior tinha 1616px, no limite para sangria total, e era o mesmo
@@ -52,6 +59,9 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Removido
 
+- Os dois botões "Veja tudo que está incluído no treinamento" da dobra do
+  conteúdo programático.
+
 - `private-day-palco.webp`, o antigo fundo do hero, sem uso depois da troca.
 - **Assinatura AUVP em corpo grande do hero.** A barra fixa logo acima carrega o
   mesmo logotipo, então a marca aparecia duas vezes na mesma dobra, e a de baixo
@@ -70,6 +80,9 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 - `Wordmark`, que ficou sem uso: o hero usa `AuvpLettering` direto.
 
 ### Alterado
+
+- O botão da dobra da comunidade passa de "Conheça nossos alunos" para "Faça
+  parte de nossa comunidade".
 
 - O hero larga o `Container` e passa a `px-6 md:px-10 lg:px-14`. É a única dobra
   da página que faz isso, e é de propósito: as réguas dele são a moldura da
