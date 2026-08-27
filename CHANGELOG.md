@@ -6,8 +6,8 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Adicionado
 
-- **Contagem regressiva na dobra de encerramento**, para o fim das inscrições
-  da próxima turma. É a única da página e a única permitida: some sozinha
+- **Contagem regressiva na dobra de encerramento**, na coluna da esquerda, com
+  o convite na da direita. Conta o fim das inscrições da próxima turma. É a única da página e a única permitida: some sozinha
   quando a data passa ou sai do conteúdo, não pisca nem muda de cor, e entrega
   a data por extenso a leitor de tela em vez do tique-taque. Com
   `prefers-reduced-motion` os segundos somem e o relógio anda de meio em meio

@@ -102,23 +102,22 @@ export function ClassCountdown() {
     ...(semSegundos ? [] : [{ valor: restante.segundos, rotulo: "seg" }]),
   ];
 
-  // A régua acompanha a medida do parágrafo acima, e não a largura do próprio
-  // conteúdo: sem isso ela termina onde o rótulo termina, num ponto que não se
-  // alinha com nada.
+  // Sem régua própria: na coluna da esquerda ela não teria com o que se
+  // alinhar do outro lado, e sobraria um traço solto.
   return (
-    <div className="border-paper/15 flex w-full max-w-[52ch] flex-col gap-4 border-t pt-7">
-      {/* Neutro, e não amarelo: o rótulo da dobra logo acima já é amarelo, e
-          dois acentos colados um no outro anulam os dois. */}
+    <div className="flex flex-col gap-5">
+      {/* Neutro, e não amarelo: o rótulo da dobra, na outra coluna, já é
+          amarelo, e dois acentos colados um no outro anulam os dois. */}
       <p className="eyebrow text-paper/70">{closing.countdown.label}</p>
 
       <p className="sr-only">
         {closing.countdown.label} {dataPorExtenso.format(alvo)}.
       </p>
 
-      <ul aria-hidden className="flex items-baseline gap-7 md:gap-10">
+      <ul aria-hidden className="flex flex-wrap items-baseline gap-x-8 gap-y-5">
         {unidades.map((unidade) => (
-          <li key={unidade.rotulo} className="flex flex-col gap-1.5">
-            <span className="text-paper font-[family-name:var(--font-display)] text-4xl leading-none font-semibold tabular-nums md:text-5xl">
+          <li key={unidade.rotulo} className="flex flex-col gap-2">
+            <span className="text-paper font-[family-name:var(--font-display)] text-5xl leading-none font-semibold tabular-nums lg:text-6xl">
               {String(unidade.valor).padStart(2, "0")}
             </span>
             <span className="eyebrow text-mist/70">{unidade.rotulo}</span>
