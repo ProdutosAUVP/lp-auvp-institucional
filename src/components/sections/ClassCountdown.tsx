@@ -21,8 +21,10 @@ import { closing } from "@/content/closing";
  * régua da página, como o resto dela.
  *
  * **Terceira: quem usa leitor de tela recebe a data, não o tique-taque.** Os
- * numerais ficam em `aria-hidden` e ao lado deles há uma frase com o prazo por
- * extenso. Anunciar a mudança a cada segundo tornaria a dobra inutilizável.
+ * numerais ficam em `aria-hidden` e abaixo deles há a frase com o prazo por
+ * extenso, que é texto comum e não `sr-only`: se a informação precisa existir
+ * para quem não vê o relógio, ela serve para todo mundo. Anunciar a mudança a
+ * cada segundo tornaria a dobra inutilizável.
  *
  * Com `prefers-reduced-motion` os segundos somem e o relógio passa a andar de
  * meio em meio minuto: assim não há conteúdo em movimento contínuo, que é o
@@ -102,28 +104,42 @@ export function ClassCountdown() {
     ...(semSegundos ? [] : [{ valor: restante.segundos, rotulo: "seg" }]),
   ];
 
-  // Sem régua própria: numa coluna estreita ela não teria com o que se alinhar
-  // do outro lado, e sobraria um traço solto.
+  // A grade tem uma coluna por unidade, e não `flex` com folga fixa: assim os
+  // numerais ocupam a largura inteira da coluna em vez de se amontoar à
+  // esquerda dela e deixar um vazio à direita. Os dois literais precisam ficar
+  // escritos por extenso para o Tailwind enxergá-los na varredura.
+  const colunas = semSegundos ? "grid-cols-3" : "grid-cols-4";
+
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-8">
       {/* Neutro, e não amarelo: o rótulo da dobra, na outra coluna, já é
           amarelo, e dois acentos colados um no outro anulam os dois. */}
       <p className="eyebrow text-paper/70">{closing.countdown.label}</p>
 
-      <p className="sr-only">
-        {closing.countdown.label} {dataPorExtenso.format(alvo)}.
-      </p>
-
-      <ul aria-hidden className="flex flex-wrap items-baseline gap-x-8 gap-y-5">
+      <ul aria-hidden className={`grid gap-4 ${colunas}`}>
         {unidades.map((unidade) => (
           <li key={unidade.rotulo} className="flex flex-col gap-2">
-            <span className="text-paper font-[family-name:var(--font-display)] text-5xl leading-none font-semibold tabular-nums lg:text-6xl">
+            <span className="text-paper font-[family-name:var(--font-display)] text-[2.75rem] leading-none font-semibold tabular-nums lg:text-[3.25rem]">
               {String(unidade.valor).padStart(2, "0")}
             </span>
             <span className="eyebrow text-mist/70">{unidade.rotulo}</span>
           </li>
         ))}
       </ul>
+
+      {/*
+        A data por extenso, visível, e não mais só para leitor de tela. São
+        duas coisas ao mesmo tempo: é o que dá ao prazo a precisão que um
+        relógio correndo não dá, e é o que dá à coluna a altura que faltava
+        para ela conversar com a coluna do convite, do outro lado da régua.
+      */}
+      {/* "Até ...", e não "As inscrições encerram em ...": o rótulo acima já
+          disse isso, e repeti-lo aqui faria a coluna dizer a mesma frase duas
+          vezes. Lido em sequência por um leitor de tela, o rótulo e esta linha
+          formam uma frase só. */}
+      <p className="text-mist/70 border-paper/15 border-t pt-6 text-sm leading-relaxed">
+        Até {dataPorExtenso.format(alvo)}, horário de Brasília.
+      </p>
     </div>
   );
 }

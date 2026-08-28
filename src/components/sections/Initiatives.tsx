@@ -8,6 +8,35 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { initiatives, partnerships, products } from "@/content/initiatives";
 
 /**
+ * Aviso de iniciativa sem página ainda, no lugar onde estaria o "Saiba mais".
+ *
+ * O balão só existe onde há ponteiro que paira. Em tela de toque não há hover,
+ * e um aviso que nunca aparece é um aviso que não existe: por isso o padrão é o
+ * texto visível, e a variante `@media (hover: hover)` é que o esconde para
+ * revelar no hover. Assim quem usa dedo lê "Em breve" direto, e quem usa mouse
+ * ganha o balão.
+ *
+ * O rótulo continua no fluxo do documento nos dois casos, então leitor de tela
+ * lê "AUVP Experience ... Em breve" sem depender de nada disso. Não é link nem
+ * botão de propósito: não há para onde ir, e um controle que não faz nada é
+ * pior do que um aviso.
+ */
+function ComingSoon() {
+  return (
+    <span className="group eyebrow text-ink/45 relative mt-2 inline-flex w-fit items-center gap-2">
+      Saiba mais
+      <ArrowRight className="h-3 w-3" />
+      {/* O balão sai pela direita, e não por cima: acima do "Saiba mais" está
+          a última linha da descrição, e um balão ali cobriria o texto que a
+          pessoa acabou de ler. À direita há a coluna vazia. */}
+      <span className="border-ink/15 bg-paper-soft text-ink/70 rounded-full border px-3 py-1 whitespace-nowrap [@media(hover:hover)]:absolute [@media(hover:hover)]:top-1/2 [@media(hover:hover)]:left-[calc(100%+0.75rem)] [@media(hover:hover)]:-translate-x-1 [@media(hover:hover)]:-translate-y-1/2 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:transition [@media(hover:hover)]:duration-300 [@media(hover:hover)]:group-hover:translate-x-0 [@media(hover:hover)]:group-hover:opacity-100">
+        Em breve
+      </span>
+    </span>
+  );
+}
+
+/**
  * Dobra 08. Produtos em grade densa; parcerias em faixas horizontais que
  * alternam o lado da fotografia a cada bloco.
  */
@@ -107,6 +136,8 @@ export function Initiatives() {
                         <ArrowRight className="h-3 w-3" />
                       </a>
                     ) : null}
+
+                    {partnership.comingSoon ? <ComingSoon /> : null}
                   </div>
                 </Reveal>
               );

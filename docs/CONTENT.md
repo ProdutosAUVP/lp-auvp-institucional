@@ -86,6 +86,11 @@ O `href` é opcional nos dois. Sem endereço confirmado, o cartão perde o "Saib
 mais" e deixa de ser clicável, o que é o comportamento desejado: ver "Trocar um
 link".
 
+Uma parceria que ainda vai ter página, e não uma que perdeu a sua, leva
+`comingSoon: true` em vez do `href`: em lugar do link aparece um aviso de "em
+breve", que é balão no hover onde há ponteiro e texto fixo em tela de toque.
+Não é link nem botão, porque não há para onde ir.
+
 ### Preencher uma foto pendente
 
 Ver `docs/ASSETS.md`. Em resumo: coloque o arquivo em `public/images/` e troque
