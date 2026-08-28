@@ -45,18 +45,28 @@ export function ClosingCta() {
           alinhados à esquerda da página, e o fecho deixa de ser uma exceção de
           grade. Quem chega aqui já leu a página inteira nessa margem.
 
+          **As duas colunas se encostam numa régua, e não num vão.** Antes havia
+          um `gap` largo entre elas, e o contador flutuava no meio do preto sem
+          nada que o prendesse à página: parecia uma sobra, não uma coluna. A
+          régua vertical, que vai de ponta a ponta pelo `items-stretch`, dá à
+          direita a mesma borda que a esquerda tem na margem do container. É a
+          mesma régua que separa colunas no resto da página.
+
+          Empilhado, a régua deita e vira `border-t`, que é o comportamento
+          natural dela: separa o que está acima do que está abaixo.
+
           A ordem do DOM é a ordem visual nos dois casos, sem `order` para
           inverter coluna: empilhado, o convite abre a dobra e o prazo vem
           logo abaixo do botão. Trocar com `order` deixaria quem navega por
           teclado ou leitor de tela numa sequência diferente da que vê.
         */}
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:gap-16">
-          <Reveal className="flex flex-col items-start gap-7">
+        <div className="grid items-stretch gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.82fr)] lg:gap-0">
+          <Reveal className="flex flex-col items-start justify-center gap-7 lg:pr-14 xl:pr-20">
             <p className="eyebrow text-yellow">{closing.eyebrow}</p>
             <h2 className="font-[family-name:var(--font-display)] text-4xl leading-[1.08] font-medium tracking-[-0.01em] text-balance md:text-5xl">
               {closing.title}
             </h2>
-            <p className="text-mist max-w-[52ch] text-base leading-relaxed md:text-lg">
+            <p className="text-mist max-w-[46ch] text-base leading-relaxed md:text-lg">
               {site.shortName} avalia o perfil de cada candidato antes da
               matrícula. Leva poucos minutos e não custa nada.
             </p>
@@ -72,7 +82,10 @@ export function ClosingCta() {
             </Button>
           </Reveal>
 
-          <Reveal delay={90}>
+          <Reveal
+            delay={90}
+            className="border-paper/15 flex flex-col justify-center border-t pt-12 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-14 xl:pl-20"
+          >
             <ClassCountdown />
           </Reveal>
         </div>
