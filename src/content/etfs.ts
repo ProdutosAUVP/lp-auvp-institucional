@@ -14,11 +14,11 @@ export type Etf = {
   accentClass: string;
   description: string;
   /**
-   * O site dos fundos, `auvpetfs.com.br`, é onde a metodologia e a composição
-   * de cada um ficam abertas. Os quatro cartões apontam para a raiz dele, e
-   * não para um caminho por ticker: `lp-auvp-escola-prod` linka o site inteiro
-   * e não expõe o caminho de cada fundo, e caminho deduzido é caminho que
-   * quebra. Quando alguém confirmar os endereços por fundo, é aqui que entram.
+   * O fundo dentro de `auvpetfs.com.br`, que é onde a metodologia e a
+   * composição de cada um ficam abertas. O site é de página única e cada fundo
+   * é uma âncora nela, daí o `#`: não são quatro páginas, são quatro pontos da
+   * mesma. Os quatro cartões apontaram um tempo para a raiz, porque o caminho
+   * de cada fundo não estava em lugar nenhum que eu pudesse ler.
    */
   href: string;
 };
@@ -43,7 +43,7 @@ export const etfs: Etf[] = [
     accentClass: "text-etf-auvp11",
     description:
       "Empresas sólidas, selecionadas por fundamentos consistentes e estrutura de capital saudável.",
-    href: links.etfs,
+    href: `${links.etfs}#auvp11`,
   },
   {
     ticker: "AUPO11",
@@ -51,7 +51,7 @@ export const etfs: Etf[] = [
     accentClass: "text-etf-aupo11",
     description:
       "Carteira de renda fixa com controle de prazo, critérios objetivos e rebalanceamento periódico.",
-    href: links.etfs,
+    href: `${links.etfs}#aupo11`,
   },
   {
     ticker: "AREA11",
@@ -59,7 +59,7 @@ export const etfs: Etf[] = [
     accentClass: "text-etf-area11",
     description:
       "Alocação organizada em fundos imobiliários, com foco em distribuição de renda mensal.",
-    href: links.etfs,
+    href: `${links.etfs}#area11`,
   },
   {
     ticker: "ABTC11",
@@ -67,6 +67,6 @@ export const etfs: Etf[] = [
     accentClass: "text-etf-abtc11",
     description:
       "Combinação dinâmica entre Bitcoin e renda fixa, com alocação baseada no sentimento do mercado.",
-    href: links.etfs,
+    href: `${links.etfs}#abtc11`,
   },
 ];

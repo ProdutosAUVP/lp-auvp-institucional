@@ -1,4 +1,12 @@
-/** Itens da barra fixa. `href` com # aponta para o id de uma dobra. */
+/**
+ * Itens da barra fixa. `href` com # aponta para o id de uma dobra.
+ *
+ * **A ordem daqui é a ordem em que as dobras aparecem na página**, e é assim
+ * que precisa continuar. Havia aqui "Dúvidas frequentes" antes de "Consultoria
+ * especializada" enquanto na página a consultoria vinha primeiro: um menu que
+ * lista fora de ordem faz quem lê perder a noção de onde está, que é
+ * justamente o que um menu deveria dar.
+ */
 
 export type NavItem = {
   label: string;
@@ -9,8 +17,8 @@ export type NavItem = {
 export const primaryNav: NavItem[] = [
   { label: "Principal", href: "#principal" },
   { label: "Nosso processo", href: "#processo" },
-  { label: "Dúvidas frequentes", href: "#faq" },
   { label: "Consultoria especializada", href: "#iniciativas" },
+  { label: "Dúvidas frequentes", href: "#faq" },
 ];
 
 export const footerNav: { title: string; items: NavItem[] }[] = [

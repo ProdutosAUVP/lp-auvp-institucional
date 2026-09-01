@@ -18,11 +18,16 @@ componente para trocar uma palavra, um número, um link ou uma pergunta do FAQ.
 | 08  | Iniciativas                 | `initiatives.ts`           | `iniciativas`  |
 | 09  | Nossos ETFs                 | `etfs.ts`                  | `etfs`         |
 | 10  | Acreditam no nosso trabalho | `endorsements.ts`          | sem âncora     |
-| 11  | Dúvidas frequentes          | `faq.ts`                   | `faq`          |
-| ..  | Encerramento e rodapé       | `site.ts`, `navigation.ts` | sem âncora     |
+| 11  | Convite e próxima turma     | `closing.ts`               | sem âncora     |
+| 12  | Dúvidas frequentes          | `faq.ts`                   | `faq`          |
+| ..  | Rodapé                      | `site.ts`, `navigation.ts` | sem âncora     |
 
 Nome da instituição, links externos, WhatsApp, e-mail e URL canônica ficam todos
 em `site.ts`.
+
+**A ordem do menu é a ordem das dobras.** Ao mover uma dobra em
+`src/app/page.tsx`, confira `primaryNav` em `navigation.ts`: um menu que lista
+fora de ordem faz quem lê perder a noção de onde está.
 
 ---
 

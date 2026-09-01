@@ -9,7 +9,10 @@ import { faq, faqCategories } from "@/content/faq";
 import { cn } from "@/lib/cn";
 
 /**
- * Dobra 11. Menu vertical de categorias à esquerda, acordeão à direita.
+ * Última dobra. Menu vertical de categorias à esquerda, acordeão à direita.
+ *
+ * É a última de propósito: o convite vem antes, e o que sobra aqui é a dúvida
+ * de quem ainda tem uma. Ver `ClosingCta`.
  *
  * Usa <details>/<summary> nativos: o conteúdo continua acessível e indexável
  * mesmo antes da hidratação, e o teclado funciona sem qualquer handler nosso.
