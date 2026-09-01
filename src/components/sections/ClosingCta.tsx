@@ -9,9 +9,17 @@ import { links, site } from "@/content/site";
 import { asset } from "@/lib/asset";
 
 /**
- * Encerramento. Não consta do roteiro original, mas uma página institucional
- * longa precisa devolver o leitor a uma ação depois do FAQ. Sem ele, a
- * jornada termina no rodapé.
+ * O convite, com o prazo da próxima turma. Não consta do roteiro original, mas
+ * uma página institucional longa precisa devolver o leitor a uma ação. Sem
+ * ele, a jornada termina no rodapé.
+ *
+ * Ficou um tempo depois do FAQ, e mudou de lugar: quem chega ao fim dos
+ * apoiadores já tem o que precisa para decidir, e o FAQ existe para quem ficou
+ * com uma dúvida específica. Pôr a decisão depois de doze perguntas era fazer
+ * todo mundo passar pela objeção de alguém.
+ *
+ * O tom continua fechando a sequência sem repetir o vizinho: apoiadores em
+ * papel, esta em tinta, o FAQ em papel quente.
  */
 export function ClosingCta() {
   return (

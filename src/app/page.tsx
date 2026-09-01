@@ -22,6 +22,12 @@ import { StructuredData } from "@/components/StructuredData";
  * A ordem das dobras segue o roteiro aprovado (docs/CONTENT.md) e não deve ser
  * alterada sem alinhamento com marketing: cada dobra pressupõe o argumento da
  * anterior.
+ *
+ * O convite com o prazo da próxima turma vem antes do FAQ, e não depois: quem
+ * chega ao fim dos apoiadores já tem o que precisa para decidir, e o FAQ existe
+ * para quem ficou com uma dúvida específica. Pôr a decisão depois de doze
+ * perguntas era fazer todo mundo passar pela objeção de alguém. A página então
+ * termina no FAQ, e a ordem do menu acompanha a ordem das dobras.
  */
 export default function Home() {
   return (
@@ -48,8 +54,8 @@ export default function Home() {
         <Initiatives />
         <Etfs />
         <Endorsements />
-        <Faq />
         <ClosingCta />
+        <Faq />
       </main>
 
       <SiteFooter />
