@@ -7,7 +7,14 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { community } from "@/content/community";
 import { links } from "@/content/site";
 
-/** Dobra 06. Prova social pela fotografia dos encontros presenciais. */
+/**
+ * Dobra 06. Prova social pela fotografia dos encontros presenciais.
+ *
+ * Uma foto de largura cheia abre, e o resto vem em duas colunas: hoje são
+ * quatro, duas linhas, o encontro anual em cima e o Giro da Bolsa Itinerante
+ * embaixo. A grade não sabe disso, e é de propósito: ela mostra o que estiver
+ * em `community.photos` depois da primeira, na ordem em que estiver lá.
+ */
 export function Community() {
   return (
     <Section id="comunidade" tone="warm" rule>
@@ -34,7 +41,10 @@ export function Community() {
 
           <div className="grid gap-6 md:grid-cols-2">
             {community.photos.slice(1).map((photo, index) => (
-              <Reveal key={photo.caption} delay={index * 110}>
+              // O atraso é por coluna, e não por índice: numa segunda linha o
+              // índice contínuo daria 220 e 330ms, e a última foto entraria
+              // um terço de segundo depois da primeira da mesma linha.
+              <Reveal key={photo.caption} delay={(index % 2) * 110}>
                 <Figure
                   src={photo.src}
                   alt={photo.alt}
