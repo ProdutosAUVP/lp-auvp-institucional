@@ -49,6 +49,7 @@ E confira você mesmo:
 
 - [ ] Nenhum texto de exemplo ou lorem ipsum sobrou
 - [ ] Toda imagem nova tem `alt` descritivo em português
+- [ ] Foto nova passou no `npm run esquadro` (ver `docs/ASSETS.md`)
 - [ ] Percorri a alteração com `Tab` e o foco está sempre visível
 - [ ] Conferi em 390px de largura, não só no desktop
 - [ ] Nenhuma cor nova fora dos tokens de `globals.css`
