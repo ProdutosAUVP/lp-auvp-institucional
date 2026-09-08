@@ -92,29 +92,55 @@ sabe quantas são.
 apresenta como instituição**, e é sutil o bastante para passar: 1,6° de
 inclinação dão vinte pixels de desnível numa moldura de 550px.
 
-Todas as fotos publicadas foram auditadas. **Uma estava torta**, a de Goiânia,
-em −1,60°, e foi endireitada a partir do original antes de recortar. A ordem
-importa: girar depois de recortar obrigaria a recortar de novo, e cada recorte
-come enquadramento.
+Antes de commitar uma foto:
 
-O método, se precisar repetir: detectar os segmentos de reta da foto (Canny
-mais Hough probabilístico) e medir **separadamente** a mediana das quase
-horizontais e a das quase verticais, ponderada pelo comprimento.
+```bash
+npm run esquadro                          # todas as publicadas
+npm run esquadro -- caminho/da/foto.jpg   # uma em particular
+```
 
-**A separação dos dois eixos é o que faz o teste valer.** Câmera torta desloca
-os dois grupos no mesmo sentido e na mesma medida; perspectiva desloca só um.
-Sem separar, o mesmo número acusa as duas coisas, e girar uma foto que só tem
-perspectiva entorta o que estava reto. Das três fotos com reta longa o
-bastante para medir, duas são perspectiva:
+O script sai com código 1 se achar alguma torta. Ele **não roda na CI**, e é
+de propósito: as fotos entram no repositório já recortadas e já no prumo, então
+a hora de rodar é ao preparar a foto, não a cada push.
 
-| Foto                     | Horizontais | Verticais | Diagnóstico                                    |
-| ------------------------ | ----------- | --------- | ---------------------------------------------- |
-| `gdb-itinerante-goiania` | −1,57°      | −1,62°    | Torta: os dois eixos concordam. Corrigida      |
-| `sede-auvp-capital`      | +2,39°      | 0,00°     | Fachada vista de baixo. Perspectiva, não mexer |
-| `b3-listagem-auvp11`     | −5,90°      | —         | Painel oblíquo. Perspectiva, não mexer         |
+Ele responde uma de cinco coisas por foto: **no prumo**, **torta** (com o
+ângulo a corrigir), **perspectiva**, **conferir a olho** (mediu um eixo só, que
+não distingue as duas coisas) ou **sem referência** (não há reta longa na foto,
+e um número aqui seria inventado).
 
-As demais não têm reta longa que sirva de referência (multidão, palco escuro,
-paisagem) e foram conferidas a olho, com grade sobreposta.
+**Torta e perspectiva são coisas diferentes, e confundi-las estraga foto.**
+Câmera torta desloca as horizontais e as verticais no mesmo sentido e na mesma
+medida; perspectiva desloca um eixo só. Girar uma foto que só tem perspectiva
+entorta o que estava reto. Foi o que o script apurou aqui:
+
+| Foto                             | Horizontais | Verticais | Diagnóstico                                    |
+| -------------------------------- | ----------- | --------- | ---------------------------------------------- |
+| `gdb-itinerante-goiania` (antes) | −1,53°      | −0,97°    | Torta: os dois eixos concordam. Corrigida      |
+| `sede-auvp-capital`              | +3,24°      | +0,80°    | Fachada vista de baixo. Perspectiva, não mexer |
+| `b3-listagem-auvp11`             | −6,25°      | +0,28°    | Painel oblíquo. Perspectiva, não mexer         |
+| `auvp-atlas-embaixador`          | −3,57°      | −0,09°    | Prateleiras em fuga. Perspectiva, não mexer    |
+
+As outras oito são multidão, palco escuro ou paisagem: não têm reta longa, saem
+como "sem referência" e foram conferidas a olho, com grade sobreposta.
+
+**Uma foto torta se corrige a partir do original: gira primeiro, recorta
+depois.** Girar o arquivo já recortado obriga a recortar de novo para descartar
+as cunhas vazias dos cantos, e cada recorte come enquadramento. Depois de
+girar, rode o script na foto nova: ele tem que dizer "no prumo".
+
+O ângulo que ele sugere é estimativa, não medida exata, porque plano em fuga
+puxa o eixo vertical mesmo em foto reta. A conferência é sempre a segunda
+passada.
+
+Para saber se o próprio script ainda enxerga:
+
+```bash
+npm run esquadro -- --autoteste
+```
+
+Ele toma uma foto que considera no prumo, entorta de propósito em quatro
+ângulos e cobra o veredito. Se um ajuste de parâmetro cegar o detector, isso
+reprova.
 
 **Ao adicionar uma foto, recorte antes de commitar.** A página não recorta: o
 `Figure` define a proporção da moldura e a imagem preenche com `object-cover`,
