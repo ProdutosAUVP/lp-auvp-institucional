@@ -55,20 +55,20 @@ antes de entrar no repositório, e **o recorte foi escolhido olhando a imagem**,
 não por corte central automático. O registro serve para refazer, se a foto
 precisar aparecer em outra proporção:
 
-| Foto                                 | Origem    | Recorte                         | Por quê                                                                                                                                                                                                                                                                 |
-| ------------------------------------ | --------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `private-day-salao.webp`             | 4200×2800 | 3:2, sem corte                  | Plano aberto: cabe inteiro                                                                                                                                                                                                                                              |
-| `private-day-palestras.webp`         | 1616×1080 | 4:3, fechado no convidado       | O plano aberto do mesmo negativo agora abre a página. Aqui o recorte fecha na poltrona amarela e recusa a versão que pegava os dois: ela cortava a perna do entrevistador na borda                                                                                      |
-| `private-day-networking.webp`        | 2624×3936 | 4:3, janela em `y 280`          | Retrato virando paisagem: a janela precisa pegar os dois rostos e o aperto de mãos. Um corte 150px mais baixo decepava a cabeça do homem à direita                                                                                                                      |
-| `ceia-ufg.webp`                      | 2730×1820 | 4:3, cortando 303px à esquerda  | Descarta as mesas vazias e mantém o grupo com a bandeira                                                                                                                                                                                                                |
-| `btg-pactual-time.webp`              | 1920×1080 | 4:3, largura centrada no grupo  | Descarta a escada vazia e a luz de palco                                                                                                                                                                                                                                |
-| `auvp-experience-hong-kong.webp`     | 4240×2832 | 4:3, janela em `x 475, y 150`   | O recorte anterior, de altura cheia, deixava o grupo 162px à esquerda do centro e sobrava margem à direita. A janela fechada centra o grupo e ainda descarta céu e asfalto vazios                                                                                       |
-| `auvp-atlas-embaixador.webp`         | 3072×2304 | 4:3, quase sem corte            | O quadro já nasce 4:3 e bem composto: sai só uma faixa de piso embaixo                                                                                                                                                                                                  |
-| `private-day-plateia.webp`           | 4783×3191 | 3:2, sem corte, reduzida a 2400 | Abre a página em sangria total. O quadro é simétrico e o sujeito fica no eixo central, que é a faixa onde a dobra não põe texto: o título ocupa as duas pontas e o apoio fica na base. Sem recorte, quem decide o corte é o `object-cover`, conforme a altura da janela |
-| `b3-listagem-auvp11.webp`            | 6192×4128 | 4:3, cortando 688px à esquerda  | O painel AUVP11 encosta na borda direita e precisa continuar inteiro                                                                                                                                                                                                    |
-| `sede-auvp-capital.webp`             | 1920×1080 | sem corte                       | Publicada como veio                                                                                                                                                                                                                                                     |
-| `gdb-itinerante-belo-horizonte.webp` | 1920×1280 | 4:3, largura centrada           | Só sai faixa lateral: a plateia ocupa o quadro inteiro                                                                                                                                                                                                                  |
-| `gdb-itinerante-goiania.webp`        | 1200×1600 | 4:3, janela em `y 420`          | Retrato virando paisagem. A janela precisa pegar a câmera, os microfones e os dois à mesa: é o que faz a foto dizer que ali se grava um programa. Mais alta, entrava só a TV apagada; mais baixa, saía o tripé                                                          |
+| Foto                                 | Origem    | Recorte                                    | Por quê                                                                                                                                                                                                                                                                 |
+| ------------------------------------ | --------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `private-day-salao.webp`             | 4200×2800 | 3:2, sem corte                             | Plano aberto: cabe inteiro                                                                                                                                                                                                                                              |
+| `private-day-palestras.webp`         | 1616×1080 | 4:3, fechado no convidado                  | O plano aberto do mesmo negativo agora abre a página. Aqui o recorte fecha na poltrona amarela e recusa a versão que pegava os dois: ela cortava a perna do entrevistador na borda                                                                                      |
+| `private-day-networking.webp`        | 2624×3936 | 4:3, janela em `y 280`                     | Retrato virando paisagem: a janela precisa pegar os dois rostos e o aperto de mãos. Um corte 150px mais baixo decepava a cabeça do homem à direita                                                                                                                      |
+| `ceia-ufg.webp`                      | 2730×1820 | 4:3, cortando 303px à esquerda             | Descarta as mesas vazias e mantém o grupo com a bandeira                                                                                                                                                                                                                |
+| `btg-pactual-time.webp`              | 1920×1080 | 4:3, largura centrada no grupo             | Descarta a escada vazia e a luz de palco                                                                                                                                                                                                                                |
+| `auvp-experience-hong-kong.webp`     | 4240×2832 | 4:3, janela em `x 475, y 150`              | O recorte anterior, de altura cheia, deixava o grupo 162px à esquerda do centro e sobrava margem à direita. A janela fechada centra o grupo e ainda descarta céu e asfalto vazios                                                                                       |
+| `auvp-atlas-embaixador.webp`         | 3072×2304 | 4:3, quase sem corte                       | O quadro já nasce 4:3 e bem composto: sai só uma faixa de piso embaixo                                                                                                                                                                                                  |
+| `private-day-plateia.webp`           | 4783×3191 | 3:2, sem corte, reduzida a 2400            | Abre a página em sangria total. O quadro é simétrico e o sujeito fica no eixo central, que é a faixa onde a dobra não põe texto: o título ocupa as duas pontas e o apoio fica na base. Sem recorte, quem decide o corte é o `object-cover`, conforme a altura da janela |
+| `b3-listagem-auvp11.webp`            | 6192×4128 | 4:3, cortando 688px à esquerda             | O painel AUVP11 encosta na borda direita e precisa continuar inteiro                                                                                                                                                                                                    |
+| `sede-auvp-capital.webp`             | 1920×1080 | sem corte                                  | Publicada como veio                                                                                                                                                                                                                                                     |
+| `gdb-itinerante-belo-horizonte.webp` | 1920×1280 | 4:3, largura centrada                      | Só sai faixa lateral: a plateia ocupa o quadro inteiro                                                                                                                                                                                                                  |
+| `gdb-itinerante-goiania.webp`        | 1200×1600 | girada −1,60°, depois 4:3 em `x 16, y 432` | Retrato virando paisagem, e a única foto da página que veio torta. A janela precisa pegar a câmera, os microfones e os dois à mesa: é o que faz a foto dizer que ali se grava um programa. Mais alta, entrava só a TV apagada; mais baixa, saía o tripé                 |
 
 ### As duas do Giro da Bolsa Itinerante
 
@@ -85,6 +85,36 @@ itinerante. Uma só não diria.
 Nada impede publicar mais uma edição depois: a grade da dobra mostra o que
 estiver em `community.photos` depois da primeira foto, em duas colunas, e não
 sabe quantas são.
+
+### Esquadro
+
+**Foto torta é o defeito que mais denuncia amadorismo numa página que se
+apresenta como instituição**, e é sutil o bastante para passar: 1,6° de
+inclinação dão vinte pixels de desnível numa moldura de 550px.
+
+Todas as fotos publicadas foram auditadas. **Uma estava torta**, a de Goiânia,
+em −1,60°, e foi endireitada a partir do original antes de recortar. A ordem
+importa: girar depois de recortar obrigaria a recortar de novo, e cada recorte
+come enquadramento.
+
+O método, se precisar repetir: detectar os segmentos de reta da foto (Canny
+mais Hough probabilístico) e medir **separadamente** a mediana das quase
+horizontais e a das quase verticais, ponderada pelo comprimento.
+
+**A separação dos dois eixos é o que faz o teste valer.** Câmera torta desloca
+os dois grupos no mesmo sentido e na mesma medida; perspectiva desloca só um.
+Sem separar, o mesmo número acusa as duas coisas, e girar uma foto que só tem
+perspectiva entorta o que estava reto. Das três fotos com reta longa o
+bastante para medir, duas são perspectiva:
+
+| Foto                     | Horizontais | Verticais | Diagnóstico                                    |
+| ------------------------ | ----------- | --------- | ---------------------------------------------- |
+| `gdb-itinerante-goiania` | −1,57°      | −1,62°    | Torta: os dois eixos concordam. Corrigida      |
+| `sede-auvp-capital`      | +2,39°      | 0,00°     | Fachada vista de baixo. Perspectiva, não mexer |
+| `b3-listagem-auvp11`     | −5,90°      | —         | Painel oblíquo. Perspectiva, não mexer         |
+
+As demais não têm reta longa que sirva de referência (multidão, palco escuro,
+paisagem) e foram conferidas a olho, com grade sobreposta.
 
 **Ao adicionar uma foto, recorte antes de commitar.** A página não recorta: o
 `Figure` define a proporção da moldura e a imagem preenche com `object-cover`,
