@@ -41,9 +41,10 @@ export function Hero() {
             fill
             priority
             sizes="100vw"
-            /* O sujeito está no eixo do quadro, então o centro serve em
-               qualquer largura: em retrato, onde a foto escala pela altura e
-               sobra corte lateral, é ele que sobra em tela. */
+            /* Centro em qualquer largura. A fotografia é uma plateia
+               distribuída de ponta a ponta, sem um sujeito único: em retrato,
+               onde a foto escala pela altura e sobra corte lateral, o que
+               sobra em tela continua sendo plateia. */
             className="object-cover object-center"
           />
         ) : (
@@ -59,7 +60,7 @@ export function Hero() {
       */}
       <div
         aria-hidden
-        className="from-ink/70 via-ink/30 to-ink/95 absolute inset-0 bg-gradient-to-b"
+        className="from-ink/70 via-ink/45 to-ink/95 absolute inset-0 bg-gradient-to-b"
       />
       <div
         aria-hidden
