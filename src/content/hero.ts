@@ -16,14 +16,17 @@ export const hero = {
   ctaLabel: "Estude com a AUVP",
   photo: {
     src: "/images/private-day-plateia.webp" as string | null,
-    alt: "Raul Sena de braços abertos no palco, diante do auditório lotado no Private Day da AUVP.",
+    alt: "Plateia do Private Day da AUVP acompanhando uma palestra, em plano fechado.",
     /**
-     * O quadro é simétrico e o sujeito fica no eixo central, que é justamente
-     * a faixa onde esta dobra não põe texto: o título ocupa as duas pontas e o
-     * apoio fica na base. Por isso o arquivo entra sem recorte, em 3:2, e quem
-     * decide o corte é o `object-cover`, conforme a altura da janela.
+     * Plano fechado da plateia, e não do palco: quem abre a página vê gente
+     * escutando, que é o que a instituição faz, e não uma pessoa falando.
+     *
+     * O quadro já nasce 3:2 e entra sem recorte, então quem decide o corte é o
+     * `object-cover`, conforme a altura da janela. Serve nas duas direções: o
+     * assunto é uma plateia inteira, distribuída de ponta a ponta, então não há
+     * um sujeito que possa ficar de fora quando a janela aperta.
      */
     brief:
-      "plano aberto do auditório cheio, escuro e quente, com o eixo central livre de texto, paisagem 3:2 com 2400px ou mais",
+      "plano fechado da plateia atenta, escuro e quente, sem um sujeito único que o corte possa perder, paisagem 3:2 com 2400px ou mais",
   },
 } as const;
