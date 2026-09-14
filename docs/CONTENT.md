@@ -63,6 +63,32 @@ de fora: `Product` e `Partnership` aceitam a ausência, e o cartão simplesmente
 não vira link. Link institucional quebrado custa mais do que link
 ausente, e âncora sem destino ainda por cima entra no caminho do Tab.
 
+### Abrir uma turma nova
+
+`src/content/closing.ts`, bloco `countdown`. São dois campos, e **os dois andam
+juntos**: turma nova tem número novo e data nova.
+
+```ts
+countdown: {
+  target: "2026-11-14T23:59:00-03:00",
+  turma: "126",
+},
+```
+
+`target` é o instante em que as inscrições encerram, em ISO **com o fuso
+explícito**: sem o `-03:00` o navegador interpreta a data no fuso de quem
+acessa, e quem estiver fora do Brasil vê o prazo errado.
+
+`turma` é como ela se chama, e entra no meio do rótulo: "Inscrições para a
+turma 126 encerram em". Serve qualquer forma que a escola use, `"126"`, `"de
+outubro"`, `"2026.2"`. Com `null`, o rótulo cai no genérico, "Inscrições
+encerram em": prazo sem dono é melhor do que prazo com o nome errado.
+
+**Data vencida, ou `target: null`, faz a contagem desaparecer**, e a dobra
+segue de pé sem ela. É de propósito, e é a única proteção contra o
+esquecimento: contagem parada em zero numa página institucional é pior do que
+contagem nenhuma.
+
 ### Adicionar uma pergunta ao FAQ
 
 `src/content/faq.ts`, dentro da categoria certa. A pergunta entra

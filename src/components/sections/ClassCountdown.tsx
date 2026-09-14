@@ -51,6 +51,20 @@ function calcular(alvo: number): Restante | null {
   };
 }
 
+/**
+ * O rótulo nomeia a turma quando ela tem nome.
+ *
+ * "Inscrições para a turma 126 encerram em" diz de qual prazo se trata, e numa
+ * escola que abre turma atrás de turma isso é a diferença entre um prazo e o
+ * prazo. Sem o identificador sobra o genérico, que continua verdadeiro: é
+ * melhor não nomear do que nomear errado.
+ */
+function rotulo(turma: string | null) {
+  return turma
+    ? `Inscrições para a turma ${turma} encerram em`
+    : "Inscrições encerram em";
+}
+
 const dataPorExtenso = new Intl.DateTimeFormat("pt-BR", {
   dateStyle: "long",
   timeStyle: "short",
@@ -97,6 +111,7 @@ export function ClassCountdown() {
   if (!estado) return null;
 
   const { restante, semSegundos } = estado;
+  const titulo = rotulo(closing.countdown.turma);
   const unidades = [
     { valor: restante.dias, rotulo: restante.dias === 1 ? "dia" : "dias" },
     { valor: restante.horas, rotulo: restante.horas === 1 ? "hora" : "horas" },
@@ -114,7 +129,7 @@ export function ClassCountdown() {
     <div className="flex flex-col gap-8">
       {/* Neutro, e não amarelo: o rótulo da dobra, na outra coluna, já é
           amarelo, e dois acentos colados um no outro anulam os dois. */}
-      <p className="eyebrow text-paper/70">{closing.countdown.label}</p>
+      <p className="eyebrow text-paper/70 text-balance">{titulo}</p>
 
       <ul aria-hidden className={`grid gap-4 ${colunas}`}>
         {unidades.map((unidade) => (
